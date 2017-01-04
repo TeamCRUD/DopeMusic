@@ -1,0 +1,38 @@
+{
+  "name": "dope",
+  "version": "1.0.0",
+  "description": "Dope Music",
+  "main": "app.js",
+  "scripts": {
+    "dev": "gulp",
+    "start": "node app"
+  },
+  "author": "Jair Perez Oquendo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "cookie-session": "^2.0.0-alpha.2",
+    "cors": "^2.8.1",
+    "ed-grid": "^2.1.1",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "helmet": "^3.1.0",
+    "jade": "^1.11.0",
+    "mongoose": "^4.7.5",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.3",
+    "babel-preset-es2015": "^6.18.0",
+    "browser-sync": "^2.18.2",
+    "concurrently": "^3.1.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-jade": "^1.1.0",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.2.0",
+    "gulp-sass": "^2.3.2"
+  }
+}
