@@ -35,7 +35,6 @@ app.get(('/login') , function(req, res){
 
 app.post(('/users') , function(req, res){
     var user = new User({email: req.body.email , username: req.body.username, password: req.body.password});
-
     user.save(function(){
         res.redirect('/login')
     })
@@ -55,4 +54,4 @@ app.get(('/logout'), function(req, res){
 app.use('/app', session_middleware)
 app.use('/app', router_app)
 
-app.set('port',(process.env.PORT || 3000));
+app.listen(3000)
