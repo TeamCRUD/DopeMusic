@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res){
-    res.sendfile('views/app/home.html')
+    res.render('app/home')
 })
 
 module.exports = router

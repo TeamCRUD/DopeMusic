@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-mongoose.connect('mongodb://jairperezs:D1e560*9c@ds019756.mlab.com:19756/dopemusic')
+mongoose.connect('mongodb://jairperezs:D1e560*9c@ds155718.mlab.com:55718/dopemusic')
 mongoose.Promise = global.Promise;
 
 var userSchemaJSON = {

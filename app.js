@@ -25,9 +25,7 @@ app.get(('/') , function(req, res){
 });
 
 app.get(('/signup') , function(req, res){
-    User.find(function(err,doc){
-        res.render('signup')
-    })
+    res.render('signup')
 });
 
 app.get(('/login') , function(req, res){
@@ -52,6 +50,7 @@ app.get(('/logout'), function(req, res){
     req.session.destroy();
     res.redirect('/login')
 })
+
 app.use('/app', session_middleware)
 app.use('/app', router_app)
 

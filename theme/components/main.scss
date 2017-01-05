@@ -71,7 +71,7 @@ main{
     }
 }
 
-// Login ==================
+// SignUp ==================
 .signup-content{
     text-align: center;
     @include edContainer;
@@ -111,4 +111,19 @@ main{
         margin: 10px;
         @include button($primary, $secondary, radius);
     }
+}
+
+// Dashboard
+.dash-content{
+    @include edContainer;
+    .dash-logo{
+        @include edItem(80)
+    }
+    .dash-avatr{
+        @include edItem()
+    }
+}
+.dash-player{
+    width: 100%;
+    height: 680px
 }
