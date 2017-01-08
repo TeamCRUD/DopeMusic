@@ -4,6 +4,8 @@ mongoose.connect('mongodb://jairperezs:D1e560*9c@ds155718.mlab.com:55718/dopemus
 mongoose.Promise = global.Promise;
 
 var userSchemaJSON = {
+    name: String,
+    lastname: String,
     email: String,
     username: String,
     password: String

@@ -2,19 +2,11 @@ extends ../layout
 block content
     .dash-content
         .dash-logo
-            h3 Dope music
-        .dash-avatar
-            p Hola, <strong>#{user.username}</strong>
-            a(href="/logout") Cerrar sesión
-        .dash-toggle#main-nav-toggle
+            a(href="/app") Dope music
         .dash-nav
-            nav.main-nav#main-nav
-                ul.main-nav__menu#main-menu
-                    li.main-nav__menu__item
-                        a(href="/app") Inicio
-                    li.main-nav__menu__item
-                        a(href="/about") Nosotros
-                    li.main-nav__menu__item
-                        a(href="")
+          a(href="/app") Inicio
+          a(href="/about") Nosotros
+        .dash-avatar
+            p Hola, <strong>#{user.name user.lastname}</strong> | <a href="/logout">Cerrar sesión </a>
         .dash-main
             <iframe class="dash-player" src="//www.cincopa.com/media-platform/iframe.aspx?fid=AgOAP1dcEdNa" frameborder="0" allowfullscreen scrolling="no"></iframe><noscript><span>Dope Music Full</span><span>Dope Music canciones completas</span><span>Otra Vez</span><span>JBalvin - Zion_Lennox</span><span>Traicionera</span><span>Sebastian Yatra</span></noscript>

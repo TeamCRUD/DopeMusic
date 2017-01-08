@@ -24,8 +24,12 @@ app.get(('/') , function(req, res){
     res.render('index')
 });
 
-app.get(('/signup') , function(req, res){
-    res.render('signup')
+app.get(('/about') , function(req, res){
+    res.render('about')
+});
+
+app.get(('/admin') , function(req, res){
+    res.render('admin')
 });
 
 app.get(('/login') , function(req, res){
@@ -33,17 +37,22 @@ app.get(('/login') , function(req, res){
 });
 
 app.post(('/users') , function(req, res){
-    var user = new User({email: req.body.email , username: req.body.username, password: req.body.password});
+    var user = new User({name: req.body.name, lastname: req.body.lastname, email: req.body.email , username: req.body.username, password: req.body.password});
     user.save(function(){
-        res.redirect('/login')
+        res.redirect('/admin')
     })
 });
 
 app.post(('/sessions') , function(req, res){
-    User.findOne({username: req.body.username, password: req.body.password},function(err,user){
-        req.session.user_id = user._id;
-        res.redirect('/app')
-    })
+    if(req.body.username == 'alejoadmin' && req.body.password == 'admin'){
+        res.redirect('/admin')
+    }
+    else{
+        User.findOne({username: req.body.username, password: req.body.password},function(err,user){
+            req.session.user_id = user._id;
+            res.redirect('/app')
+        })
+    }
 });
 
 app.get(('/logout'), function(req, res){
@@ -53,6 +62,24 @@ app.get(('/logout'), function(req, res){
 
 app.use('/app', session_middleware)
 app.use('/app', router_app)
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

@@ -1,30 +1,38 @@
 // Index =================
-main{
-    .main-content{
+header{
+    padding: 20px 0; 
+    .header-content{
         @include edContainer;
-        text-align: center
     }
-    .main-title{
-        @include edItem;
+    .header-title{
+        @include edItem(70,10);
+    }
+    .header-toggle{
+        @include edItem(30);
+        @include hideFrom(m);
+        text-align: center;
+    }
+    .header-nav{
+        @include edItem(100,40);
+    }
+    .header-button{
+        @include edItem(100,50);
         @include from(m){
-            font-size: 30px
-        }
-    }
-    .main-button{
-        @include edItem;
-        a{
-            margin: 0 5px;
-            @include from(m){
-                font-size: 18px
-            }
+            text-align: right;
         }
         .button-1{
-            border: 1px solid $secondary;
-            @include button($primary, $secondary, radius);
         }
         .button-2{
             border: 1px solid $secondary;
             @include button($secondary, $primary, radius)
+        }
+    }
+    .header-main{
+        @include edItem;
+        padding: 0;
+        .header-player{
+            width: 100%;
+            height: 680px
         }
     }
 }
@@ -117,13 +125,43 @@ main{
 .dash-content{
     @include edContainer;
     .dash-logo{
-        @include edItem(80)
+        @include edItem(20,10);
+        padding: 15px 0;
     }
-    .dash-avatr{
-        @include edItem()
+    .dash-nav{
+        @include edItem(100,40);
+        padding: 15px 0;
+        @include showFrom(m);
+        a{
+            margin: 0 4px
+        }
+    }
+    .dash-avatar{
+        @include edItem(80,50);
+        padding: 0;
+        @include to(m){
+            text-align: center
+        }
+        @include from(m){
+            text-align: right
+        }
+    }
+    .dash-main{
+        @include edItem;
+        padding: 0;
+        .dash-player{
+            width: 100%;
+            height: 680px
+        }
     }
 }
-.dash-player{
-    width: 100%;
-    height: 680px
-}
+/**body{
+    background: $secondary;
+    color: $primary;
+    h1{
+       color: $primary; 
+    }
+    a{
+        color: $primary
+    }
+}**/

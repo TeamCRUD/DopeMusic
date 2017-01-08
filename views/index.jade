@@ -1,9 +1,15 @@
 extends layout
 block content
-    main
-        .main-content
-            .main-title
-                h1 Bienvenidos
-            .main-button
+    header
+        .header-content
+            .header-title
+                a(href="/") Dope Music
+            .header-toggle#main-nav-toggle
+            .header-nav
+                a(href="/") Inicio 
+                a(href="/about") Nosotros
+            .header-button
                 a.button-1(href="/login") Iniciar sesión
-                a.button-2(href="/signup") Registrarse
+                //a.button-2(href="/signup") Registrarse
+            .header-main
+                <iframe class="header-player" src="//www.cincopa.com/media-platform/iframe.aspx?fid=AgOAP1dcEdNa" frameborder="0" allowfullscreen scrolling="no"></iframe><noscript><span>Dope Music Full</span><span>Dope Music canciones completas</span><span>Otra Vez</span><span>JBalvin - Zion_Lennox</span><span>Traicionera</span><span>Sebastian Yatra</span></noscript>
