@@ -4,8 +4,15 @@ header{
         @include edContainer;
     }
     .header-title{
-        @include edItem(70,10);
-        padding: 20px 0;
+        @include edItem(60,10);
+        padding: 20px 10px;
+        a{
+            margin: 0 4px;
+            color: $favorite;
+        }
+        a:visited{
+            color: $secondary
+        }
     }
     .header-toggle{
         @include edItem(30);
@@ -15,18 +22,30 @@ header{
     .header-nav{
         @include edItem(100,40);
         padding: 20px 0;
+        @include showFrom(m);
+        a{
+            margin: 0 4px;
+            color: $favorite;
+            &:visited{
+                color: $secondary
+            }
+        }
     }
     .header-button{
-        @include edItem(100,50);
+        @include edItem(40,50);
         padding: 20px 0;
+        @include to(m){
+            text-align: center
+        }
         @include from(m){
             text-align: right;
         }
-        .button-1{
+        a{
+            margin: 0 4px;
+            color: $favorite;
         }
-        .button-2{
-            border: 1px solid $secondary;
-            @include button($secondary, $primary, radius)
+        a:visited{
+            color: $secondary
         }
     }
     .header-main{
@@ -34,7 +53,12 @@ header{
         padding: 0;
         .header-player{
             width: 100%;
-            height: 680px
+            @include to(m){
+                height: 400px
+            }
+            @include from(m){
+                height: 680px
+            }
         }
     }
 }
@@ -44,6 +68,7 @@ header{
     @include edContainer;
     .login-title{
         @include edItem;
+        margin-top: 30px;
         h1{
             font-size: 40px;
             font-size: 42px
@@ -129,13 +154,24 @@ header{
     .dash-logo{
         @include edItem(20,10);
         padding: 15px 0;
+        a{
+            margin: 0 4px;
+            color: $favorite;
+            &:visited{
+                color: $secondary
+            }
+        }
     }
     .dash-nav{
         @include edItem(100,40);
         padding: 15px 0;
         @include showFrom(m);
         a{
-            margin: 0 4px
+            margin: 0 4px;
+            color: $favorite;
+            &:visited{
+                color: $secondary
+            }
         }
     }
     .dash-avatar{
@@ -147,14 +183,49 @@ header{
         @include from(m){
             text-align: right
         }
+        .user-lastname{
+            margin-right: 4px;
+        }
+        a{
+            color: $favorite;
+            &:visited{
+                color: $secondary
+            }
+        }
     }
     .dash-main{
         @include edItem;
         padding: 0;
         .dash-player{
             width: 100%;
-            height: 680px
+            @include to(m){
+                height: 400px
+            }
+            @include from(m){
+                height: 680px
+            }
         }
+    }
+}
+.about-content{
+    @include edContainer;
+    text-align: center;
+    .about-nav{
+        @include edItem;
+        padding: 30px 0;
+        a{
+            margin: 0 4px;
+            &:visited{
+                color: $secondary
+            }
+        }
+    }
+    .about-title{
+        @include edItem;
+        margin-top: 20px 
+    }
+    .about-description{
+        @include edItem
     }
 }
 /**body{

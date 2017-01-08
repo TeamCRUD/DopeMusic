@@ -1,4 +1,13 @@
 footer{
+    @include stickyFooter;
     text-align: center;
-    margin-top: 20em
+    span , a{
+        @include hideFrom(m);
+    }
+    a{
+        color: $favorite;
+        &:visited{
+            color: $secondary
+        }
+    }
 }

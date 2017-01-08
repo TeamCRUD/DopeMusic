@@ -5,8 +5,9 @@ block content
             a(href="/app") Dope music
         .dash-nav
           a(href="/app") Inicio
+          a |  
           a(href="/about") Nosotros
         .dash-avatar
-            p Hola, <strong>#{user.name user.lastname}</strong> | <a href="/logout">Cerrar sesión </a>
+            p Hola, <strong>#{user.name}</strong><strong class='user-lastname'>#{user.lastname}</strong> | <a href="/logout">Cerrar sesión </a>
         .dash-main
             <iframe class="dash-player" src="//www.cincopa.com/media-platform/iframe.aspx?fid=AgOAP1dcEdNa" frameborder="0" allowfullscreen scrolling="no"></iframe><noscript><span>Dope Music Full</span><span>Dope Music canciones completas</span><span>Otra Vez</span><span>JBalvin - Zion_Lennox</span><span>Traicionera</span><span>Sebastian Yatra</span></noscript>
