@@ -34,12 +34,7 @@ header{
     .header-button{
         @include edItem(40,50);
         padding: 20px 0;
-        @include to(m){
-            text-align: center
-        }
-        @include from(m){
-            text-align: right;
-        }
+        text-align: right;
         a{
             margin: 0 4px;
             color: $favorite;
@@ -47,18 +42,16 @@ header{
         a:visited{
             color: $secondary
         }
+        @include to(m){
+            padding-right: 10px
+        }
     }
     .header-main{
         @include edItem;
         padding: 0;
         .header-player{
             width: 100%;
-            @include to(m){
-                height: 400px
-            }
-            @include from(m){
-                height: 680px
-            }
+            height: 680px
         }
     }
 }
@@ -152,7 +145,7 @@ header{
 .dash-content{
     @include edContainer;
     .dash-logo{
-        @include edItem(20,10);
+        @include edItem(25,10);
         padding: 15px 0;
         a{
             margin: 0 4px;
@@ -175,14 +168,10 @@ header{
         }
     }
     .dash-avatar{
-        @include edItem(80,50);
+        @include edItem(75,50);
         padding: 0;
-        @include to(m){
-            text-align: center
-        }
-        @include from(m){
-            text-align: right
-        }
+        padding-right: 8px;
+        text-align: right;
         .user-lastname{
             margin-right: 4px;
         }
@@ -198,12 +187,7 @@ header{
         padding: 0;
         .dash-player{
             width: 100%;
-            @include to(m){
-                height: 400px
-            }
-            @include from(m){
-                height: 680px
-            }
+            height: 680px
         }
     }
 }

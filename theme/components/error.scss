@@ -1,0 +1,14 @@
+.error-nav{
+    
+    text-align: center;
+    padding: 30px 0;
+    a{
+        margin: 0 4px;
+        &:visited{
+            color: $secondary
+        }
+    }
+}
+.error-title{
+    text-align: center
+}
