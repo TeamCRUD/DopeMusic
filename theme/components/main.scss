@@ -1,11 +1,11 @@
 // Index =================
 header{
-    padding: 20px 0; 
     .header-content{
         @include edContainer;
     }
     .header-title{
         @include edItem(70,10);
+        padding: 20px 0;
     }
     .header-toggle{
         @include edItem(30);
@@ -14,9 +14,11 @@ header{
     }
     .header-nav{
         @include edItem(100,40);
+        padding: 20px 0;
     }
     .header-button{
         @include edItem(100,50);
+        padding: 20px 0;
         @include from(m){
             text-align: right;
         }
