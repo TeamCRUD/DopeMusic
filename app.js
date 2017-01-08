@@ -28,6 +28,8 @@ app.get(('/about') , function(req, res){
     res.render('about')
 });
 
+app.use('/admin', session_middleware)
+
 app.get(('/admin') , function(req, res){
     res.render('admin')
 });
