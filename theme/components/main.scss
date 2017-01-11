@@ -145,7 +145,7 @@ header{
 .dash-content{
     @include edContainer;
     .dash-logo{
-        @include edItem(25,10);
+        @include edItem(25,15,10);
         padding: 0;
         line-height: 3em;
         a{
@@ -163,7 +163,7 @@ header{
         }
     }
     .dash-nav{
-        @include edItem(100,40);
+        @include edItem(100,35,40);
         padding: 15px 0;
         @include showFrom(m);
         a{

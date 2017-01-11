@@ -46,15 +46,16 @@ app.post(('/users') , function(req, res){
 });
 
 app.post(('/sessions') , function(req, res){
-    if(req.body.username == 'alejoadmin' && req.body.password == 'admin'){
-        res.redirect('/admin')
-    }
-    else{
-        User.findOne({username: req.body.username, password: req.body.password},function(err,user){
+    User.findOne({username: req.body.username, password: req.body.password},function(err,user){
+        var username = user.username
+        if(username == 'alejoadmin'){
+            req.session.user_id = user._id;
+            res.redirect('/admin')
+        }else{
             req.session.user_id = user._id;
             res.redirect('/app')
-        })
-    }
+        }
+    })
 });
 
 app.get(('/logout'), function(req, res){
