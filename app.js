@@ -1,70 +1,25 @@
 var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
 var bodyParser = require('body-parser');
-var session = require('express-session');
-var router_app = require('./routes_app')
-var session_middleware = require('./middlewares/session')
-var User = require('./models/user')
+
+var index = require('./routes/index');
 
 var app = express();
 
-app.set('port', (process.env.PORT || 5000));
-app.use('/', express.static('public'));
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-    secret: "d*o*p*e*1*2*3",
-    resave: false,
-    saveUninitialized: false
-}))
-
-app.set('view engine', 'jade');
-
-app.get(('/') , function(req, res){
-    res.render('index')
-});
-
-app.get(('/about') , function(req, res){
-    res.render('about')
-});
-
-app.use('/admin', session_middleware)
-
-app.get(('/admin') , function(req, res){
-    res.render('admin')
-});
-
-app.get(('/login') , function(req, res){
-    res.render('login')
-});
-
-app.post(('/users') , function(req, res){
-    var user = new User({name: req.body.name, lastname: req.body.lastname, email: req.body.email , username: req.body.username, password: req.body.password});
-    user.save(function(){
-        res.redirect('/admin')
-    })
-});
-
-app.post(('/sessions') , function(req, res){
-    User.findOne({username: req.body.username, password: req.body.password},function(err,user){
-        var username = user.username
-        if(username == 'alejoadmin'){
-            req.session.user_id = user._id;
-            res.redirect('/admin')
-        }else{
-            req.session.user_id = user._id;
-            res.redirect('/app')
-        }
-    })
-});
-
-app.get(('/logout'), function(req, res){
-    req.session.destroy();
-    res.redirect('/login')
-})
-
-app.use('/app', session_middleware)
-app.use('/app', router_app)
+app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -84,6 +39,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
+module.exports = app;

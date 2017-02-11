@@ -7,7 +7,6 @@ const autoprefixer = require('autoprefixer');
 const plumber = require('gulp-plumber');
 const nodemon = require('gulp-nodemon');
 const babel = require('gulp-babel');
-const jade = require ('gulp-jade');
 const reload = browserSync.reload
 
 // Default task ========================
@@ -25,27 +24,17 @@ gulp.task('babel', () => {
 // Watch Babel ==========================
 gulp.task('js:w', ['babel'], reload)
 
-//Jade ==================================
-gulp.task('jade', () => {
-  return gulp.src('src/**/*.jade')
-      .pipe(jade())
-      .pipe(gulp.dest('public'))
-})
-
-// Watch Jade ===========================
-gulp.task('jade:w', ['jade'], reload)
-
 // Sass =================================
 gulp.task('sass',  () => {
     let processors = [
         autoprefixer({browsers: ['last 2 versions']})
     ];
-    return gulp.src('./theme/styles.scss')
+    return gulp.src('./theme/style.scss')
         .pipe(sass({outputStyle: 'compressed', includePaths: ["node_modules"]})
         .on('error', sass.logError))
         .pipe(plumber())
         .pipe(postcss(processors))
-        .pipe(gulp.dest('public/css'))
+        .pipe(gulp.dest('public/stylesheets'))
         .pipe(browserSync.stream());
 });
 
@@ -55,8 +44,8 @@ gulp.task('scss:w' , ['sass'])
 // BrowserSync =========================
 gulp.task('browser-sync' , ['nodemon'], () =>{
   browserSync.init(null, {
-    proxy: "http://localhost:5000",
-    files: ["./**/*.js","views/**/*.jade"],
+    proxy: "http://localhost:3000",
+    files: ["./**/*.js","views/**/*.pug"],
     browser: "",
     port: 7000,
   });
@@ -64,9 +53,8 @@ gulp.task('browser-sync' , ['nodemon'], () =>{
 });
 
 //Watch changes ==========================
-gulp.task('all:w',['jade' , 'babel' , 'sass'], () => {
+gulp.task('all:w',[ 'babel' , 'sass'], () => {
   gulp.watch('./src/server/**/*.js', ['js:w'])
-  gulp.watch('./src/app/**/*.jade', ['jade:w'])
   gulp.watch('./theme/**/**.scss', ['scss:w'])
 })
 
@@ -74,7 +62,7 @@ gulp.task('all:w',['jade' , 'babel' , 'sass'], () => {
 gulp.task('nodemon', function (cb) {
   var started = false;
   return nodemon({
-    script: 'app.js'
+    script: 'bin/www'
   }).on('start', function () {
     // to avoid nodemon being started multiple times
     // thanks @matthisk
