@@ -8,7 +8,7 @@ var options = {
 
 mongoose.Promise = global.Promise
 
-var mongodbUri = 'mongodb://jairperezs:D1e560*9c@ds135519.mlab.com:35519/proschool'
+var mongodbUri = 'mongodb://jairperezs:D1e560*9c@ds147789.mlab.com:47789/dopemusic'
 mongoose.connect(mongodbUri, options)
 
 var conn = mongoose.connection;  
