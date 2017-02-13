@@ -8,12 +8,14 @@
         border: 1px solid rgba(0,0,0,0.15);
         border-radius: 3px 
     }
+}.input{
+    font-size: 1.1em
 }
 .button{
     input{
         padding: 0;
         margin: .5em 0;
-        width: 12.1em;
+        width: 13.2em;
         @include button($dark,$primary)
     }
 }
