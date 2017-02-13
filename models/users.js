@@ -19,9 +19,6 @@ conn.once('open', function() {
 });
 
 var user_schema = new Schema({
-    name: String,
-    lastname: String,
-    email: String,
     username: {type: String, required: true, maxlength: 10, unique: true},
     password: {type: String, required: true, minlength: 6}
 })
