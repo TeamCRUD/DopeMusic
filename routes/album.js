@@ -30,7 +30,11 @@ router.route("/:id")
             })
     })
     .delete(function(req,res){
-
+        Album.findByIdAndRemove({_id: req.params.id},function(err){
+            if(!err){
+                res.redirect("/album")
+            }
+        })
     })
 
 router.route("/")
