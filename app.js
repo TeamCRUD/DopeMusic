@@ -5,6 +5,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var session = require("express-session")
 var session_middleware = require("./middlewares/session")
+var methodOverride = require("method-override")
 
 var index = require('./routes/index');
 var login = require('./routes/login');
@@ -22,6 +23,7 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride("_method"))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: "D*m*1*7",

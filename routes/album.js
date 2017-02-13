@@ -8,7 +8,9 @@ router.get("/new",function(req,res){
 })
 
 router.get("/:id/edit",function(req,res){
-
+    Album.findById(req.params.id,function(err, album){
+            res.render("app/album/edit",{title: "Editar Album "+album.title, album: album})
+        })
 })
 
 router.route("/:id")
@@ -18,7 +20,14 @@ router.route("/:id")
         })
     })
     .put(function(req,res){
-
+         Album.findById(req.params.id,function(err, album){
+            album.title = req.body.title
+            album.save().then(function(us){
+                res.send("Guardamos el album")
+            },function(err){
+                res.send("No pudimos guardar el album")
+            })
+            })
     })
     .delete(function(req,res){
 
