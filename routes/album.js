@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+var album_find = require("../middlewares/find_album")
 var Album = require("../models/album")
 
 router.get("/new",function(req,res){
@@ -13,21 +14,18 @@ router.get("/:id/edit",function(req,res){
         })
 })
 
+router.all("/:id*",album_find)
 router.route("/:id")
     .get(function(req,res){
-        Album.findById(req.params.id,function(err, album){
-            res.render("app/album/show",{title: "Album "+album.title, album: album})
-        })
+        res.render("app/album/show",{title: "Album "+album.title})
     })
     .put(function(req,res){
-         Album.findById(req.params.id,function(err, album){
-            album.title = req.body.title
-            album.save().then(function(us){
-                res.send("Guardamos el album")
-            },function(err){
-                res.send("No pudimos guardar el album")
-            })
-            })
+        res.locals.album.title = req.body.title
+        res.locals.album.save().then(function(us){
+            res.send("Guardamos el album")
+        },function(err){
+            res.send("No pudimos guardar el album")
+        })
     })
     .delete(function(req,res){
         Album.findByIdAndRemove({_id: req.params.id},function(err){
