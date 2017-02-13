@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
       return res.status(404).send()
     }else{
       req.session.user_id = user._id
-      res.send("Hola mundo")
+      res.redirect("/dashboard")
     }
   })
 });
