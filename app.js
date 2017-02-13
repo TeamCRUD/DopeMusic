@@ -9,6 +9,7 @@ var session_middleware = require("./middlewares/session")
 var index = require('./routes/index');
 var login = require('./routes/login');
 var dashboard = require('./routes/dashboard');
+var album = require('./routes/album');
 
 var app = express();
 
@@ -31,6 +32,9 @@ app.use('/', index);
 app.use('/login', login);
 app.use('/dashboard', session_middleware);
 app.use('/dashboard', dashboard);
+app.use('/login', login);
+app.use('/album', session_middleware);
+app.use('/album', album);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

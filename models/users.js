@@ -18,14 +18,12 @@ conn.once('open', function() {
     console.log('Conectado a DB')
 });
 
-var userSchemaJSON = {
+var user_schema = new Schema({
     name: String,
     lastname: String,
     email: String,
     username: {type: String, required: true, maxlength: 10, unique: true},
     password: {type: String, required: true, minlength: 6}
-}
-
-var user_schema = new Schema(userSchemaJSON)
+})
 
 module.exports = mongoose.model('User' , user_schema);
