@@ -2,10 +2,4 @@ extends layout_app
 
 block content_app
     h1.title= message
-    form(action="/dashboard" method="POST")
-        .input
-            input(type="text" name="username" placeholder="Usuario")
-        .input
-            input(type="password" name="password" placeholder="Contraseña")
-        .button
-            input(type="submit" value="Entrar")
+    a(href="/album/new") Crear album
