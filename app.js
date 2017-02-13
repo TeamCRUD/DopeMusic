@@ -3,8 +3,12 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var session = require("express-session")
+var session_middleware = require("./middlewares/session")
 
 var index = require('./routes/index');
+var login = require('./routes/login');
+var dashboard = require('./routes/dashboard');
 
 var app = express();
 
@@ -18,8 +22,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(session({
+  secret: "D*m*1*7",
+  resave: false,
+  saveUninitialized: false
+}))
 app.use('/', index);
+app.use('/login', login);
+app.use('/dashboard', session_middleware);
+app.use('/dashboard', dashboard);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -22,8 +22,8 @@ var userSchemaJSON = {
     name: String,
     lastname: String,
     email: String,
-    username: String,
-    password: String
+    username: {type: String, required: true, maxlength: 10, unique: true},
+    password: {type: String, required: true, minlength: 6}
 }
 
 var user_schema = new Schema(userSchemaJSON)
