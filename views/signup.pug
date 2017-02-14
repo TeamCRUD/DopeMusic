@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1.title= message
+    form(action="/signup" method="POST")
+        .input
+            input(type="text" name="username" placeholder="Usuario")
+        .input
+            input(type="password" name="password" placeholder="Contraseña")
+        .button
+            input(type="submit" value="Registrarse")

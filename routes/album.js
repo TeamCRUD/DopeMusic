@@ -46,7 +46,8 @@ router.route("/")
     })
     .post(function(req,res){
         var data ={
-            title: req.body.title
+            title: req.body.title,
+            creator: res.locals.user._id
         }
         var album = new Album(data)
         album.save().then(function(us){

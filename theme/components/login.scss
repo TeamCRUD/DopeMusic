@@ -9,13 +9,16 @@
         border-radius: 3px 
     }
 }.input{
-    font-size: 1.1em
+    font-size: 1.1em;
+    input{
+        padding: .6em
+    }
 }
 .button{
     input{
         padding: 0;
         margin: .5em 0;
-        width: 13.1em;
+        width: 13.8em;
         @include button($dark,$primary)
     }
 }

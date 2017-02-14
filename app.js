@@ -8,6 +8,7 @@ var session_middleware = require("./middlewares/session")
 var methodOverride = require("method-override")
 
 var index = require('./routes/index');
+var signup = require('./routes/signup');
 var login = require('./routes/login');
 var dashboard = require('./routes/dashboard');
 var album = require('./routes/album');
@@ -34,6 +35,7 @@ app.use('/', index);
 app.use('/login', login);
 app.use('/dashboard', session_middleware);
 app.use('/dashboard', dashboard);
+app.use('/signup', signup);
 app.use('/login', login);
 app.use('/album', session_middleware);
 app.use('/album', album);

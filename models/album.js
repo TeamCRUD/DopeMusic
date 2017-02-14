@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var album_schema = new Schema({
-    title: {type: String, required: true}
+    title: {type: String, required: true},
+    creator: {type: Schema.Types.ObjectId, ref: "User"}
 })
 
 module.exports = mongoose.model('Album' , album_schema);
