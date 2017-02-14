@@ -2,7 +2,8 @@ extends ../layout_app
 
 block content_app
     for album in albums
-        h1=album.title
+        a(href="/album/"+album._id)
+            h1=album.title
         a(href="/album/"+album._id+"/edit") Editar
         form(action="/album/"+album._id+"?_method=DELETE" method="POST")
             input(type="submit" value="Eliminar")

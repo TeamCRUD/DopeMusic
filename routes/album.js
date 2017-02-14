@@ -17,7 +17,7 @@ router.get("/:id/edit",function(req,res){
 router.all("/:id*",album_find)
 router.route("/:id")
     .get(function(req,res){
-        res.render("app/album/show",{title: "Album "+album.title})
+        res.render("app/album/show",{title: "Album "+res.locals.album.title})
     })
     .put(function(req,res){
         res.locals.album.title = req.body.title
@@ -47,6 +47,8 @@ router.route("/")
     .post(function(req,res){
         var data ={
             title: req.body.title,
+            description: req.body.description,
+            year: req.body.year,
             creator: res.locals.user._id
         }
         var album = new Album(data)

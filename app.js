@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"))
 app.use(express.static(path.join(__dirname, 'public')));
-app.use("/jquery", express.static(path.join(__dirname, 'node_module', 'jquery','dist')));
+app.use("/jquery", express.static(path.join(__dirname, 'node_modules', 'jquery','dist')));
 app.use(session({
   secret: "D*m*1*7",
   resave: false,
@@ -35,11 +35,10 @@ app.use(session({
 
 // routes
 app.use('/', index);
+app.use('/signup', signup);
 app.use('/login', login);
 app.use('/dashboard', session_middleware);
 app.use('/dashboard', dashboard);
-app.use('/signup', signup);
-app.use('/login', login);
 app.use('/album', session_middleware);
 app.use('/album', album);
 
