@@ -6,7 +6,7 @@ var User = require("../models/users")
 /* GET home page. */
 router.route("/")
 .get(function(req, res, next) {
-  res.render("login",{title: "Dope Music | login", message: "Dope Music"})
+  res.render("login",{title: "Dope Music - login", message: "Dope Music"})
 })
 .post(function(req, res, next) {
   User.findOne({username: req.body.username, password: req.body.password},function(err,user){
