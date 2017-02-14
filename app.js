@@ -31,6 +31,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }))
+
+// routes
 app.use('/', index);
 app.use('/login', login);
 app.use('/dashboard', session_middleware);

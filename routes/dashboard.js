@@ -6,7 +6,7 @@ var User = require("../models/users")
 /* GET home page. */
 router.route("/")
     .get(function(req, res, next) {
-        res.render("app/index",{title: "Home", message: "Bienvenidos"})
+        res.render("app/index",{title: "Incio", message: "Bienvenidos"})
     })
 
 module.exports = router;
