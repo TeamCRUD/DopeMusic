@@ -26,6 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"))
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/jquery", express.static(path.join(__dirname, 'node_module', 'jquery','dist')));
 app.use(session({
   secret: "D*m*1*7",
   resave: false,
