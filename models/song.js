@@ -8,4 +8,4 @@ var song_schema = new Schema({
     album: {type: Schema.Types.ObjectId, ref: "Album"},
 })
 
-module.exports = mongoose.model('Album' , song_schema);
+module.exports = mongoose.model('Song' , song_schema);
