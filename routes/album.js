@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var album_find = require("../middlewares/find_album")
+var song_find = require("../middlewares/find_song")
 
 var AlbumCtrl = require("../middlewares/album_reset")
 var SongCtrl = require("../middlewares/song_reset")
@@ -9,7 +10,7 @@ var SongCtrl = require("../middlewares/song_reset")
 //album
 router.get("/new", AlbumCtrl.renderNewAlbum)
 
-router.all("/:id*",album_find)
+router.all("/:id*",album_find,song_find)
 
 router.get("/:id/edit", AlbumCtrl.renderEditAlbum)
 

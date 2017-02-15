@@ -1,7 +1,9 @@
 extends ../layout_app
 
 block content_app
-    h1.title #{album.title}
-    p.title #{album.description}
-    p.title #{album.year}
+    h1 #{album.title}
+    p #{album.description}
+    p #{album.year}
+    for song in songs
+        p #{song.number}. #{song.title} - #{song.artist}
     a(href="/album/"+album._id+"/song/new") Añadir cancion

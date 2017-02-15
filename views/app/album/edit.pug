@@ -5,5 +5,9 @@ block content_app
     form(action="/album/"+album._id+"?_method=PUT" method="POST")
         .input
             input(type="text" name="title" placeholder="Titulo del album..." value=album.title)
+        .input
+            input(type="text" name="description" placeholder="Titulo del album..." value=album.description)
+        .input
+            input(type="text" name="year" placeholder="Titulo del album..." value=album.year)
         .button
             input(type="submit" value="Guardar cambios")
