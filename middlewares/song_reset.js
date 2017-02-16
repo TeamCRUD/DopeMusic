@@ -1,8 +1,15 @@
+var path = require('path');
 var Song = require('../models/song');
 
 // render
 exports.renderNewSong = function(req,res){
-    res.render("app/song/new",{title: "Nuevo album"})
+    res.render("app/song/new",{title: "Nuevo cancion"})
+}
+
+exports.renderShowSong = function(req,res){
+    var name_song = req.params.nombre + ".mp3"
+    var cancion = path.join(__dirname , "songs" , name_song)
+    mediaserver.pipe(req, res, cancion)
 }
 
 // rest
@@ -19,5 +26,4 @@ exports.addSong = function(req,res){
     },function(err){
         res.send("No pudimos guardar el album")
     })
-    console.log(song)
 }

@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var session = require("express-session")
 var session_middleware = require("./middlewares/session")
 var methodOverride = require("method-override")
+var mediaserver = require("mediaserver")
 
 var index = require('./routes/index');
 var signup = require('./routes/signup');
@@ -41,6 +42,12 @@ app.use('/dashboard', session_middleware);
 app.use('/dashboard', dashboard);
 app.use('/album', session_middleware);
 app.use('/album', album);
+
+app.get("/song/:nombre", function(req, res){
+  var name_song = req.params.nombre + ".mp3"
+  var cancion = path.join(__dirname , "songs" , name_song)
+  mediaserver.pipe(req, res, cancion)
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
