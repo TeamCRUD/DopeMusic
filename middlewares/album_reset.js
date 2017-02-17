@@ -2,7 +2,7 @@ var Album = require('../models/album');
 
 // render
 exports.renderShowAlbum = function(req,res){
-    res.render("app/album/show",{title: "Album "+res.locals.album.title})
+    res.render("app/album/show",{title: "Album "+res.locals.album.title, url: req.params.id})
 }
 
 exports.renderNewAlbum = function(req,res){

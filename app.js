@@ -27,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"))
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/songs", express.static(path.join(__dirname, 'songs')));
 app.use("/jquery", express.static(path.join(__dirname, 'node_modules', 'jquery','dist')));
 app.use(session({
   secret: "D*m*1*7",
@@ -43,8 +44,8 @@ app.use('/dashboard', dashboard);
 app.use('/album', session_middleware);
 app.use('/album', album);
 
-app.get("/song/:nombre", function(req, res){
-  var name_song = req.params.nombre + ".mp3"
+app.get("/cancion/:nombre", function(req, res){
+  var name_song = req.params.nombre 
   var cancion = path.join(__dirname , "songs" , name_song)
   mediaserver.pipe(req, res, cancion)
 })
