@@ -26,10 +26,4 @@ router.route("/")
 // song
 router.get("/:id/song/new", SongCtrl.renderNewSong)
 
-router.route("/song/:id")
-    .get(SongCtrl.renderShowSong)
-
-router.route("/:id/song")
-    .post(SongCtrl.addSong)
-
 module.exports = router;

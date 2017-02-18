@@ -6,12 +6,6 @@ exports.renderNewSong = function(req,res){
     res.render("app/song/new",{title: "Nuevo cancion"})
 }
 
-exports.renderShowSong = function(req,res){
-    var name_song = req.params.nombre + ".mp3"
-    var cancion = path.join(__dirname , "songs" , name_song)
-    mediaserver.pipe(req, res, cancion)
-}
-
 // rest
 exports.addSong = function(req,res){
     var data ={

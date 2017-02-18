@@ -7,6 +7,18 @@ var session = require("express-session")
 var session_middleware = require("./middlewares/session")
 var methodOverride = require("method-override")
 var mediaserver = require("mediaserver")
+var multer = require("multer")
+
+var opcionesMulter = multer.diskStorage({
+  destination: function(req, file, cb){
+    cb(null, path.join(__dirname, "songs"))
+  },
+  filename: function(req, file, cb){
+    cb(null, file.originalname)
+  }
+})
+
+var upload = multer({storage: opcionesMulter})
 
 var index = require('./routes/index');
 var signup = require('./routes/signup');
@@ -44,10 +56,8 @@ app.use('/dashboard', dashboard);
 app.use('/album', session_middleware);
 app.use('/album', album);
 
-app.get("/cancion/:nombre", function(req, res){
-  var name_song = req.params.nombre 
-  var cancion = path.join(__dirname , "songs" , name_song)
-  mediaserver.pipe(req, res, cancion)
+app.post("/song", upload.single("song"), function(req, res){
+  res.redirect("/album")
 })
 
 // catch 404 and forward to error handler
