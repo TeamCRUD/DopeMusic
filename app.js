@@ -57,6 +57,7 @@ app.use('/album', session_middleware);
 app.use('/album', album);
 
 app.post("/song", upload.single("song"), function(req, res){
+  console.log(req.file)
   res.redirect("/album")
 })
 

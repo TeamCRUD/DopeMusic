@@ -5,6 +5,6 @@ block content_app
     p #{album.description}
     p #{album.year}
     for song in songs
-        a.song(id=song._id) #{song.number}. #{song.title} - #{song.artist}
+        a.song(id=song.song) #{song.title} - #{song.artist}
     audio(controls)
     a(href="/album/"+album._id+"/song/new") Añadir cancion

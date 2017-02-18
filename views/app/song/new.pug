@@ -2,7 +2,11 @@ extends ../layout_app
 
 block content_app
     h1.title Subir nueva cancion
-    form(action="/song" method="POST" enctype="multipart/form-data")
+    form(action="/album/"+album._id+"/song/new" method="POST" enctype="multipart/form-data")
+        .input
+            input(type="text" name="title" placeholder="Titulo de la cancion")
+        .input
+            input(type="text" name="artist" placeholder="Artista")
         .input
             input(type="file" name="song")
         .button
