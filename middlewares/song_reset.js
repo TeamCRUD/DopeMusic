@@ -1,4 +1,5 @@
 var path = require('path');
+var fs = require("fs")
 var Song = require('../models/song');
 
 var path = require('path');
@@ -54,7 +55,9 @@ exports.updateSong = function(req,res){
 exports.deleteSong = function(req,res){
     Song.findByIdAndRemove({_id: req.params.song},function(err){
         if(!err){
-            res.redirect("/album")
+            res.redirect("/album/"+req.params.id)
         }
     })
+
+    fs.unlink("./songs/"+res.locals.song.song)
 }
