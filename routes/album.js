@@ -10,7 +10,7 @@ var SongCtrl = require("../middlewares/song_reset")
 //album
 router.get("/new", AlbumCtrl.renderNewAlbum)
 
-router.all("/:id*",album_find, song_find)
+router.all("/:id*",album_find, song_find.findAll)
 
 router.get("/:id/edit", AlbumCtrl.renderEditAlbum)
 
@@ -24,10 +24,16 @@ router.route("/")
     .post(AlbumCtrl.addAlbum)
 
 // song
-router.get("/:id/song/new", SongCtrl.renderNewSong)
+router.all("/:id/song/:song*", song_find.findOne)
 
-router.route("/:id/song/new")
+router.get("/:id/song/new", SongCtrl.renderNewSong)
+router.get("/:id/song/:song/edit", SongCtrl.renderEditSong)
+
+router.route("/:id/song/:song/")
+    .put(SongCtrl.updateSong)
+    .delete(SongCtrl.deleteSong)
+
+router.route("/:id/song")
     .post(SongCtrl.uploadSong, SongCtrl.addSong)
     
-
 module.exports = router;
