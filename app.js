@@ -23,6 +23,7 @@ var upload = multer({storage: opcionesMulter})
 var index = require('./routes/index');
 var signup = require('./routes/signup');
 var login = require('./routes/login');
+var logout = require('./routes/logout');
 var dashboard = require('./routes/dashboard');
 var album = require('./routes/album');
 
@@ -51,6 +52,7 @@ app.use(session({
 app.use('/', index);
 app.use('/signup', signup);
 app.use('/login', login);
+app.use('/logout', logout);
 app.use('/dashboard', session_middleware);
 app.use('/dashboard', dashboard);
 app.use('/album', session_middleware);
