@@ -11,10 +11,12 @@ block content
     main
         .index-content
             .index-main
-                h3 Album reciente
-                for album in albums
-                    a(href="/album/"+album._id)
+                h2 Album reciente
+                - var l = albums.length-1
+                - for(var i = 0; i < 1; i++)
+                    a(href="/album/"+albums[l]._id)
                         .main-item
-                    a.album-title(href="/album/"+album._id)=album.title
-                    p.album-description=album.description
-                    p.album-year=album.year
+                    a.album-title(href="/album/"+albums[l]._id)
+                        h3=albums[l].title
+                    p.album-description=albums[l].description
+                    p.album-year=albums[l].year

@@ -8,21 +8,26 @@
         font-weight: $normal
     }
     a{
-        color: $secondary
+        color: $secondary;
+        font-size: 1.2em;
+        h3{
+            margin: 0;
+            margin-bottom: .2em;
+        }
+    }
+    p{
+        padding: 0;
+        margin: 0;
     }
     .main-item{
-        height: 150px;
-        width: 150px;
+        height: 200px;
+        width: 200px;
         margin: auto;
         margin-bottom: .5em;
         border: 1px solid $border;
         &:hover{
             border: 1px solid $secondary;
         }
-    }
-    p{
-        padding: 0;
-        margin: 0
     }
     .album-description, .album-year{
         color: $favorite;
