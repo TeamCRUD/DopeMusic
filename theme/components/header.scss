@@ -1,14 +1,22 @@
 .header-content{
     @include edContainer
 }
-.header-title{
-    @include edItem;
-    @include to(m){
-        display: none
+.header-title, .header-message{
+    @include edItem(100,1/2);
+    h1,h2{
+        font-size: 30px;
+        font-weight: $normal
     }
+    h2{
+        text-align: center;
+    }
+    @include hideFrom(m)
+}
+.header-message{
+    @include showFrom(l)
 }
 .header-button{
-    @include edItem;
+    @include edItem(100,1/2);
     text-align: center;
     a{
         margin: 1em .3em
