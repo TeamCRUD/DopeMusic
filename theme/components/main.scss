@@ -1,242 +1,31 @@
-.title{
-    text-align: center;
-    font-weight: $normal
-}
-.button_index{
-    text-align: center;
-    color: $favorite
-}
-/*// Index =================
-header{
-    .header-content{
-        @include edContainer;
-    }
-    .header-title{
-        @include edItem(60,10);
-        padding: 20px 0;
-        a{
-            margin: 0 4px;
-            color: $favorite;
-        }
-        a:visited{
-            color: $secondary
-        }
-        @include to(m){
-            padding-left: 10px
-        }
-    }
-    .header-toggle{
-        @include edItem(30);
-        @include hideFrom(m);
-        text-align: center;
-    }
-    .header-nav{
-        @include edItem(100,40);
-        padding: 20px 0;
-        @include showFrom(m);
-        a{
-            margin: 0 4px;
-            color: $favorite;
-            &:visited{
-                color: $secondary
-            }
-        }
-    }
-    .header-button{
-        @include edItem(40,50);
-        padding: 20px 0;
-        text-align: right;
-        a{
-            margin: 0 4px;
-            color: $favorite;
-        }
-        a:visited{
-            color: $secondary
-        }
-        @include to(m){
-            padding-right: 10px
-        }
-    }
-    .header-main{
-        @include edItem;
-        padding: 0;
-        .header-player{
-            width: 100%;
-            height: 680px
-        }
-    }
-}
-// Login ==================
-.login-content{
-    text-align: center;
+.index-content{
     @include edContainer;
-    .login-title{
-        @include edItem;
-        margin-top: 30px;
-        h1{
-            font-size: 40px;
-            font-size: 42px
-        }
-    }
-    .login-form{
-        @include edItem
-    }
-    .login-input{
-        input{
-            margin: 3px 0;
-            padding: 9px 11px;
-            width: 13.5em;
-            font-size: 20px;
-            border: 1px solid $favorite;
-            border-radius: 4px
-        }
-    }
-    .login-button-1{
-        font-size: 16px;
-        margin: 2px;
-        width: 9.5em;
-        @include button($secondary, $primary, radius)
-    }
-    .login-button-2{
-        font-size: 16px;
-        margin: 2px;
-        border: 1px solid $secondary;
-        @include button($primary, $secondary, radius)
-    }
-    .login-button-3{
-        font-size: 15px;
-        margin: 10px 0;
-        @include button($primary, $secondary, radius);
-    }
+    text-align: center
 }
-
-// SignUp ==================
-.signup-content{
-    text-align: center;
-    @include edContainer;
-    .signup-title{
-        @include edItem;
-        h1{
-            font-size: 40px;
-            font-size: 42px
-        }
-    }
-    .signup-form{
-        @include edItem
-    }
-    .signup-input{
-        input{
-            margin: 3px 0;
-            padding: 9px 11px;
-            width: 13.5em;
-            font-size: 20px;
-            border: 1px solid $favorite;
-            border-radius: 4px
-        }
-    }
-    .signup-button-1{
-        font-size: 16px;
-        margin: 2px;
-        width: 9.5em;
-        @include button($secondary, $primary, radius)
-    }
-    .signup-button-2{
-        font-size: 16px;
-        margin: 2px;
-        border: 1px solid $secondary;
-        @include button($primary, $secondary, radius)
-    }
-    .signup-button-3{
-        margin: 10px;
-        @include button($primary, $secondary, radius);
-    }
-}
-
-// Dashboard
-.dash-content{
-    @include edContainer;
-    .dash-logo{
-        @include edItem(25,15,10);
-        padding: 0;
-        line-height: 3em;
-        a{
-            margin: 0 4px;
-            color: $favorite;
-            &:visited{
-                color: $secondary
-            }
-        }
-        span{
-            @include showFrom(m)
-        }
-        @include to(m){
-            padding-left: 5px
-        }
-    }
-    .dash-nav{
-        @include edItem(100,35,40);
-        padding: 15px 0;
-        @include showFrom(m);
-        a{
-            margin: 0 4px;
-            color: $favorite;
-            &:visited{
-                color: $secondary
-            }
-        }
-    }
-    .dash-avatar{
-        @include edItem(75,50);
-        padding: 0;
-        padding-right: 8px;
-        text-align: right;
-        .user-lastname{
-            margin-right: 4px;
-        }
-        a{
-            color: $favorite;
-            &:visited{
-                color: $secondary
-            }
-        }
-    }
-    .dash-main{
-        @include edItem;
-        padding: 0;
-        .dash-player{
-            width: 100%;
-            height: 680px
-        }
-    }
-}
-.about-content{
-    @include edContainer;
-    text-align: center;
-    .about-nav{
-        @include edItem;
-        padding: 30px 0;
-        a{
-            margin: 0 4px;
-            &:visited{
-                color: $secondary
-            }
-        }
-    }
-    .about-title{
-        @include edItem;
-        margin-top: 20px 
-    }
-    .about-description{
-        @include edItem
-    }
-}
-/**body{
-    background: $secondary;
-    color: $primary;
-    h1{
-       color: $primary; 
+.index-main{
+    @include edItem;
+    h3{
+        font-weight: $normal
     }
     a{
-        color: $primary
+        color: $secondary
     }
-}**/
+    .main-item{
+        height: 150px;
+        width: 150px;
+        margin: auto;
+        margin-bottom: .5em;
+        border: 1px solid $border;
+        &:hover{
+            border: 1px solid $secondary;
+        }
+    }
+    p{
+        padding: 0;
+        margin: 0
+    }
+    .album-description, .album-year{
+        color: $favorite;
+        padding: .2em;
+    }
+}
