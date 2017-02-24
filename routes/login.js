@@ -17,8 +17,13 @@ router.route("/")
       res.render("login",{title: "Dope Music", message: "Datos incorrectos"})
       return res.status(404).send()
     }else{
-      req.session.user_id = user._id
-      res.redirect("/dashboard")
+      if(user.admin){
+        req.session.user_id = user._id
+        res.redirect("/dashboard")
+      }else{
+        req.session.user_id = user._id
+        res.send("No soy admin")
+      }
     }
   })
 });
