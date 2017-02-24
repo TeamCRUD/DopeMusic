@@ -1,11 +1,16 @@
 extends layout
 
 block content
-    h1.title= message
-    form(action="/login" method="POST")
-        .input
-            input(type="text" name="username" placeholder="Usuario")
-        .input
-            input(type="password" name="password" placeholder="Contraseña")
-        .button
-            input(type="submit" value="Inicia sesion")
+    .login-content
+        .login-title
+            h1= message
+        .login-main
+            form(action="/login" method="POST")
+                .login-input
+                    input(type="text" name="username" placeholder="Usuario")
+                .login-input
+                    input(type="password" name="password" placeholder="Contraseña")
+                .login-button
+                    input(type="submit" value="Iniciar sesion")
+                .login-button
+                    a(href="/signup") Ya tengo cuenta
