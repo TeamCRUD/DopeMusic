@@ -1,35 +1,43 @@
-.login-content{
+.form-content{
     @include edContainer
 }
-.login-title{
+.form-title{
     @include edItem;
     text-align: center;
+    a{
+        color: $dark;
+        text-decoration: none
+    }
     h1{
         font-weight: $normal
     }
+    p{
+        color: $favorite
+    }
 }
-.login-main{
+.form-main{
     @include edItem;
     text-align: center;
 }
-.login-input, .login-button{
-    input{
+.form-input, .form-select, .form-button{
+    input, select{
         border: none;
         border-radius: 3px;
+        width: 14em;
     }
 }
-.login-input{
+.form-input, .form-select{
     margin: .2em;
-    input{
+    input, select{
         padding: .5em;
         border: 1px solid $border;
         font-size: 1.1em
     }
 }
-.login-button{
+.form-button{
     margin-bottom: 1em;
     input{
-        width: 16.5em;
+        width: 18.5em;
         @include button($dark, $primary)
     }
     a{

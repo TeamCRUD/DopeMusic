@@ -1,11 +1,25 @@
 extends layout
 
 block content
-    h1.title= message
-    form(action="/signup" method="POST")
-        .input
-            input(type="text" name="username" placeholder="Usuario")
-        .input
-            input(type="password" name="password" placeholder="Contraseña")
-        .button
-            input(type="submit" value="Registrarse")
+    .form-content
+        .form-title
+            a(href="/")
+                h1=title
+            p=message
+        .form-main
+            form(action="/signup" method="POST")
+                .form-input
+                    input(type="text" name="fullname" placeholder="Nombre completo")
+                .form-input
+                    input(type="password" name="password" placeholder="Contraseña")
+                .form-input
+                    input(type="text" name="username" placeholder="Usuario")
+                .form-select
+                    select(name="sex")
+                        option.form-option Sexo
+                        option(value="Masculino") Masculino
+                        option(value="Femenino") Femenino
+                .form-button
+                    input(type="submit" value="Registrarse")
+                .form-button
+                    a(href="/login") Ya tengo cuenta
