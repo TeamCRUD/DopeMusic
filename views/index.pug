@@ -13,12 +13,13 @@ block content
     main
         .index-content
             .index-main
-                h2 Album reciente
-                - var l = albums.length-1
-                - for(var i = 0; i < 1; i++)
-                    a(href="/album/"+albums[l]._id)
-                        .main-item
-                    a.album-title(href="/album/"+albums[l]._id)
-                        h3=albums[l].title
-                    p.album-description=albums[l].description
-                    p.album-year=albums[l].year
+                if(albums.length > 0)
+                    h2 Album reciente
+                    - var l = albums.length-1
+                    - for(var i = 0; i < 1; i++)
+                        a(href="/album/"+albums[l]._id)
+                            .main-item
+                        a.album-title(href="/album/"+albums[l]._id)
+                            h3=albums[l].title
+                        p.album-description=albums[l].description
+                        p.album-year=albums[l].year
