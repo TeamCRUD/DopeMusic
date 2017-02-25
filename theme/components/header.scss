@@ -2,7 +2,7 @@
     @include edContainer
 }
 .header-title, .header-message{
-    @include edItem(100,1/2);
+    @include edItem(100,1/2,1/3);
     h1,h2{
         font-size: 30px;
         font-weight: $normal
@@ -10,14 +10,17 @@
     h2{
         text-align: center;
     }
-    @include hideFrom(m)
+    @include showFrom(m)
 }
 .header-message{
     @include showFrom(l)
 }
 .header-button{
-    @include edItem(100,1/2);
+    @include edItem(100,1/2,1/3);
     text-align: center;
+    @include from(m){
+        text-align: right
+    }
     a{
         margin: 1em .3em
     }
