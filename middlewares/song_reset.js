@@ -33,7 +33,7 @@ exports.addSong = function(req,res){
         song: req.file.filename,
         album: req.params.id,
     })
-
+    
     song.save().then(function(us){
         res.send("Guardamos la cancion")
     },function(err){

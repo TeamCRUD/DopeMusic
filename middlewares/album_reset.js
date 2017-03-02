@@ -1,5 +1,7 @@
 var Album = require('../models/album');
 
+var fs = require("fs")
+
 // render
 exports.renderShowAlbum = function(req,res){
     res.render("app/album/show",{title: "Album "+res.locals.album.title, url: req.params.id})

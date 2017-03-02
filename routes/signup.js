@@ -22,7 +22,7 @@ router.route("/")
             user.save().then(function(us){
                 res.redirect("/login")
             },function(err){
-                res.render("signup", {title: "Dope Music", message: "datos incorrectos"})
+                res.render("signup", {title: "Dope Music", message: "Datos incorrectos"})
             })
         }
     });
