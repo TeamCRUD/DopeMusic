@@ -14,6 +14,17 @@
 }
 .album-content{
     padding: .5em;
+    a{
+        text-decoration: none;
+        &:hover{
+            border: 1px solid $dark;
+            transition: .4s all;
+            p{
+                background: $secondary;
+                color: $primary;
+            }
+        }
+    }
     @include to(m){
         @include grid(".album-main",2)
     }
@@ -33,5 +44,7 @@
         padding: .5em;
         margin: 0;
         background: $dark;
+        color: $primary;
+        text-align: center
     }
 }
