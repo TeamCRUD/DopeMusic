@@ -17,10 +17,10 @@
     a{
         text-decoration: none;
         &:hover{
-            border: 1px solid $dark;
+            border: 1px solid $secondary;
             transition: .4s all;
             p{
-                background: $secondary;
+                background: $dark;
                 color: $primary;
             }
         }
@@ -43,7 +43,7 @@
     p{
         padding: .5em;
         margin: 0;
-        background: $dark;
+        background: $secondary;
         color: $primary;
         text-align: center
     }

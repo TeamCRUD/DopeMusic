@@ -1,11 +1,19 @@
 extends ../layout_app
 
 block content_app
-    for album in albums
-        a(href="/album/"+album._id)
-            h1=album.title
-        a(href="/album/"+album._id+"/edit") Editar
-        form(action="/album/"+album._id+"?_method=DELETE" method="POST")
-            input(type="submit" value="Eliminar")
-    
+    .library-content 
+        .library-main
+            for album in albums
+                .library-item
+                    a(href="/album/"+album._id)
+                        img(src="images/1.png", alt="").library-cover
+                    a.album-title(href="/album/"+album._id)
+                        h3=album.title
+                    p=album.description
+                    p=album.year
+                    .library-button
+                        form(action="/album/"+album._id+"?_method=DELETE" method="POST")
+                            a(href="/album/"+album._id+"/edit") Editar 
+                            input(type="submit" value="Eliminar")   
+
     a(href="/album/new") Crear album

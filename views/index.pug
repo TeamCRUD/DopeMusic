@@ -18,7 +18,7 @@ block content
                     - var l = albums.length-1
                     - for(var i = 0; i < 1; i++)
                         a(href="/album/"+albums[l]._id)
-                            .main-item
+                            img(src="images/1.png", alt="").main-item
                         a.album-title(href="/album/"+albums[l]._id)
                             h3=albums[l].title
                         p.album-description=albums[l].description

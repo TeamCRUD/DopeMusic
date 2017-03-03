@@ -32,3 +32,20 @@
         @include button($dark, $primary, radius)
     }
 }
+.header-title-dash, .header-button-dash{
+    padding-top: .8em;
+    h2{
+        margin: 0;
+        font-weight: $normal
+    }
+    a{
+        margin: 0 .3em;
+        color: $secondary;
+    }
+    @include edItem(100,50)
+}
+.header-button-dash{
+    @include from(m){
+        text-align: right
+    }
+}

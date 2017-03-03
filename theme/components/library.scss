@@ -1,0 +1,43 @@
+.library-content{
+    @include edContainer
+}
+.library-main{
+    @include grid(".library-item",4);
+    text-align: center;
+    a{
+        color: $secondary
+    }
+    h3,p{
+        margin: 0
+    }
+    h3{
+        margin: .6em
+    }
+}
+.library-cover{
+    border: 1px solid $border
+}
+.library-button{
+    margin: .5em;
+    input,a{
+        margin: 0 .2em;
+        border: 1px solid $border;
+        background: $border;
+        text-decoration: none;
+        cursor: pointer
+    }
+    input{
+        padding: .1em;
+    }
+    a:hover{
+        background: $primary;
+        border: 1px solid $border;
+        color: $secondary;
+        transition: .3s all
+    }
+    input:hover{
+        background: $danger;
+        color: $primary;
+        transition: .3s all
+    }
+}
