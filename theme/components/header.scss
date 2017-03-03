@@ -22,7 +22,7 @@
         text-align: right
     }
     a{
-        margin: 1em .3em
+        margin: 1em .1em
     }
     .button-1{
         border: 1px solid $secondary;
@@ -34,6 +34,7 @@
 }
 .header-title-dash, .header-button-dash{
     padding-top: .8em;
+    @include edItem(100,50);
     h2{
         margin: 0;
         font-weight: $normal
@@ -42,7 +43,9 @@
         margin: 0 .3em;
         color: $secondary;
     }
-    @include edItem(100,50)
+    @include to(m){
+        text-align: center
+    }
 }
 .header-button-dash{
     @include from(m){

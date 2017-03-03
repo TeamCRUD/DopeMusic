@@ -14,6 +14,6 @@ block content_app
                     .library-button
                         form(action="/album/"+album._id+"?_method=DELETE" method="POST")
                             a(href="/album/"+album._id+"/edit") Editar 
-                            input(type="submit" value="Eliminar")   
-
-    a(href="/album/new") Crear album
+                            input(type="submit" value="Eliminar")
+        .library-footer
+            a(href="/album/new") Crear album
