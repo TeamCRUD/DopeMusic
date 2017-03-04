@@ -1,0 +1,48 @@
+.show-content{
+    @include edContainer
+}
+.show-title, .show-main, .show-button{
+    @include edItem;
+    h1 {
+        font-weight: $normal
+    }
+}
+.display{
+    display: none
+}
+.show-title{
+    text-align: center
+}
+.show-main{
+    padding: .5em;
+    text-align: center;
+    .song{
+        cursor: pointer
+    }
+    .button-1,.button-2{
+        margin: 0 .2em;
+        border: none;
+        color: $secondary;
+        background: $primary;
+        text-decoration: none;
+        cursor: pointer
+    }
+    .button-2{
+        padding: .1em;
+    }
+    .button-1:hover{
+        color: $favorite;
+        transition: .3s all
+    }
+    .button-2:hover{
+        color: $danger;
+        transition: .3s all
+    }
+}
+.show-button{
+    text-align: center;
+    margin: 1em;
+    a{
+        @include button($primary, $secondary, radius)
+    }
+}

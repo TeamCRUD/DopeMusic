@@ -1,13 +1,16 @@
 extends ../layout_app
 
 block content_app
-    h1.title Subir nuevo album
-    form(action="/album" method="POST")
-        .input
-            input(type="text" name="title" placeholder="Titulo")
-        .input
-            input(type="text" name="description" placeholder="Descripcion del album...")
-        .input
-            input(type="text" name="year" placeholder="Año")
-        .button
-            input(type="submit" value="Crear album")
+    .form-content 
+        .form-title
+            h1 Nuevo album
+        .form-main
+            form(action="/album" method="POST")
+                .form-input
+                    input(type="text" name="title" placeholder="Titulo")
+                .form-input
+                    input(type="text" name="description" placeholder="Descripcion del album...")
+                .form-input
+                    input(type="text" name="year" placeholder="Año")
+                .form-button
+                    input(type="submit" value="Crear album")

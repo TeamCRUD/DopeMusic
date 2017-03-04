@@ -1,13 +1,17 @@
 extends ../layout_app
 
 block content_app
-    h1 #{album.title}
-    p #{album.description}
-    p #{album.year}
-    for song in songs
-        a.song(id=song.song) #{song.title} - #{song.artist} 
-        a(href="/album/"+album._id+"/song/"+song._id+"/edit") Editar
-        form(action="/album/"+album._id+"/song/"+song._id+"?_method=DELETE" method="POST")
-            input(type="submit" value="Eliminar")
-    audio(controls)
-    a(href="/album/"+album._id+"/song/new") Añadir cancion
+    .show-content 
+        .show-title
+            h1 #{album.title}
+            p #{album.description}
+            p #{album.year}
+        for song in songs
+            .show-main
+                form(action="/album/"+album._id+"/song/"+song._id+"?_method=DELETE" method="POST")
+                    a.song(id=song.song) #[b #{song.title}] - #{song.artist} 
+                    a.button-1(href="/album/"+album._id+"/song/"+song._id+"/edit") Editar
+                    input.button-2(type="submit" value="Eliminar")
+            audio(controls).display
+        .show-button
+            a(href="/album/"+album._id+"/song/new") Añadir cancion

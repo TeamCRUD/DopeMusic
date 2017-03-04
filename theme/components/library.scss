@@ -2,7 +2,6 @@
     @include edContainer
 }
 .library-main{
-    @include grid(".library-item",4);
     text-align: center;
     a{
         color: $secondary
@@ -13,6 +12,12 @@
     h3{
         margin: .6em
     }
+    @include to(m){
+        @include grid(".library-item",2);
+    }
+    @include from(m){
+        @include grid(".library-item",4);
+    }
 }
 .library-cover{
     border: 1px solid $border
@@ -21,8 +26,8 @@
     margin: .5em;
     input,a{
         margin: 0 .2em;
-        border: 1px solid $border;
-        background: $border;
+        border: none;
+        background: $primary;
         text-decoration: none;
         cursor: pointer
     }
@@ -30,8 +35,7 @@
         padding: .1em;
     }
     a:hover{
-        background: $primary;
-        border: 1px solid $border;
+        background: $border;
         color: $secondary;
         transition: .3s all
     }
@@ -42,5 +46,10 @@
     }
 }
 .library-footer{
-    @include edItem
+    @include edItem;
+    text-align: center;
+    padding: 1em;
+    a{
+        @include button($primary, $secondary, radius)
+    }
 }
