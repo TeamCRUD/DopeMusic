@@ -8,11 +8,19 @@ exports.renderShowAlbum = function(req,res){
 }
 
 exports.renderNewAlbum = function(req,res){
-    res.render("app/album/new",{title: "Nuevo album"})
+    if(res.locals.user.typeuser == "admin" ){
+        res.render("app/album/new",{title: "Nuevo album"})
+    }else{
+        res.redirect("/dashboard")
+    }
 }
 
 exports.renderEditAlbum = function(req,res){
-    res.render("app/album/edit",{title: "Editar Album "+res.locals.album.title})
+    if(res.locals.user.typeuser == "admin" ){
+        res.render("app/album/edit",{title: "Editar Album "+res.locals.album.title})
+    }else{
+        res.redirect("/dashboard")
+    }
 }
 
 // rest
@@ -34,18 +42,18 @@ exports.addAlbum =function(req,res){
     }
     var album = new Album(data)
     album.save().then(function(us){
-        res.send("Guardamos el album")
+        res.redirect("/album")
     },function(err){
-        res.send("No pudimos guardar el album")
+        res.redirect("/album/new")
     })
 }
 
 exports.updateAlbum = function(req,res){
     res.locals.album.title = req.body.title
     res.locals.album.save().then(function(us){
-        res.send("Guardamos el album")
+        res.redirect("/album")
     },function(err){
-        res.send("No pudimos guardar el album")
+        res.redirect("/album/"+req.params.id+"/edit")
     })
 }
 

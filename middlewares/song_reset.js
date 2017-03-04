@@ -35,9 +35,9 @@ exports.addSong = function(req,res){
     })
     
     song.save().then(function(us){
-        res.send("Guardamos la cancion")
+        res.redirect("/album")
     },function(err){
-        res.send("No guardamos la cancion")
+        res.redirect("/album/"+req.params.id+"/song/"+req.params.song)
     })
 }
 
@@ -46,9 +46,9 @@ exports.uploadSong = upload.single("song")
 exports.updateSong = function(req,res){
     res.locals.song.title = req.body.title
     res.locals.song.save().then(function(us){
-        res.send("Guardamos el album")
+        res.redirect("/album")
     },function(err){
-        res.send("No pudimos guardar el album")
+        res.redirect("/album/"+req.params.id+"/song/"+req.params.song)
     })
 }
 

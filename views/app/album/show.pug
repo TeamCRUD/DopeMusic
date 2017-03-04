@@ -9,9 +9,11 @@ block content_app
         for song in songs
             .show-main
                 form(action="/album/"+album._id+"/song/"+song._id+"?_method=DELETE" method="POST")
-                    a.song(id=song.song) #[b #{song.title}] - #{song.artist} 
-                    a.button-1(href="/album/"+album._id+"/song/"+song._id+"/edit") Editar
-                    input.button-2(type="submit" value="Eliminar")
+                    a.song(id=song.song) #[b #{song.title}] - #{song.artist}
+                    if user.admin
+                        a.button-1(href="/album/"+album._id+"/song/"+song._id+"/edit") Editar
+                        input.button-2(type="submit" value="Eliminar")
             audio(controls).display
-        .show-button
-            a(href="/album/"+album._id+"/song/new") Añadir cancion
+        if user.admin
+            .show-button
+                a(href="/album/"+album._id+"/song/new") Añadir cancion

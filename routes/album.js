@@ -24,11 +24,9 @@ router.route("/")
     .post(AlbumCtrl.addAlbum)
 
 // song
-
 router.get("/:id/song/new", SongCtrl.renderNewSong)
-router.get("/:id/song/:song/edit", SongCtrl.renderEditSong)
-
 router.all("/:id/song/:song*", song_find.findOne)
+router.get("/:id/song/:song/edit", SongCtrl.renderEditSong)
 
 router.route("/:id/song/:song/")
     .put(SongCtrl.updateSong)
