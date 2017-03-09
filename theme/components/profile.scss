@@ -1,0 +1,14 @@
+.profile-content{
+    @include edContainer
+}
+.profile-title{
+    @include edItem
+}
+.profile-main{
+    @include edItem
+}
+.profile-button{
+    a{
+        @include button($primary, $secondary)
+    }
+}
