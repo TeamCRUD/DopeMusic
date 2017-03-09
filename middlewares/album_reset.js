@@ -8,19 +8,11 @@ exports.renderShowAlbum = function(req,res){
 }
 
 exports.renderNewAlbum = function(req,res){
-    if(res.locals.user.typeuser == "admin" ){
-        res.render("app/album/new",{title: "Nuevo album"})
-    }else{
-        res.redirect("/dashboard")
-    }
+    res.render("app/album/new",{title: "Nuevo album"})
 }
 
 exports.renderEditAlbum = function(req,res){
-    if(res.locals.user.typeuser == "admin" ){
-        res.render("app/album/edit",{title: "Editar Album "+res.locals.album.title})
-    }else{
-        res.redirect("/dashboard")
-    }
+    res.render("app/album/edit",{title: "Editar Album "+res.locals.album.title})
 }
 
 // rest
