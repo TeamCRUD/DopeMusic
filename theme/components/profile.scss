@@ -2,6 +2,15 @@
     @include edContainer;
     text-align: center
 }
+.profile-avatar{
+    @include edItem;
+    margin-top: 2em;
+    image{
+        border: 1px solid $favorite;
+        border-radius: 50%;
+        height: 200px
+    }
+}
 .profile-title{
     @include edItem
 }

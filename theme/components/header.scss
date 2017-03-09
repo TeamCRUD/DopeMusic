@@ -46,6 +46,9 @@
             color: $dark;
             transition: .3s all
         }
+        b{
+            font-weight: $normal
+        }
     }
     @include to(m){
         text-align: center
