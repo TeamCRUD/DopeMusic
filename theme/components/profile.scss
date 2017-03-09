@@ -1,5 +1,6 @@
 .profile-content{
-    @include edContainer
+    @include edContainer;
+    text-align: center
 }
 .profile-title{
     @include edItem
