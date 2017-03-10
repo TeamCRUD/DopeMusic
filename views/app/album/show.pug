@@ -13,7 +13,6 @@ block content_app
                     if user.admin
                         a.button-1(href="/album/"+album._id+"/song/"+song._id+"/edit") Editar
                         input.button-2(type="submit" value="Eliminar")
-        audio(controls).display
         if user.admin
             .show-button
-                a(href="/album/"+album._id+"/song/new") Añadir cancion
+                a(href="/album/"+album._id+"/song/new") Añadir cancion        
