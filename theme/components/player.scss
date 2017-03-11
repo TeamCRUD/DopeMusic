@@ -1,0 +1,29 @@
+#wrapper{
+    width: 100%;
+    margin: 10px auto;
+    color: $secondary
+}
+nav{
+    color: $secondary;
+    width: 100%;
+    padding-bottom: 3px
+}
+#defaultBar{
+    width: 100%;
+    position: relative;
+    background: $border;
+    height: 10px
+}
+#progressBar{
+    position: absolute;
+    height: 10px;
+    background: $secondary;
+    width: 100px
+}
+#playButton, #pauseButton, #muteButton{
+    border: none;
+    background: $primary;
+    border: 1px solid $border;
+    height: 32px;
+    width: 32px;
+}

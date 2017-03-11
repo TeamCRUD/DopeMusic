@@ -8,7 +8,17 @@ html
     body
         block content
         footer
-            audio(controls).display
+            #wrapper.display
+                audio#mytrack
+                    source(src="../songs/1.mp3" type="audio/mp3")
+                nav
+                    #defaultBar
+                        #progressBar
+                    #buttons
+                        button.icon-pause#playButton(type="button")
+                        button.icon-play#pauseButton(type="button").display
+                        button.icon-mute#muteButton(type="button")
+                        span#currentTime 0:00 / #[span#fullDuration 0:00]
             p.description Created by Jair Pérez
         script(src="/jquery/jquery.js")
         script(src="/javascript/main.js")

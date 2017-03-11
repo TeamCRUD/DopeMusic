@@ -1,16 +1,6 @@
 footer{
     @include stickyFooter;
-    text-align: center;
-    span , a{
-        @include hideFrom(m);
-    }
-    a{
-        color: $favorite;
-        &:visited{
-            color: $secondary
-        }
-    }
-    audio{
-        width: 100%;
-    }
+}
+.description{
+    text-align: center
 }
