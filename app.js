@@ -25,6 +25,7 @@ var signup = require('./routes/signup');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
 var dashboard = require('./routes/dashboard');
+var home = require('./routes/home');
 var profile = require('./routes/profile');
 var album = require('./routes/album');
 
@@ -50,14 +51,15 @@ app.use(session({
 }))
 
 // routes
+app.use(['/*'], session_middleware);
 app.use('/', index);
 app.use('/signup', signup);
 app.use('/login', login);
 app.use('/logout', logout);
-app.use(['/dashboard',"/album","/profile"], session_middleware);
+app.use('/album', album);
+app.use('/home', home);
 app.use('/dashboard', dashboard);
 app.use('/profile', profile);
-app.use('/album', album);
 
 app.post("/song", upload.single("song"), function(req, res){
   console.log(req.file)

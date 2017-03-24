@@ -1,25 +1,28 @@
-extends layout
+extends layout/default
 
-block content
-    header
-        .header-content
-            .header-title
-                h1= title
-            .header-message
-                h2= message
-            .header-button
-                a.button-1(href="/login") Iniciar sesion
-                a.button-2(href="/signup") Registrarse
+block content_default
     main
         .index-content
+            .index-title
+                h2 Album reciente
             .index-main
-                if(albums.length > 0)
-                    h2 Album reciente
-                    - var l = albums.length-1
-                    - for(var i = 0; i < 1; i++)
-                        a(href="/album/"+albums[l]._id)
-                            img(src="images/1.png", alt="").main-item
-                        a.album-title(href="/album/"+albums[l]._id)
-                            h3=albums[l].title
-                        p.album-description=albums[l].description
-                        p.album-year=albums[l].year
+                if albums.length > 0
+                    for album in albums
+                        .index-item
+                            a(href="/album/"+album._id)
+                                img(src="images/1.png", alt="").index-cover
+                            a.album-title(href="/album/"+album._id)
+                                h3=album.title
+                            a(href="/user/"+album.creator.username).album-artist=album.creator.fullname
+                else
+                    p No hay actualizaciones
+                //if albums.length > 0
+                    .index-item
+                        - var l = albums.length-1
+                        - for(var i = 0; i < 1; i++)
+                            a(href="/album/"+albums[l]._id)
+                                img(src="images/1.png", alt="").main-item
+                            a.album-title(href="/album/"+albums[l]._id)
+                                h3=albums[l].title
+                            p.album-description=albums[l].description
+                            p.album-year=albums[l].year

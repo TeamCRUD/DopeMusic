@@ -2,7 +2,8 @@ var User = require("../models/users")
 
 module.exports = function(req, res, next){
     if(!req.session.user_id){
-        res.redirect('/login')
+        res.locals = {user : {username: false}}
+        next()
     }
     else{
         User.findById(req.session.user_id,function(err,user){

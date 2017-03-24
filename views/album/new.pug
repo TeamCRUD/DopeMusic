@@ -1,0 +1,23 @@
+extends ../layout/default
+
+block content_default
+    .form-content 
+        if user.username
+                .form-title
+                    h1 Nuevo album
+                .form-main
+                    form(action="/album" method="POST")
+                        .form-input
+                            input(type="text" name="title" placeholder="Titulo")
+                        .form-input
+                            input(type="text" name="description" placeholder="Descripcion del album...")
+                        .form-input
+                            input(type="text" name="year" placeholder="Año")
+                        .form-button
+                            input(type="submit" value="Crear album")
+        else
+            .form-title
+                h1 Tienes que tener una cuenta
+            .form-main
+                 a.button-1(href="/signup") Crear una cuenta
+                 a.button-2(href="/login") Entrar

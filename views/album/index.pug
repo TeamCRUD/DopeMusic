@@ -1,0 +1,21 @@
+extends ../layout/default
+
+block content_default
+    .library-content 
+        .library-main
+            for album in albums
+                .library-item
+                    a(href="/album/"+album._id)
+                        img(src="images/1.png", alt="").library-cover
+                    a.album-title(href="/album/"+album._id)
+                        h3=album.title
+                    p=album.description
+                    p=album.year
+                    if user.admin
+                        .library-button
+                            form(action="/album/"+album._id+"?_method=DELETE" method="POST")
+                                a(href="/album/"+album._id+"/edit") Editar 
+                                input(type="submit" value="Eliminar")
+        if user.admin
+            .library-footer
+                a(href="/album/new") Crear album

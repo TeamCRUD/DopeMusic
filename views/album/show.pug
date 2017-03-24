@@ -1,0 +1,12 @@
+extends ../layout/default
+
+block content_default
+    .show-content
+        .show-main
+            .show-info
+                a(href="/user") #{album.creator.fullname} #[br]
+                span #{album.title} 
+                p Pop · #{album.year}
+            .show-cover
+                img(src="/images/1.png")
+        

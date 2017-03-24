@@ -1,48 +1,38 @@
 .show-content{
     @include edContainer
 }
-.show-title, .show-main, .show-button{
-    @include edItem;
-    h1 {
-        font-weight: $normal
-    }
-}
-.display{
-    display: none
-}
-.show-title{
-    text-align: center
-}
 .show-main{
-    padding: .5em;
-    text-align: center;
-    .song{
-        cursor: pointer
+    @include edContainer;
+    @include edItem;
+    padding: 0;
+    border-bottom: 1px solid $border; 
+    .show-info{
+        @include edItem(70);
+        padding: 1em;
+        a{
+            font-size: 16px;
+            color: $favorite;
+            text-decoration: none;
+            &:hover{
+                color: $secondary
+            }
+        }
+        span{
+            font-size: 24px
+        }
+        p{
+            margin: 0;
+            color: $secondary
+        }
     }
-    .button-1,.button-2{
-        margin: 0 .2em;
-        border: none;
-        color: $secondary;
-        background: $primary;
-        text-decoration: none;
-        cursor: pointer
-    }
-    .button-2{
-        padding: .1em;
-    }
-    .button-1:hover{
-        color: $favorite;
-        transition: .3s all
-    }
-    .button-2:hover{
-        color: $danger;
-        transition: .3s all
-    }
-}
-.show-button{
-    text-align: center;
-    margin: 1em;
-    a{
-        @include button($primary, $secondary, radius)
+    .show-cover{
+        @include edItem(30);
+        text-align: right;
+        padding: 1em;
+        img{
+            width: 350px;
+            height: 350px;
+            border: 1px solid $border
+        }
     }
 }

@@ -4,8 +4,8 @@ var router = express.Router();
 var album_find = require("../middlewares/find_album")
 var song_find = require("../middlewares/find_song")
 
-var AlbumCtrl = require("../middlewares/album_reset")
-var SongCtrl = require("../middlewares/song_reset")
+var AlbumCtrl = require("../controllers/album")
+var SongCtrl = require("../controllers/song")
 
 //album
 router.get("/new", AlbumCtrl.renderNewAlbum)

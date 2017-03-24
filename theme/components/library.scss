@@ -17,7 +17,7 @@
         @include grid(".library-item",2);
     }
     @include from(m){
-        @include grid(".library-item",4);
+        @include grid(".library-item",5);
     }
 }
 .library-cover{

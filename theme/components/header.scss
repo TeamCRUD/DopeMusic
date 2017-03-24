@@ -1,14 +1,26 @@
+header{
+    padding: 1em;
+    border-bottom: 1px solid $border;
+}
 .header-content{
     @include edContainer
 }
-.header-title, .header-message{
-    @include edItem(100,1/2,1/3);
-    h1,h2{
-        font-size: 30px;
-        font-weight: $normal
+.header-title{
+    @include edItem(100,1/2);
+    a{
+        font-size: 16px;
+        text-decoration: none;
+        color: $secondary
     }
-    h2{
-        text-align: center;
+    .button-1, .button-2{
+        color: $favorite;
+        margin: 0 .2em;
+        &:hover{
+            color: $secondary
+        }
+    }
+    .button-1{
+        margin-left: 1.5em
     }
     @include showFrom(m)
 }
@@ -16,20 +28,47 @@
     @include showFrom(l)
 }
 .header-button{
-    @include edItem(100,1/2,1/3);
+    @include edItem(100,1/2);
     text-align: center;
     @include from(m){
         text-align: right
     }
     a{
-        margin: 1em .1em
+        margin: 0 .2em;
+        font-size: 14px;
+        border-radius: 3px;
+        text-decoration: none
+    }
+    .button-1, .button-2{
+        padding: .5em;
     }
     .button-1{
+        color: $dark;
         border: 1px solid $secondary;
-        @include button($primary, $secondary, radius)
+        &:hover{
+            border: 1px solid $dark;
+        }
     }
     .button-2{
-        @include button($dark, $primary, radius)
+        color: $primary;
+        background: $dark;
+        border: 1px solid $dark;
+    }
+    .button-3{
+        color: $dark;
+        margin: 1em;
+        &:hover{
+            color: $secondary
+        }
+
+    }
+    .button-4{
+        color: $favorite;
+        margin: .3em;
+        &:hover{
+            color: $secondary
+        }
+
     }
 }
 .header-title-dash{

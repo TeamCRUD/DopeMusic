@@ -1,0 +1,21 @@
+extends empty
+
+block content
+    header
+        .header-content
+            .header-title
+                a(href="/") Creators
+                if user.username
+                    a.button-1(href="/") Inicio
+                    a.button-2(href="/") Biblioteca
+            if user.username
+                .header-button
+                    a.button-4(href="/login") Go Pro
+                    a.button-4(href="/album/new") Crear album
+                    a.button-4(href="/signup") #{user.fullname}
+            else
+                .header-button
+                    a.button-1(href="/login") Iniciar sesion
+                    a.button-2(href="/signup") Registrarse
+                    a.button-3(href="/album/new") Crear album
+    block content_default

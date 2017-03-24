@@ -1,0 +1,10 @@
+
+        for song in songs
+            .show-main
+                form(action="/album/"+album._id+"/song/"+song._id+"?_method=DELETE" method="POST")
+                    a.song(id=song.song) #[b #{song.title}] - #{song.artist}
+                    a.button-1(href="/album/"+album._id+"/song/"+song._id+"/edit") Editar
+                    input.button-2(type="submit" value="Eliminar")
+        if user.admin
+            .show-button
+                a(href="/album/"+album._id+"/song/new") Añadir cancion 

@@ -18,7 +18,7 @@ router.route("/")
       return res.status(404).send()
     }else{
       req.session.user_id = user._id
-      res.redirect("/dashboard")
+      res.redirect("/")
     }
   })
 });

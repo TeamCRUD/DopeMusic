@@ -5,17 +5,24 @@ $(function(){
         var audio = $("#mytrack")
         var wrapper = $("#wrapper")
         var description = $(".description")
+        var time = $("#fullDuration")
+
         audio[0].pause()
         audio.attr("src", "/songs/"+song_name)
         audio[0].play()
-
         wrapper.removeClass("display")
         description.addClass("display")
     })
 
+    function time(){
+        var audio = $("#mytrack")[0]
+
+        console.log(audio.duration)
+    }
+
     var list = $(".song")
 
-    list.on("click", song)
+    list.on("click", song, time)
 
     var play = $("#playButton").click(function(){
         var audio = $("#mytrack")
@@ -37,10 +44,10 @@ $(function(){
         var audio = $("#mytrack")
         if(audio[0].muted){
             audio[0].muted = false
-            $(this).removeClass("icon-mute").addClass("icon-volume")
+            $(this).removeClass("icon-volume").addClass("icon-mute")
         }else{
             audio[0].muted = true
-            $(this).removeClass("icon-volume").addClass("icon-mute")
+            $(this).removeClass("icon-mute").addClass("icon-volume")
         }
     })
 })

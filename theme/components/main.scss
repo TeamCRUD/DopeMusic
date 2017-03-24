@@ -1,8 +1,46 @@
 .index-content{
     @include edContainer;
-    text-align: center
+}
+.index-title{
+    @include edItem;
+    padding: 0;
+    padding-top: 1em;
+    h2{
+        margin: .2em;
+        font-size: 24px;
+    }
 }
 .index-main{
+    @include grid(".index-item",4);
+    .album-title{
+        h3{
+            margin: 0 .2em;
+            margin-top: 1em;
+            margin-bottom: .2em;
+            &:hover{
+                color: $dark
+            }
+        }
+        color: $secondary;
+        text-decoration: none;
+    }
+    .album-artist{
+        margin: 0 .2em;
+        color: $favorite;
+        text-decoration: none;
+        &:hover{
+            color: $secondary
+        }
+    }
+}
+.index-cover{
+    border: 1px solid $border;
+    &:hover{
+        border: 1px solid $secondary
+    }
+}
+
+/*.index-main{
     @include edItem;
     h3{
         font-weight: $normal
@@ -20,8 +58,8 @@
         margin: 0;
     }
     .main-item{
-        height: 200px;
-        width: 200px;
+        height: 300px;
+        width: 300px;
         margin: auto;
         margin-bottom: .5em;
         border: 1px solid $border;
@@ -29,8 +67,15 @@
             border: 1px solid $secondary;
         }
     }
-    .album-description, .album-year{
+    .album-title{
+        font-size: 14px;
+        h3{
+            color: $dark
+        }
+    }
+    .album-artist{
+        font-size: 14px;
         color: $favorite;
         padding: .2em;
     }
-}
+}*/
