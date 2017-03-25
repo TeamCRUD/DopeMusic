@@ -4,11 +4,12 @@ block content_default
     .user-content
         .user-main
             .user-avatar
-                img(src="/images/1.png")
+                img(src="/images/2.png")
             .user-info
                 h3 #{user.fullname}
+                h4 #{user.username}
+                h4 #{user.city}
         if user.username
             .user-button
-                a(href='/user/'+user._id+'/edit') Editar perfil
-            .user-button
-                a(href='/logout') Cerrar sesion
+                a.button-1(href='/user/edit') Editar perfil
+                a.button-1(href='/logout') Cerrar sesion

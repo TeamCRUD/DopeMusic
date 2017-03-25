@@ -23,8 +23,17 @@ var user_schema = new Schema({
     username: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     sex: {type: String, required: true},
+    email: String,
     typeuser: String,
-    genero: String,
+    gender: String,
+    city: String,
+    network: {
+        facebook: String,
+        twitter: String,
+        instagram: String,
+        youtube: String,
+        other: String,
+    }
 })
 
 module.exports = mongoose.model('User' , user_schema);

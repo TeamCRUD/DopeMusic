@@ -1,0 +1,52 @@
+.user-content{
+    @include edContainer
+}
+.user-main{
+    @include edItem;
+    @include edContainer;
+    padding: 1em;
+    background: $light
+}
+.user-avatar{
+    @include edItem(100,20);
+    img{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 1px solid $border
+    }
+}
+.user-info{
+    @include edItem(100,80);
+    padding: 1em .5em;
+    h3{
+        margin: 0;
+        font-size: 24px;
+        margin-bottom: .3em;
+    }
+    h4{
+        margin: 0;
+        font-size: 16px;
+        color: $favorite;
+        font-weight: $normal;
+        margin-bottom: .2em;
+    }
+}
+.user-button{
+    @include edItem;
+    padding: 1em 0;
+    text-align: right;
+    border-bottom: 1px solid $border;
+    .button-1{
+        text-decoration: none;
+        color: $favorite;
+        font-size: 14px;
+        padding: .3em .5em;
+        margin-left: .3em;
+        border-radius: 2px;
+        border: 1px solid $border;
+        &:hover{
+            border: 1px solid $favorite
+        }
+    }
+}
