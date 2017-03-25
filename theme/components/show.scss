@@ -8,6 +8,7 @@
     border-bottom: 1px solid $border; 
     .show-info{
         @include edItem(70);
+        @include showFrom(m);
         padding: 1em;
         a{
             font-size: 16px;
@@ -26,13 +27,18 @@
         }
     }
     .show-cover{
-        @include edItem(30);
+        @include edItem(100,30);
         text-align: right;
         padding: 1em;
-        img{
-            width: 325px;
-            height: 325px;
-            border: 1px solid $border
+        @include to(m){
+            padding: 0;
+        }
+        @include from(m){
+            img{
+                width: 325px;
+                height: 325px;
+                border: 1px solid $border
+            }
         }
     }
 }

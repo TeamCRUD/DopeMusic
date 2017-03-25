@@ -4,10 +4,20 @@ block content
     header
         .header-content
             .header-title
-                a(href="/") Creators
+                a.header-logo(href="/") Creators
                 if user.username
-                    a.button-1(href="/") Inicio
-                    a.button-2(href="/") Biblioteca
+                    a.button-1(href="/") 
+                        b.icon-home 
+                        span Inicio
+                    a.button-2(href="/")
+                        b.icon-headset-sound-streamline
+                        span Biblioteca
+                    a.button-3(href="/")
+                        b.icon-search
+                        span Explorar
+                    a.button-4(href="/")
+                        b.icon-bars
+                        span Perfil
             if user.username
                 .header-button
                     a.button-4(href="/login") Go Pro
