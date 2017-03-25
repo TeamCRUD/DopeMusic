@@ -1,0 +1,23 @@
+extends ../layout/default
+
+block content_default
+    .user-content
+        .user-title
+            h1 Crear nuevo album
+        .user-main
+            .user-avatar
+                img(src="/images/1.png")
+                .user-file
+                    input(type="file" name="cover")
+            .upload-input
+                .upload-item
+                    label Nombre completo #[br]
+                    input(type="text" name="title" placeholder="Por favor escribe tu nombre" value=user.fullname)
+                .upload-item
+                    label Usuario #[br]
+                    input(type="text" name="title" placeholder="Por favor escribe tu nombre de ussuario" value=user.username)
+                .upload-item
+                    label Ciudad #[br]
+                    input(type="text" name="title" placeholder="Por favor escribe la ciudad donde vives" value=user.city)
+        .user-button
+            a(href='/user/edit') Editar

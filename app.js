@@ -28,6 +28,7 @@ var create = require('./routes/upload');
 var dashboard = require('./routes/dashboard');
 var home = require('./routes/home');
 var profile = require('./routes/profile');
+var user = require('./routes/user');
 var album = require('./routes/album');
 
 var app = express();
@@ -62,6 +63,7 @@ app.use('/album', album);
 app.use('/home', home);
 app.use('/dashboard', dashboard);
 app.use('/profile', profile);
+app.use('/user', user);
 
 app.post("/song", upload.single("song"), function(req, res){
   console.log(req.file)
