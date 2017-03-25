@@ -18,7 +18,7 @@ var upload = multer({storage: opcionesMulter})
 
 // render
 exports.renderNewSong = function(req,res){
-    res.render("app/song/new",{title: "Nuevo cancion"})
+    res.render("song/new",{title: "Nuevo cancion"})
 }
 
 exports.renderEditSong= function(req,res){

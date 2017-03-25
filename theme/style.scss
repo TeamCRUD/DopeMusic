@@ -20,7 +20,7 @@ $secondary:  #333;
 $danger:     #f53d3d;
 $light:      #f4f4f4;
 $dark:       #030303;
-$favorite:   #66757F;
+$favorite:   #666;
 $border:     #E1E8ED;
 
 // Import Default Styles ======
@@ -37,3 +37,4 @@ $border:     #E1E8ED;
 @import "components/show";
 @import "components/profile";
 @import "components/player";
+@import "components/upload";

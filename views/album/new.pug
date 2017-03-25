@@ -1,20 +1,42 @@
 extends ../layout/default
 
 block content_default
-    .form-content 
+    .upload-content 
         if user.username
-                .form-title
-                    h1 Nuevo album
-                .form-main
-                    form(action="/album" method="POST")
-                        .form-input
-                            input(type="text" name="title" placeholder="Titulo")
-                        .form-input
-                            input(type="text" name="description" placeholder="Descripcion del album...")
-                        .form-input
-                            input(type="text" name="year" placeholder="Año")
-                        .form-button
-                            input(type="submit" value="Crear album")
+            .upload-title
+                h1 Crear nuevo album
+                p #[b Importante:] No haremos publico el album a menos que lo hagas
+            .upload-main
+                form(action="/album" method="POST")
+                    .upload-cover
+                        label Album cover(Imagen)
+                        img(src="/images/1.png", alt="")
+                        p Minimo 600 X 600 px. Max 10mg
+                        .upload-file
+                            input(type="file" name="cover")
+                    .upload-input
+                        .upload-item
+                            label Titulo del album #[br]
+                            input(type="text" name="title" placeholder="Titulo del album")
+                        .upload-item
+                            label Descripcion #[br]
+                            input(type="text" name="description" placeholder="Descripcion")
+                        .upload-item
+                            label Genero principal #[br]
+                            select(name="sex")
+                                option Seleccionar 
+                                option(value="Reggae") Reggae
+                                option(value="Electronica") Electronica
+                                option(value="Pop") Pop
+                        .upload-item
+                            label Fecha(DD/MM/AAAA) #[br]
+                            input.item-small(type="text" name="year" placeholder="DD")
+                            input.item-small(type="text" name="year" placeholder="MM")
+                            input.item-normal(type="text" name="year" placeholder="AAAA")
+                    .upload-button
+                        p
+                        a(href='/upload') Cancelar
+                        input(type="submit" value="Guardar")
         else
             .form-title
                 h1 Tienes que tener una cuenta

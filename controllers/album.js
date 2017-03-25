@@ -18,7 +18,7 @@ exports.renderEditAlbum = function(req,res){
 exports.allAlbum = function(req,res){
     Album.find({},function(err,albums){
         if(err){
-            return res.redirect("/dashboard")
+            return res.redirect("/")
         }
         res.render("album/index",{title:"Biblioteca", albums: albums})
     })

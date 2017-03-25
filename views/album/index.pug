@@ -11,11 +11,8 @@ block content_default
                         h3=album.title
                     p=album.description
                     p=album.year
-                    if user.admin
+                    if user.username == album.creator.username
                         .library-button
                             form(action="/album/"+album._id+"?_method=DELETE" method="POST")
                                 a(href="/album/"+album._id+"/edit") Editar 
                                 input(type="submit" value="Eliminar")
-        if user.admin
-            .library-footer
-                a(href="/album/new") Crear album

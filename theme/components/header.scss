@@ -1,12 +1,12 @@
 header{
-    padding: 1em;
+    padding: .8em 0;
     border-bottom: 1px solid $border;
 }
 .header-content{
     @include edContainer
 }
 .header-title{
-    @include edItem(100,1/2);
+    @include edItem(25,1/2);
     a{
         font-size: 16px;
         text-decoration: none;
@@ -22,17 +22,10 @@ header{
     .button-1{
         margin-left: 1.5em
     }
-    @include showFrom(m)
-}
-.header-message{
-    @include showFrom(l)
 }
 .header-button{
-    @include edItem(100,1/2);
-    text-align: center;
-    @include from(m){
-        text-align: right
-    }
+    @include edItem(75,1/2);
+    text-align: right;
     a{
         margin: 0 .2em;
         font-size: 14px;
@@ -60,7 +53,7 @@ header{
         &:hover{
             color: $secondary
         }
-
+        @include showFrom(m)
     }
     .button-4{
         color: $favorite;
@@ -69,6 +62,9 @@ header{
             color: $secondary
         }
 
+    }
+    @include to(m){
+        padding: 0 .5em
     }
 }
 .header-title-dash{

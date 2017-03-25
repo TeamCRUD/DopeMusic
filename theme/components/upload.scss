@@ -1,0 +1,74 @@
+.upload-content{
+    @include edContainer
+}
+.upload-title{
+    @include edItem;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    h1{
+        margin:0
+    }
+    p{
+        margin: 0;
+        padding: 0;
+        padding-top: .3em;
+        padding-bottom: 1em;
+        color: $favorite;
+        border-bottom: 1px solid $border
+    }
+}
+.upload-main{
+    @include edItem;
+    padding: 0;
+    form{
+        @include edContainer;
+    }
+}
+.upload-cover{
+    @include edItem(30);
+    p{
+        color: $favorite
+    }
+    img{
+        width: 300px;
+        height: 300px;
+        border: 1px solid $border;
+    }
+}
+.upload-input{
+    @include edItem(70);
+    padding: 1em 0;
+    .upload-item{
+        margin-bottom: .6em;
+        input{
+            margin-top: .2em;
+            padding: .4em;
+            font-size: 1.2em;
+            width: 20em;
+            border: none;
+            border: 1px solid $border;
+            border-radius: 3px 
+        }
+        .item-small{
+            margin-right: .3em;
+            width: 2.5em;
+            text-align: center
+        }
+        .item-normal{
+            width: 5em;
+            text-align: center
+        }
+    }
+}
+.upload-button{
+    @include edItem;
+    text-align: right;
+    a{
+        padding: .2em;
+        color: $secondary;
+        border: 1px solid $secondary
+    }
+    p{
+        border-top: 1px solid $border
+    }
+}

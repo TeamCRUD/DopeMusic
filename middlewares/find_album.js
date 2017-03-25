@@ -8,7 +8,7 @@ module.exports = function(req,res,next){
                 res.locals.album = album
                 next()
             }else{
-                res.redirect("/dashboard")
+                res.redirect("/")
             }
         })
 }
