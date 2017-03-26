@@ -36,7 +36,7 @@
     }
 }
 .upload-input{
-    @include edItem(70);
+    @include edItem(35);
     padding: 1em 0;
     .upload-item{
         margin-bottom: .6em;
@@ -58,6 +58,12 @@
             width: 5em;
             text-align: center
         }
+    }
+}
+.upload-permision{
+    @include edItem(35);
+    span{
+        color: $favorite
     }
 }
 .upload-button{
