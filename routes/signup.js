@@ -13,8 +13,10 @@ router.route("/")
             res.render("signup", {title: "Creators", message: "Por favor completa los datos"})
         }else{ 
             var user = new User({
-                username: req.body.username,
                 fullname: req.body.fullname,
+                email: req.body.email,
+                phone: req.body.phone,
+                username: req.body.username,
                 password: req.body.password,
                 sex: req.body.sex,
             })

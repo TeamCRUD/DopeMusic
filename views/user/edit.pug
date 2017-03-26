@@ -15,10 +15,13 @@ block content_default
                             input(type="text" name='fullname' placeholder="Por favor escribe tu nombre" value=user.fullname)
                         .user-input
                             label.user-item-edit Nombre de Usuario #[br]
-                            input(type="text" name="username" placeholder="Titulo del album..." value=user.username)
+                            input(type="text" name="username" placeholder="Nombre de usuario" value=user.username)
                         .user-input
                             label.user-item-edit Correo #[br]
-                            input(type="text" name="email" placeholder="Titulo del album..." value=user.email)
+                            input(type="text" name="email" placeholder="Correo electronico" value=user.email)
+                        .user-input
+                            label.user-item-edit Telefono #[br]
+                            input(type="text" name="phone" placeholder="Numero celular" value=user.phone)
                         .user-select
                             if user.gender
                                 label.user-item-edit Genero principal #[br]
@@ -33,7 +36,7 @@ block content_default
                                     option(value="Pop") Pop
                         .user-input
                             label Ciudad #[br]
-                            input(type="text" name="city" placeholder="Titulo del album..." value=user.city)
+                            input(type="text" name="city" placeholder="Donde vives" value=user.city)
                     .user-network
                         p Redes sociales
                         .user-input              

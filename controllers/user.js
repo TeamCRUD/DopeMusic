@@ -4,6 +4,7 @@ exports.updateUser = function(req,res){
         res.locals.user.fullname = req.body.fullname
         res.locals.user.username = req.body.username
         res.locals.user.email = req.body.email
+        res.locals.user.phone = req.body.phone
         res.locals.user.gender = req.body.gender
         res.locals.user.city = req.body.city
         res.locals.user.network.facebook = req.body.facebook
