@@ -1,10 +1,13 @@
 extends layout/default
 
 block content_default
-    .upload-content 
-        .upload-song
-            a(href='/album/new') Subir cancion
-        .upload-album
-            a(href='/album/new') Crear album
-        .upload-main
-            p Al subir contenido a Creators, por la presente certificas que eres el propietario de los derechos de autor o tienes todos los derechos necesarios relacionados con dicho contenido para cargarlo.
+    if user.typeuser == "Artista"
+        .upload-content 
+            .upload-song
+                a(href='/album/new') Subir cancion
+            .upload-album
+                a(href='/album/new') Crear album
+            .upload-main
+                p Al subir contenido a Creators, por la presente certificas que eres el propietario de los derechos de autor o tienes todos los derechos necesarios relacionados con dicho contenido para cargarlo.
+    else
+        h2 Ve a tu perfil y edita tu tipo de cuenta

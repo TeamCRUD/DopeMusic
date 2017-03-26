@@ -25,7 +25,7 @@ var user_schema = new Schema({
     sex: {type: String, required: true},
     email:{type: String, required: true},
     phone:{type: String, required: true},
-    typeuser: String,
+    typeuser:{type: String, required: true},
     gender: String,
     city: String,
     network: {

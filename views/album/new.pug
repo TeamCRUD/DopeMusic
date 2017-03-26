@@ -2,7 +2,7 @@ extends ../layout/default
 
 block content_default
     .upload-content 
-        if user.username
+        if user.username && user.typeuser =="Artista"
             .upload-title
                 h1 Crear nuevo album
                 p #[b Importante:] No haremos publico el album a menos que lo hagas
@@ -30,8 +30,8 @@ block content_default
                                 option(value="Pop") Pop
                         .upload-item
                             label Fecha(DD/MM/AAAA) #[br]
-                            input.item-small(type="text" name="year" placeholder="DD")
-                            input.item-small(type="text" name="year" placeholder="MM")
+                            input.item-small(type="text" name="day" placeholder="DD")
+                            input.item-small(type="text" name="month" placeholder="MM")
                             input.item-normal(type="text" name="year" placeholder="AAAA")
                     .upload-permision
                         p Album publico
@@ -44,8 +44,11 @@ block content_default
                         a(href='/upload') Cancelar
                         input(type="submit" value="Guardar")
         else
-            .form-title
-                h1 Tienes que tener una cuenta
-            .form-main
-                 a.button-1(href="/signup") Crear una cuenta
-                 a.button-2(href="/login") Entrar
+            if !user.username
+                .form-title
+                    h1 Tienes que tener una cuenta
+                .form-main
+                    a.button-1(href="/signup") Crear una cuenta
+                    a.button-2(href="/login") Entrar
+            if !user.typeuser
+                h2 Ve a tu perfil y edita tu tipo de cuenta

@@ -18,6 +18,7 @@ router.route("/")
                 phone: req.body.phone,
                 username: req.body.username,
                 password: req.body.password,
+                typeuser: "Estandar",
                 sex: req.body.sex,
             })
 

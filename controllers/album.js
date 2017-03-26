@@ -28,6 +28,7 @@ exports.addAlbum =function(req,res){
     var data ={
         title: req.body.title,
         description: req.body.description,
+        date: req.body.day+","+req.body.month+","+req.body.year,
         year: req.body.year,
         creator: res.locals.user._id
     }

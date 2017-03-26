@@ -34,6 +34,12 @@ block content_default
                                     option(value="Reggae") Reggae
                                     option(value="Electronica") Electronica
                                     option(value="Pop") Pop
+                        .user-select
+                            label.user-item-edit Tipo de cuenta #[br]
+                            select(name="typeuser")
+                                option(selected) #{user.typeuser}
+                                option(value="Artista") Artista
+                                option(value="Go Pro") Go Pro
                         .user-input
                             label Ciudad #[br]
                             input(type="text" name="city" placeholder="Donde vives" value=user.city)
