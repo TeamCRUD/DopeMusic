@@ -20,9 +20,9 @@
             "args": ["run", "test"]
         },
         {
-            "taskName": "w:a",
+            "taskName": "dev",
             "isBuildCommand": true,
-            "args": ["run", "w:a"]
+            "args": ["run", "dev"]
         }
     ]
 }
