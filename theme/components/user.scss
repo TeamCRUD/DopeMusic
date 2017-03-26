@@ -50,3 +50,95 @@
         }
     }
 }
+.user-title{
+    @include edItem;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    h1{
+        color: $secondary;
+        margin:0;
+        padding-bottom: .3em;
+        border-bottom: 1px solid $border;
+    }
+}
+.user-main-edit{
+    @include edItem;
+    form{
+        @include edContainer
+    }
+}
+.user-avatar-edit{
+    @include edItem(25);
+    padding: 0;
+    img{
+        width: 260px;
+        height: 260px;
+        border: 1px solid $border;
+        border-radius: 50%
+    }
+}
+.user-date{
+    @include edItem(75);
+    padding: 0;
+}
+.user-network{
+    @include edItem;
+    p{
+        margin: 0;
+        padding: .5em 0;
+        margin-bottom: .7em;
+        color: $favorite;
+        border-bottom: 1px solid $border
+    }
+    .input-big{
+        width: 25em;
+    }
+}
+.user-input, .user-select{
+    input, select{
+        border: 1px solid $border;
+        border-radius: 3px;
+        width: 15em;
+        margin-bottom: .7em;
+        padding: .3em;
+        font-size: 14px;
+    }
+}
+.user-item-edit{
+    margin-bottom: .3em;
+}
+.ion-social-facebook{
+    margin-right: 1em;
+}
+.ion-social-twitter{
+    margin-right: .5em
+}
+.ion-social-instagram{
+    margin-right: .7em
+}
+.ion-social-youtube{
+    margin-right: .5em
+}
+.ion-android-globe{
+    margin-right: .7em
+}
+.user-button-edit{
+    @include edItem;
+    padding: 1em 0;
+    border-top: 1px solid $border;
+    text-align: right;
+    a{
+        margin: 1em;
+        color: $secondary;
+        text-decoration: none
+    }
+    input{
+        cursor: pointer;
+        color: $primary;
+        background: $secondary;
+        border: none;
+        border-radius: 2px;
+        padding: .5em .8em;
+        font-size: 14px
+    }
+}

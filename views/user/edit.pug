@@ -4,54 +4,54 @@ block content_default
     .user-content
         if user.username
             .user-title
-                h1 Crear nuevo album
-            .user-main
+                h1 Editar su perfil
+            .user-main-edit
                 form(action= '/user/edit?_method=PUT' method="POST")
                     .user-avatar-edit
-                        img(src="/images/1.png")
-                    .user-input
-                        label Nombre completo #[br]
-                        input(type="text" name='fullname' placeholder="Por favor escribe tu nombre" value=user.fullname)
-                    .user-input
-                        label Nombre de Usuario #[br]
-                        input(type="text" name="username" placeholder="Titulo del album..." value=user.username)
-                    .user-input
-                        label Correo #[br]
-                        input(type="text" name="email" placeholder="Titulo del album..." value=user.email)
-                    if user.gender
+                        img(src="/images/2.png")
+                    .user-date
+                        .user-input
+                            label.user-item-edit Nombre completo #[br]
+                            input(type="text" name='fullname' placeholder="Por favor escribe tu nombre" value=user.fullname)
+                        .user-input
+                            label.user-item-edit Nombre de Usuario #[br]
+                            input(type="text" name="username" placeholder="Titulo del album..." value=user.username)
+                        .user-input
+                            label.user-item-edit Correo #[br]
+                            input(type="text" name="email" placeholder="Titulo del album..." value=user.email)
                         .user-select
-                            label Genero principal #[br]
-                            select(name="gender")
-                                option #{user.gender} 
-                    else
-                        .user-select
-                            label Genero principal #[br]
-                            select(name="gender")
-                                option Seleccionar 
-                                option(value="Reggae") Reggae
-                                option(value="Electronica") Electronica
-                                option(value="Pop") Pop
-                    .user-input
-                        label Ciudad #[br]
-                        input(type="text" name="city" placeholder="Titulo del album..." value=user.city)
-                    .network-item
+                            if user.gender
+                                label.user-item-edit Genero principal #[br]
+                                select(name="gender")
+                                    option #{user.gender} 
+                            else
+                                label.user-item-edit Genero principal #[br]
+                                select(name="gender")
+                                    option Seleccionar 
+                                    option(value="Reggae") Reggae
+                                    option(value="Electronica") Electronica
+                                    option(value="Pop") Pop
+                        .user-input
+                            label Ciudad #[br]
+                            input(type="text" name="city" placeholder="Titulo del album..." value=user.city)
+                    .user-network
                         p Redes sociales
-                    .user-network
-                        label.ion-social-facebook
-                        input(type="text" name="facebook" placeholder="Titulo del album..." value=user.network.facebook)
-                    .user-network
-                        label.ion-social-twitter
-                        input(type="text" name="twitter" placeholder="Titulo del album..." value=user.network.twitter)
-                    .user-network
-                        label.ion-social-instagram
-                        input(type="text" name="instagram" placeholder="Titulo del album..." value=user.network.instagram)
-                    .user-network
-                        label.ion-social-youtube
-                        input(type="text" name="youtube" placeholder="Titulo del album..." value=user.network.youtube)
-                    .user-network
-                        label.ion-android-globe
-                        input(type="text" name="other" placeholder="Titulo del album..." value=user.network.other)
-                    .user-button
+                        .user-input              
+                            label.ion-social-facebook
+                            input.input-big(type="text" name="facebook" placeholder="Link de tu perfil Facebook" value=user.network.facebook)
+                        .user-input
+                            label.ion-social-twitter
+                            input.input-big(type="text" name="twitter" placeholder="Link de tu perfil en Twitter" value=user.network.twitter)
+                        .user-input
+                            label.ion-social-instagram
+                            input.input-big(type="text" name="instagram" placeholder="Link de tu perfil en Instagram" value=user.network.instagram)
+                        .user-input
+                            label.ion-social-youtube
+                            input.input-big(type="text" name="youtube" placeholder="Link de tu canal en Youtube" value=user.network.youtube)
+                        .user-input
+                            label.ion-android-globe
+                            input.input-big(type="text" name="other" placeholder="Tu sitio web (opcional)" value=user.network.other)
+                    .user-button-edit
                         a(href='/user') Cancelar
                         input(type="submit" value="Guardar cambios")
         else

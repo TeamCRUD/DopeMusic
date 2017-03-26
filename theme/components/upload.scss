@@ -64,9 +64,18 @@
     @include edItem;
     text-align: right;
     a{
-        padding: .2em;
+        margin: 1em;
         color: $secondary;
-        border: 1px solid $secondary
+        text-decoration: none
+    }
+    input{
+        cursor: pointer;
+        color: $primary;
+        background: $secondary;
+        border: none;
+        border-radius: 2px;
+        padding: .5em .8em;
+        font-size: 14px
     }
     p{
         border-top: 1px solid $border
