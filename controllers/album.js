@@ -25,12 +25,19 @@ exports.allAlbum = function(req,res){
 }
 
 exports.addAlbum =function(req,res){
+    if(req.body.public){
+        var AlbumPublic = true
+    }else{
+        var AlbumPublic = false
+    }
+    console.log(AlbumPublic)
     var data ={
         title: req.body.title,
         description: req.body.description,
         date: req.body.day+","+req.body.month+","+req.body.year,
         year: req.body.year,
-        creator: res.locals.user._id
+        creator: res.locals.user._id,
+        public: AlbumPublic
     }
     var album = new Album(data)
     album.save().then(function(us){

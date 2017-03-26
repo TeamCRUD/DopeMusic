@@ -6,7 +6,7 @@ var album_schema = new Schema({
     description: {type: String, required: true},
     year: {type: String, required: true},
     creator: {type: Schema.Types.ObjectId, ref: "User"},
-    private: Boolean
+    public: Boolean
 })
 
 module.exports = mongoose.model('Album' , album_schema);

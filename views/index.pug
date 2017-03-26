@@ -8,12 +8,13 @@ block content_default
             .index-main
                 if albums.length > 0
                     for album in albums
-                        .index-item
-                            a(href="/album/"+album._id)
-                                img(src="images/1.png", alt="").index-cover
-                            a.album-title(href="/album/"+album._id)
-                                h3=album.title
-                            a.album-artist(href="/user/"+album.creator.username)=album.creator.fullname
+                        if album.public
+                            .index-item
+                                a(href="/album/"+album._id)
+                                    img(src="images/1.png", alt="").index-cover
+                                a.album-title(href="/album/"+album._id)
+                                    h3=album.title
+                                a.album-artist(href="/user/"+album.creator.username)=album.creator.fullname
                 else
                     p No hay actualizaciones
                 //if albums.length > 0
