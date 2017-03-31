@@ -30,7 +30,6 @@ exports.addAlbum =function(req,res){
     }else{
         var AlbumPublic = false
     }
-    console.log(AlbumPublic)
     var data ={
         title: req.body.title,
         description: req.body.description,

@@ -10,6 +10,7 @@ router.route("/")
         Album.find({},function(err, albums){
             res.render("app/index",{title: "Incio", message: "Bienvenidos", albums: albums})
         })
+        console.log(albums)
     })
 
 module.exports = router;
