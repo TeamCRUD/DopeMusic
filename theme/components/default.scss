@@ -21,3 +21,6 @@ a {
 .display{
     display: none
 }
+.hideM{
+  @include showFrom(m)
+}

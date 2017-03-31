@@ -3,29 +3,32 @@ extends empty
 block content
     header
         .header-content
-            .header-title
-                a.header-logo(href="/") Creators
-                if user.username
+            if !user.username
+                .header-title
+                    a.header-logo(href="/") Creators
+            else
+                .header-title-2
+                    a.header-user(href="/") Creators
                     a.button-1(href="/") 
                         b.ion-home 
                         span Inicio
-                    a.button-2(href="/")
-                        b.icon-headset-sound-streamline
-                        span Biblioteca
                     a.button-3(href="/")
                         b.ion-search
                         span Explorar
+                    a.button-2(href="/")
+                        b.ion-grid
+                        span Biblioteca
                     a.button-4(href="/user")
                         b.ion-navicon-round
                         span Perfil
             if user.username
-                .header-button
+                .header-button.hideM
                     a.button-4(href="/login") Go Pro
                     a.button-4(href="/upload") Subir cancion
                     a.button-4(href="/user") #{user.fullname}
             else
                 .header-button
+                    a.button-3(href="/upload") Subir cancion
                     a.button-1(href="/login") Iniciar sesion
                     a.button-2(href="/signup") Registrarse
-                    a.button-3(href="/upload") Subir cancion
     block content_default
