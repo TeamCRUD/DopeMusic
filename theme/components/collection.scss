@@ -1,0 +1,44 @@
+.collection-content{
+    @include edContainer;
+}
+.collection-main{
+    @include edItem;
+    @include to(m){
+        padding: 0;
+        ul{
+            @include edMenu(s,navBar);
+            border-bottom: 1px solid $border
+        }
+        a{
+            color: $favorite;
+            &:hover{
+                color: $primary;
+                background: $secondary;
+                transition: .3s all
+            }
+        }
+    }
+    @include from(m){
+        margin: 0 1em;
+        padding: 0;
+        padding-top: 2em;
+        border-bottom: 1px solid $border;
+        ul{
+            margin: 0;
+            padding: 0;
+            @include mainStart;
+            li{
+                list-style: none;
+                margin-right: 1em;
+            }
+            a{
+                line-height: 1;
+                color: $secondary;
+                font-size: 24px;
+                &:hover{
+                    color: $secondary
+                }
+            }
+        }
+    }
+}

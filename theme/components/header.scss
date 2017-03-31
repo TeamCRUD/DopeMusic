@@ -6,12 +6,12 @@ header{
     @include edContainer
 }
 .header-title{
-    @include edItem(40,25,1/2);
+    @include edItem(40,50,1/2);
 }
 .header-title-2{
-    @include edItem(100,25,1/2);
-    padding: 0 1.5em;
+    @include edItem(100,60,1/2);
     @include to(m){
+        padding: 0 1.5em;
         text-align: center;
         @include mainJustify;
         a{
@@ -57,7 +57,7 @@ header{
     }
 }
 .header-button{
-    @include edItem(60,75,1/2);
+    @include edItem(60,40,1/2);
     a{
         font-size: 14px;
         text-decoration: none;

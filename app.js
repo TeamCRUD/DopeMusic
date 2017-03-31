@@ -29,6 +29,7 @@ var dashboard = require('./routes/dashboard');
 var home = require('./routes/home');
 var profile = require('./routes/profile');
 var user = require('./routes/user');
+var collection = require('./routes/collection');
 var album = require('./routes/album');
 
 var app = express();
@@ -61,6 +62,7 @@ app.use('/logout', logout);
 app.use('/upload', create);
 app.use('/album', album);
 app.use('/home', home);
+app.use('/collection', collection);
 app.use('/dashboard', dashboard);
 app.use('/profile', profile);
 app.use('/user', user);

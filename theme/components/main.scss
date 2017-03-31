@@ -3,7 +3,6 @@
 }
 .index-title{
     @include edItem;
-    padding: 0;
     padding-top: 1em;
     h2{
         margin: .2em;
@@ -11,7 +10,7 @@
     }
 }
 .index-main{
-    padding: .5em;
+    padding: .5em 1em;
     @include grid(".index-item",4);
     .album-title{
         h3{
