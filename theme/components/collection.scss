@@ -1,7 +1,7 @@
 .collection-content{
     @include edContainer;
 }
-.collection-main{
+.collection-nav{
     @include edItem;
     @include to(m){
         padding: 0;
@@ -10,7 +10,7 @@
             border-bottom: 1px solid $border
         }
         a{
-            color: $favorite;
+            color: $secondary;
             &:hover{
                 color: $primary;
                 background: $secondary;
@@ -38,7 +38,56 @@
                 &:hover{
                     color: $secondary
                 }
+                &:active{
+                    text-decoration: underline
+                }
             }
         }
+    }
+}
+.collection-main{
+    @include edItem
+}
+.collection-title{
+    @include edItem;
+    @include to(m){
+        text-align: center;
+        h2{
+            margin: 1em;
+        }
+    }
+    @include from(m){
+        h2{
+            margin-top: 2em;
+        }
+    }
+    h2{
+        font-size: 18px;
+        font-weight: 100;
+        color: $favorite
+    }
+}
+.collection-main-album{
+    @include edItem;
+    img{
+        border: 1px solid $border;
+        margin-bottom: .5em
+    }
+    a{
+        color: $secondary
+    }
+    p{
+        color: $favorite;
+        margin: 0;
+        margin-bottom: 1.5em
+    }
+    @include to(m){
+        text-align: center;
+    }
+    @include from(m){
+        @include grid(".collection-item",4);
+    }
+    @include from(l){
+        @include grid(".collection-item",5);
     }
 }

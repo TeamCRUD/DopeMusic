@@ -16,11 +16,11 @@ exports.renderEditAlbum = function(req,res){
 
 // rest
 exports.allAlbum = function(req,res){
-    Album.find({},function(err,albums){
+    Album.find({creator: res.locals.user._id},function(err,albums){
         if(err){
             return res.redirect("/")
         }
-        res.render("album/index",{title:"Biblioteca", albums: albums})
+        res.render("collection/albums",{title:"Biblioteca", albums: albums})
     })
 }
 

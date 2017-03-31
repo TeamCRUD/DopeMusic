@@ -1,9 +1,10 @@
 extends ../layout/default
 
 block content_default
-    .collection-content
-        .collection-main
-            ul
-                li: a(href='#') Actividad
-                li: a(href='#') Albums
-    block content_collection
+    if user.username
+        .collection-content
+            .collection-nav
+                ul
+                    li: a(href='/collection') Actividad
+                    li: a(href='/album') Albums
+        block content_collection
