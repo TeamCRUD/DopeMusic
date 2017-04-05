@@ -22,6 +22,7 @@ var user_schema = new Schema({
     fullname: {type: String, required: true},
     username: {type: String, required: true, unique: true},
     password: {type: String, required: true},
+    avatar: {type: String, default: 'default.png'},
     sex: {type: String, required: true},
     email:{type: String, required: true},
     phone:{type: String, required: true},

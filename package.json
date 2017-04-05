@@ -19,7 +19,6 @@
     "express": "^4.14.1",
     "express-session": "^1.15.1",
     "jquery": "^3.1.1",
-    "mediaserver": "^0.1.0",
     "method-override": "^2.3.7",
     "mongoose": "^4.8.2",
     "morgan": "^1.7.0",

@@ -21,7 +21,7 @@ router.route("/:id")
 
 router.route("/")
     .get(AlbumCtrl.allAlbum)
-    .post(AlbumCtrl.addAlbum)
+    .post(AlbumCtrl.uploadCover, AlbumCtrl.addAlbum)
 
 // song
 router.get("/:id/song/new", SongCtrl.renderNewSong)

@@ -8,7 +8,10 @@ block content_default
                 span #{album.title} 
                 p Pop · #{album.year}
             .show-cover
-                img(src="/images/1.png")
+                if album.cover
+                    img(src='/covers/'+album.cover)
+                else
+                    img(src="/images/1.png")
         for song in songs
             .show-songs
                 a.song(id=song.song) #[b #{song.title}] - #{song.artist}

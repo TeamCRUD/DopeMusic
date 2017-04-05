@@ -6,20 +6,8 @@ var bodyParser = require('body-parser');
 var session = require("express-session")
 var session_middleware = require("./middlewares/session")
 var methodOverride = require("method-override")
-var mediaserver = require("mediaserver")
-var multer = require("multer")
 
-var opcionesMulter = multer.diskStorage({
-  destination: function(req, file, cb){
-    cb(null, path.join(__dirname, "songs"))
-  },
-  filename: function(req, file, cb){
-    cb(null, file.originalname)
-  }
-})
-
-var upload = multer({storage: opcionesMulter})
-
+// Controllers routes
 var index = require('./routes/index');
 var signup = require('./routes/signup');
 var login = require('./routes/login');
@@ -45,7 +33,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"))
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/avatars", express.static(path.join(__dirname, 'avatars')));
 app.use("/songs", express.static(path.join(__dirname, 'songs')));
+app.use("/covers", express.static(path.join(__dirname, 'covers')));
 app.use("/jquery", express.static(path.join(__dirname, 'node_modules', 'jquery','dist')));
 app.use(session({
   secret: "D*m*1*7",
@@ -66,11 +56,6 @@ app.use('/collection', collection);
 app.use('/dashboard', dashboard);
 app.use('/profile', profile);
 app.use('/user', user);
-
-app.post("/song", upload.single("song"), function(req, res){
-  console.log(req.file)
-  res.redirect("/album")
-})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

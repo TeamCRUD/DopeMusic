@@ -13,7 +13,6 @@ router.route('/edit')
     .get(function(req, res, next){
         res.render("user/edit",{title: res.locals.user.fullname})
     })
-    .put(UserCtrl.updateUser)
-
+    .put(UserCtrl.uploadAvatar, UserCtrl.updateUser)
 
 module.exports = router;

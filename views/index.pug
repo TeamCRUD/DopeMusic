@@ -9,8 +9,12 @@ block content_default
                 if albums.length > 0
                     for album in albums
                             .index-item
-                                a(href="/album/"+album._id)
-                                    img(src="images/1.png", alt="").index-cover
+                                if album.cover
+                                    a(href="/album/"+album._id)
+                                        img(src="/covers/"+album.cover, alt="").index-cover
+                                else
+                                    a(href="/album/"+album._id)
+                                        img(src="images/1.png", alt="").index-cover
                                 a.album-title(href="/album/"+album._id)
                                     h3=album.title
                                 a.album-artist(href="/user/"+album.creator.username)=album.creator.fullname

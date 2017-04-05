@@ -6,9 +6,10 @@ block content_default
             .user-title
                 h1 Editar su perfil
             .user-main-edit
-                form(action= '/user/edit?_method=PUT' method="POST")
+                form(action= '/user/edit?_method=PUT' method="POST"  enctype="multipart/form-data")
                     .user-avatar-edit
-                        img(src="/images/2.png")
+                        img(src="/avatars/"+user.avatar)
+                        input(type="file" name="avatar")
                     .user-date
                         .user-input
                             label.user-item-edit Nombre completo #[br]

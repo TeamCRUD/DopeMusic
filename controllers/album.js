@@ -1,5 +1,21 @@
 var Album = require('../models/album');
 var fs = require("fs")
+var path = require('path')
+var multer = require("multer")
+
+var d=  new Date()
+var covername = d.getHours()+''+d.getMinutes()
+
+var opcionesMulter = multer.diskStorage({
+  destination: function(req, file, cb){
+    cb(null, path.join(__dirname, "../covers"))
+  },
+  filename: function(req, file, cb){
+    cb(null, covername+''+file.originalname)
+  }
+})
+
+var upload = multer({storage: opcionesMulter})
 
 // render
 exports.renderShowAlbum = function(req,res){
@@ -33,6 +49,7 @@ exports.addAlbum =function(req,res){
     var data ={
         title: req.body.title,
         description: req.body.description,
+        cover: covername + req.file.originalname,
         date: req.body.day+","+req.body.month+","+req.body.year,
         year: req.body.year,
         creator: res.locals.user._id,
@@ -45,6 +62,8 @@ exports.addAlbum =function(req,res){
         res.redirect("/album/new")
     })
 }
+
+exports.uploadCover = upload.single("cover")
 
 exports.updateAlbum = function(req,res){
     res.locals.album.title = req.body.title
@@ -61,4 +80,6 @@ exports.deleteAlbum = function(req,res){
             res.redirect("/album")
         }
     })
+    
+    fs.unlink("./covers/"+res.locals.album.cover)
 }
