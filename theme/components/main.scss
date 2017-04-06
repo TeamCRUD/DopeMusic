@@ -46,3 +46,6 @@
         border: 1px solid $secondary
     }
 }
+.index-item-2{
+    @include edItem
+}

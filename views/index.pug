@@ -19,7 +19,8 @@ block content_default
                                     h3=album.title
                                 a.album-artist(href="/user/"+album.creator.username)=album.creator.fullname
                 else
-                    p No hay actualizaciones
+                    .index-item-2
+                        p No hay actualizaciones
                 //if albums.length > 0
                     .index-item
                         - var l = albums.length-1
