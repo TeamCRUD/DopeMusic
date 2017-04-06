@@ -71,7 +71,11 @@
     @include edItem;
     img{
         border: 1px solid $border;
-        margin-bottom: .5em
+        margin-bottom: .5em;
+        &:hover{
+            border: 1px solid $secondary;
+            transition: .3s all
+        }
     }
     a{
         color: $secondary
