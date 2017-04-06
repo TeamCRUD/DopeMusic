@@ -6,7 +6,7 @@ header{
     @include edContainer
 }
 .header-title{
-    @include edItem(40,50,1/2);
+    @include edItem(20,50,1/2);
 }
 .header-title-2{
     @include edItem(100,60,1/2);
@@ -61,14 +61,15 @@ header{
         margin-right: 1em;
     }
 }
-.header-button{
-    @include edItem(60,40,1/2);
+.header-button,.header-button-2{
+    @include edItem(80,50,1/2);
     a{
         font-size: 14px;
         text-decoration: none;
     }  
     @include to(m){
-        text-align: center;
+        @include mainEnd;
+        line-height: 1.6;
         a{
             color: $favorite;
             &:hover{
@@ -117,4 +118,7 @@ header{
     .button-3{
         @include showFrom(m)
     } 
+}
+.header-button-2{
+    @include showFrom(m) 
 }
