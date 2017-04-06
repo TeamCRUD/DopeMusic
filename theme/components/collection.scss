@@ -77,12 +77,16 @@
             transition: .3s all
         }
     }
+    a,p{
+        font-size: 20px
+    }
     a{
         color: $secondary
     }
     p{
         color: $favorite;
         margin: 0;
+        margin-top: .2em; 
         margin-bottom: 1.5em
     }
     @include to(m){
