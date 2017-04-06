@@ -24,6 +24,32 @@
         @include edContainer;
     }
 }
+.upload-main-2{
+    @include edItem;
+    @include to(m){
+        @include flexCenter;
+        @include flexReverse;
+        padding: 1.5em 1em;
+        p{
+            padding: 1em 0;
+        }
+    }
+    .button-1,.button-2{
+        padding: .5em;
+        text-decoration: none;
+        margin-right: .5em;
+        border-radius: 3px
+
+    }
+    .button-1{
+        border: 1px solid $secondary;
+        background: $dark;
+        color: $primary
+    }
+    .button-2{
+        border: 1px solid $secondary
+    }
+}
 .upload-cover{
     @include edItem(30);
     p{

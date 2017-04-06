@@ -23,7 +23,9 @@ header{
     }
 }
 .header-title-2{
-    line-height: 1.8;
+    @include from(m){
+        line-height: 1.8;
+    }
 }
 .header-title,.header-title-2{
     a{
