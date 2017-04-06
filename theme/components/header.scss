@@ -22,6 +22,9 @@ header{
         }
     }
 }
+.header-title-2{
+    line-height: 1.8;
+}
 .header-title,.header-title-2{
     a{
         font-size: 16px;
@@ -103,6 +106,7 @@ header{
         .button-4{
             color: $favorite;
             margin: .3em;
+            font-size: 25px;
             &:hover{
                 color: $secondary
             }

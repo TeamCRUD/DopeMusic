@@ -23,13 +23,13 @@ block content
                         span Perfil
             if user.username
                 .header-button.hideM
-                    a.button-4(href="/login") Go Pro
-                    a.button-4(href="/upload") Subir cancion
-                    a.button-4(href="/user") #{user.fullname}
+                    a.button-4(href="/upload").ion-upload
+                    a.button-4(href="/login").ion-android-notifications-none
+                    a.button-4(href="/user").ion-navicon-round
                         //span #{user.fullname} #[img(src="/avatars/"+user.avatar, alt="")]
             else
                 .header-button
-                    a.button-3(href="/upload") Subir cancion
+                    a.button-3(href="/upload").ion-upload
                     a.button-1(href="/login") Iniciar sesion
                     a.button-2(href="/signup") Registrarse
     block content_default
