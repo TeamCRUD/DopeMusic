@@ -3,27 +3,26 @@ extends layout/empty
 block content
     .form-content
         .form-title
-            a(href="/")
-                h1=title
+            a(href="/")=title
             p=message
         .form-main
             form(action="/signup" method="POST")
                 .form-input
-                    input(type="text" name="fullname" placeholder="Nombre completo")
+                    input.form-item(type="text" name="fullname" placeholder="Nombre completo")
                 .form-input
-                    input(type="email" name="email" placeholder="Correo electronico")
+                    input.form-item(type="email" name="email" placeholder="Correo electronico")
                 .form-input
-                    input(type="phone" name="phone" placeholder="Telefono")
+                    input.form-item(type="phone" name="phone" placeholder="Telefono")
                 .form-input
-                    input(type="text" name="username" placeholder="Nombre de usuario")
+                    input.form-item(type="text" name="username" placeholder="Nombre de usuario")
                 .form-input
-                    input(type="password" name="password" placeholder="Contraseña")
+                    input.form-item(type="password" name="password" placeholder="Contraseña")
                 .form-select
-                    select(name="sex")
+                    select.form-item(name="sex")
                         option.form-option Sexo
                         option(value="Masculino") Masculino
                         option(value="Femenino") Femenino
                 .form-button
-                    input(type="submit" value="Registrarse")
+                    input.button-1(type="submit" value="Registrarse")
                 .form-button
                     a(href="/login") Ya tengo cuenta

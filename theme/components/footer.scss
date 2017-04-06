@@ -4,3 +4,10 @@ footer{
 .description{
     text-align: center
 }
+a{
+    color: $dark;
+    &:hover{
+        color: $favorite;
+        transition: .3s all
+    }
+}

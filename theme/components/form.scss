@@ -4,9 +4,11 @@
 .form-title{
     @include edItem;
     text-align: center;
+    margin-top: 2em;
     a{
         color: $dark;
-        text-decoration: none
+        text-decoration: none;
+        font-size: 2em
     }
     h1{
         font-weight: $normal;
@@ -33,12 +35,31 @@
         border: 1px solid $border;
         font-size: 1.1em
     }
+    @include to(m){
+        .form-item{
+            width: 100%
+        }
+    }
+    @include from(m){
+        .form-item{
+            margin-bottom: .5em; 
+            width: 372px;
+            padding: 10px;
+            font-size: 18px
+        }
+    }
 }
 .form-button{
     margin-top: .5em;
     margin-bottom: 1em;
     @include to(m){
         padding: 0
+    }
+    @include from(m){
+        .button-1{
+            width: 372px;
+            font-size: 18px
+        }
     }
     input{
         width: 15.4em;

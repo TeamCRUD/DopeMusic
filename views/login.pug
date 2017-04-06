@@ -3,8 +3,7 @@ extends layout/empty
 block content
     .form-content
         .form-title
-            a(href="/")
-                h1=title
+            a(href="/")=title
             p=message
         .form-main
             form(action="/login" method="POST")
