@@ -12,7 +12,7 @@ block content_collection
                             if album.cover
                                 img(src='/covers/'+album.cover)
                             else
-                                img(src="/images/1.png")
+                                img(src="/covers/default.png")
                         a(href='/album/'+album._id)= album.title
                         p=user.fullname
             else
