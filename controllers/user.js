@@ -20,7 +20,8 @@ var upload = multer({storage: opcionesMulter})
 exports.updateUser = function(req,res){
         
         if(res.locals.user.avatar != 'default.png'){
-          fs.unlink("./avatars/"+res.locals.user.avatar)
+
+          //fs.unlink("./avatars/"+res.locals.user.avatar)
         }
 
         res.locals.user.fullname = req.body.fullname
@@ -35,7 +36,8 @@ exports.updateUser = function(req,res){
         res.locals.user.network.instagram = req.body.instagram
         res.locals.user.network.youtube = req.body.youtube
         res.locals.user.network.other = req.body.other
-        res.locals.user.avatar = avatarname + req.file.originalname
+        //res.locals.user.avatar = avatarname + req.file.originalname
+        res.locals.user.avatar = 'default.png'
 
         res.locals.user.save().then(function(us){
             res.redirect('/user')

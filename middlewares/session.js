@@ -1,6 +1,6 @@
 var User = require("../models/users")
 
-module.exports = function(req, res, next){
+exports.allAccess = function(req, res, next){
     if(!req.session.user_id){
         res.locals = {user : {username: false}}
         next()
@@ -11,6 +11,23 @@ module.exports = function(req, res, next){
                 res.redirect("/login")
             }else{
                 res.locals = {user : user}
+                next()
+            }
+        })
+    }
+}
+
+exports.session = function(req, res, next){
+    if(!req.session.user_id){
+        res.redirect('/')
+    }
+    else{
+        User.findById(req.session.user_id, function(err,user){1
+            if(err){
+                console.log(err)
+                res.redirect('/')
+            }else{
+                res.locals = { user: user }
                 next()
             }
         })

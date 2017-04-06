@@ -13,12 +13,9 @@ var signup = require('./routes/signup');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
 var create = require('./routes/upload');
-var dashboard = require('./routes/dashboard');
-var home = require('./routes/home');
-var profile = require('./routes/profile');
-var user = require('./routes/user');
-var collection = require('./routes/collection');
 var album = require('./routes/album');
+var collection = require('./routes/collection');
+var user = require('./routes/user');
 
 var app = express();
 
@@ -44,17 +41,15 @@ app.use(session({
 }))
 
 // routes
-app.use(['/*'], session_middleware);
+app.use(['/*'], session_middleware.allAccess);
 app.use('/', index);
 app.use('/signup', signup);
 app.use('/login', login);
 app.use('/logout', logout);
-app.use('/upload', create);
 app.use('/album', album);
-app.use('/home', home);
+app.use(['/*'], session_middleware.session);
+app.use('/upload', create);
 app.use('/collection', collection);
-app.use('/dashboard', dashboard);
-app.use('/profile', profile);
 app.use('/user', user);
 
 // catch 404 and forward to error handler
