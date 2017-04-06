@@ -5,7 +5,10 @@
     @include edItem;
     @include edContainer;
     padding: 1em;
-    background: $light
+    background: $light;
+    @include to(m){
+        @include flexCenter
+    }
 }
 .user-avatar{
     @include edItem(100,20);
@@ -34,21 +37,21 @@
 }
 .user-button{
     @include edItem;
-    padding: 1em 0;
-    text-align: right;
-    border-bottom: 1px solid $border;
-    .button-1{
-        text-decoration: none;
-        color: $favorite;
-        font-size: 14px;
-        padding: .3em .5em;
-        margin-left: .3em;
-        border-radius: 2px;
-        border: 1px solid $border;
-        &:hover{
-            border: 1px solid $favorite
+    @include to(m){
+        @include mainDistribute;
+        .ion-gear-b{
+            font-size: 1.5em
         }
     }
+    @include from(m){
+        padding: 1em 0;
+        text-align: right;
+        .button-1{
+            font-size: 14px;
+            padding: .3em .5em;
+        }
+    }
+    border-bottom: 1px solid $border
 }
 .user-title{
     @include edItem;
