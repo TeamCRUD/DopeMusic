@@ -9,7 +9,7 @@ header{
     @include edItem(20,50,1/2);
 }
 .header-title-2{
-    @include edItem(100,60,1/2);
+    @include edItem(100,50,1/2);
     @include to(m){
         padding: 0 1.5em;
         text-align: center;
@@ -100,15 +100,16 @@ header{
             border: 1px solid $dark;
         }
         .button-3{
-            color: $dark;
+            font-size: 18px;
+            color: $secondary;
             margin: 1em;
             &:hover{
-                color: $secondary
+                color: $dark
             }
         }
         .button-4{
             color: $favorite;
-            margin: .3em;
+            margin: .5em;
             font-size: 25px;
             &:hover{
                 color: $secondary

@@ -37,21 +37,36 @@
 }
 .user-button{
     @include edItem;
+    border-bottom: 1px solid $border;
+    text-align: right;
+    .ion-gear-b,.button-1{
+        color: $secondary;
+        text-decoration: none;
+        margin-left: .3em;
+        border-radius: 5px;
+        border: 1px solid $border;
+        &:hover{
+            border: 1px solid $secondary;
+        }
+    }  
     @include to(m){
-        @include mainDistribute;
+        padding: 1.3em .5em;
         .ion-gear-b{
-            font-size: 1.5em
+            padding: .3em .5em;
+            font-size: 1.4em;
+        }
+        .button-1{
+            padding: .4em;
+            font-size: 1.3em;
         }
     }
     @include from(m){
         padding: 1em 0;
-        text-align: right;
-        .button-1{
-            font-size: 14px;
-            padding: .3em .5em;
+        .ion-gear-b,.button-1{
+            padding: .4em .5em;
+            font-size: 1em;
         }
     }
-    border-bottom: 1px solid $border
 }
 .user-title{
     @include edItem;
@@ -71,7 +86,7 @@
     }
 }
 .user-avatar-edit{
-    @include edItem(25);
+    @include edItem(100,25);
     padding: 0;
     img{
         width: 260px;
@@ -79,13 +94,23 @@
         border: 1px solid $border;
         border-radius: 50%
     }
+    @include to(m){
+        @include flexCenter;
+        @include flexReverse;
+        input{
+            margin: 2em 0;
+        }
+    }
 }
 .user-date{
-    @include edItem(75);
+    @include edItem(100,75);
     padding: 0;
 }
 .user-network{
     @include edItem;
+    @include to(m){
+        padding: 0;
+    }
     p{
         margin: 0;
         padding: .5em 0;
@@ -93,22 +118,50 @@
         color: $favorite;
         border-bottom: 1px solid $border
     }
-    .input-big{
-        width: 25em;
+    @include to(m){
+        p{
+            font-size: 20px
+        }
+        .user-input{
+            label{
+                @include showFrom(m);
+            }
+            input{
+                font-size: 18px
+            }
+        }
+    }
+    @include from(m){
+        .input-big{
+            width: 25em;
+        }
     }
 }
 .user-input, .user-select{
     input, select{
         border: 1px solid $border;
         border-radius: 3px;
-        width: 15em;
+        
         margin-bottom: .7em;
         padding: .3em;
-        font-size: 14px;
+        
     }
+    @include to(m){
+        input, select{
+            width: 100%;
+            font-size: 18px;
+        }
+    }
+    @include from(m){
+        input, select{
+            width: 15em;
+            font-size: 14px;
+        }
+    }
+    
 }
 .user-item-edit{
-    margin-bottom: .3em;
+    margin-bottom: .4em;
 }
 .ion-social-facebook{
     margin-right: 1em;
@@ -140,7 +193,7 @@
         color: $primary;
         background: $secondary;
         border: none;
-        border-radius: 2px;
+        border-radius: 3px;
         padding: .5em .8em;
         font-size: 14px
     }

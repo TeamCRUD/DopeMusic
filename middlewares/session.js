@@ -19,7 +19,7 @@ exports.allAccess = function(req, res, next){
 
 exports.session = function(req, res, next){
     if(!req.session.user_id){
-        res.redirect('/')
+        res.redirect('/login')
     }
     else{
         User.findById(req.session.user_id, function(err,user){1
