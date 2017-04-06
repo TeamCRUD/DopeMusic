@@ -4,7 +4,8 @@ block content_default
     main
         .index-content
             .index-title
-                h2 Album reciente
+                h1 Bienvenido, #[a(href='/user') #{user.fullname}]
+                p.ion-speakerphone  No te quedes sin escuchar lo nuevo
             .index-main
                 if albums.length > 0
                     for album in albums

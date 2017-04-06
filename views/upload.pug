@@ -3,6 +3,9 @@ extends layout/default
 block content_default
     if user.typeuser == "Artista"
         .upload-content 
+            .upload-title
+                h1 Que deseas hacer pirmero
+                p.ion-speakerphone  Puedes empezar desde cero, si nececitas ayuda haznoslo saber
             .upload-song
                 a(href='/album/new') Subir cancion
             .upload-album

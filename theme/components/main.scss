@@ -3,10 +3,18 @@
 }
 .index-title{
     @include edItem;
-    padding-top: 1em;
-    h2{
-        margin: .2em;
-        font-size: 24px;
+    h1{
+        font-size: 36px
+    }
+    p{
+        color: $favorite
+    }
+    a{
+        text-decoration: none;
+        color: $secondary;
+        &:hover{
+            color: $dark
+        }
     }
 }
 .index-main{
