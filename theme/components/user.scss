@@ -11,7 +11,7 @@
     }
 }
 .user-avatar{
-    @include edItem(100,20);
+    @include edItem(100,30,20);
     img{
         width: 200px;
         height: 200px;
@@ -20,7 +20,7 @@
     }
 }
 .user-info{
-    @include edItem(100,80);
+    @include edItem(100,70,80);
     padding: 1em .5em;
     h3{
         margin: 0;

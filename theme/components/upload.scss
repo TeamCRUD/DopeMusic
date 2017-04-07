@@ -51,43 +51,61 @@
     }
 }
 .upload-cover{
-    @include edItem(30);
+    @include edItem(100,30);
     p{
         color: $favorite
     }
     img{
-        width: 300px;
-        height: 300px;
-        border: 1px solid $border;
+       border: 1px solid $border;
     }
 }
 .upload-input{
-    @include edItem(35);
-    padding: 1em 0;
+    @include edItem(100,35);
+    @include to(m){
+        input,select{
+            width: 100%
+        }
+        .item-small{
+            input{
+                width: 30%;
+            }
+        }
+    }
+    @include from(m){
+        padding: 1em 0;
+        input,select{
+            width: 90%;
+        }
+        .item-small{
+            width: 60%;
+            input{
+                width: 30%;
+            }
+        }
+    }
     .upload-item{
         margin-bottom: .6em;
-        input{
+        input,select{
             margin-top: .2em;
             padding: .4em;
             font-size: 1.2em;
-            width: 20em;
             border: none;
             border: 1px solid $border;
             border-radius: 3px 
         }
-        .item-small{
-            margin-right: .3em;
-            width: 2.5em;
-            text-align: center
+        select{
+            font-size: 1em
         }
-        .item-normal{
-            width: 5em;
-            text-align: center
+    }
+    .item-small{
+        input{
+            text-align: center;
         }
+        @include mainJustify
     }
 }
 .upload-permision{
-    @include edItem(35);
+    @include edItem(100,35);
     span{
         color: $favorite
     }

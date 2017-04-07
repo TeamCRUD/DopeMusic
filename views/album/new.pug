@@ -30,9 +30,10 @@ block content_default
                                 option(value="Pop") Pop
                         .upload-item
                             label Fecha(DD/MM/AAAA) #[br]
-                            input.item-small(type="text" name="day" placeholder="DD")
-                            input.item-small(type="text" name="month" placeholder="MM")
-                            input.item-normal(type="text" name="year" placeholder="AAAA")
+                            .item-small
+                                input(type="text" name="day" placeholder="DD")
+                                input(type="text" name="month" placeholder="MM")
+                                input(type="text" name="year" placeholder="AAAA")
                     .upload-permision
                         p Album publico
                         input(type="checkbox" name="public" value="true")
