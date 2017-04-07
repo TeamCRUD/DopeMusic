@@ -1,16 +1,63 @@
-extends ../layout_app
+extends ../layout/default
 
-block content_app
-    .form-content 
-        .form-title
-            h1 Editar album
-        .form-main
-            form(action="/album/"+album._id+"?_method=PUT" method="POST")
-                .form-input
-                    input(type="text" name="title" placeholder="Titulo del album..." value=album.title)
-                .form-input
-                    input(type="text" name="description" placeholder="Titulo del album..." value=album.description)
-                .form-input
-                    input(type="text" name="year" placeholder="Titulo del album..." value=album.year)
-                .form-button
-                    input(type="submit" value="Guardar cambios")
+block content_default
+    .upload-content 
+        if user.username && user.typeuser =="Artista"
+            .upload-title
+                h1 Editar #{album.title}
+                p #[b Importante:] No haremos publico el album a menos que lo hagas
+            .upload-main
+                form(action="/album/"+album._id+"?_method=PUT" method="POST")
+                    .upload-cover
+                        label Album cover(Imagen)
+                        if album.cover
+                            img(src="/covers/"+album.cover, alt="")
+                        else
+                            img(src="/covers/default.png", alt="")
+                        p Minimo 600 X 600 px. Max 10mg
+                        //.upload-file
+                            input(type="file" name="cover")
+                    .upload-input
+                        .upload-item
+                            label Titulo del album #[br]
+                            input(type="text" name="title" placeholder="Titulo del album" value=album.title)
+                        .upload-item
+                            label Descripcion #[br]
+                            input(type="text" name="description" placeholder="Descripcion" value=album.description)
+                        .upload-item
+                            label Genero principal #[br]
+                            select(name="gender")
+                                - var genders = ['Reggae', 'Electronica', 'Pop']
+                                each gender in genders
+                                    if album.gender == gender
+                                        option(value=gender selected) #{gender}
+                                    else
+                                        option(value=gender) #{gender}
+                        .upload-item
+                            label Fecha(DD/MM/AAAA) #[br]
+                            .item-small
+                                input(type="text" name="day" placeholder="DD" value=album.date.day)
+                                input(type="text" name="month" placeholder="MM" value=album.date.month)
+                                input(type="text" name="year" placeholder="AAAA" value=album.date.year)
+                    .upload-permision
+                        p Album publico
+                        if album.public
+                            input(type="checkbox" name="public" value="true" checked)
+                        else
+                            input(type="checkbox" name="public" value="true")
+                        label Todos podran ver este album
+                        p #[b Nota:] Tienes 177 minutos.
+                        span Las cuentas profesionales tienen más tiempo y acceso a funciones avanzadas.
+                    .upload-button
+                        p
+                        a(href='/upload') Cancelar
+                        input(type="submit" value="Guardar")
+        else
+            if !user.username
+                .form-title
+                    h1 Tienes que tener una cuenta
+                .form-main
+                    a.button-1(href="/signup") Crear una cuenta
+                    a.button-2(href="/login") Entrar
+            if !user.typeuser
+                h2 Ve a tu perfil y edita tu tipo de cuenta

@@ -50,8 +50,12 @@ exports.addAlbum =function(req,res){
         title: req.body.title,
         description: req.body.description,
         cover: covername + req.file.originalname,
-        date: req.body.day+","+req.body.month+","+req.body.year,
-        year: req.body.year,
+        date:{
+            day: req.body.day,
+            month: req.body.month,
+            year: req.body.year
+        },
+        gender: req.body.gender,
         creator: res.locals.user._id,
         public: AlbumPublic
     }
@@ -66,7 +70,19 @@ exports.addAlbum =function(req,res){
 exports.uploadCover = upload.single("cover")
 
 exports.updateAlbum = function(req,res){
+    if(req.body.public){
+        var AlbumPublic = true
+    }else{
+        var AlbumPublic = false
+    }
     res.locals.album.title = req.body.title
+    res.locals.album.description = req.body.description
+    res.locals.album.date.day = req.body.day
+    res.locals.album.date.month = req.body.month
+    res.locals.album.date.year = req.body.year
+    res.locals.album.gender = req.body.gender
+    res.locals.album.public = AlbumPublic
+
     res.locals.album.save().then(function(us){
         res.redirect("/album")
     },function(err){

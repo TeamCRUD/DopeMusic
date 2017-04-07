@@ -41,4 +41,8 @@
             }
         }
     }
+    .show-button{
+        @include edItem;
+        border: 1px solid $border
+    }
 }

@@ -6,18 +6,18 @@ block content_default
             .show-info
                 a(href="/user") #{album.creator.fullname} #[br]
                 span #{album.title} 
-                p Pop · #{album.year}
+                p #{album.gender} · #{album.date.year}
             .show-cover
                 if album.cover
                     img(src='/covers/'+album.cover)
                 else
                     img(src="/images/1.png")
-        for song in songs
-            .show-songs
-                a.song(id=song.song) #[b #{song.title}] - #{song.artist}
         if user.username == album.creator.username
             .show-button
                 form(action="/album/"+album._id+"?_method=DELETE" method="POST")
                     a(href="/album/"+album._id+"/song/new") Añadir cancion 
                     a.ion-edit(href="/album/"+album._id+"/edit") Editar
                     input(type="submit" value="Eliminar")
+        for song in songs
+            .show-songs
+                a.song(id=song.song) #[b #{song.title}] - #{song.artist}
