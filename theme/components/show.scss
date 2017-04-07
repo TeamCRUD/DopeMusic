@@ -5,11 +5,12 @@
     @include edContainer;
     @include edItem;
     padding: 0;
-    border-bottom: 1px solid $border; 
     .show-info{
-        @include edItem(70);
+        @include edItem(100,60,70);
         @include showFrom(m);
+        border-bottom: 1px solid $border;
         padding: 1em;
+        //background: $light;
         a{
             font-size: 16px;
             color: $favorite;
@@ -27,7 +28,9 @@
         }
     }
     .show-cover{
-        @include edItem(100,30);
+        @include edItem(100,40,30);
+        //background: $light;
+        border-bottom: 1px solid $border;
         text-align: right;
         padding: 1em;
         @include to(m){
@@ -35,14 +38,61 @@
         }
         @include from(m){
             img{
-                width: 325px;
-                height: 325px;
                 border: 1px solid $border
             }
         }
     }
     .show-button{
         @include edItem;
-        border: 1px solid $border
+        padding: .5em;
+        border-bottom: 1px solid $border;
+        @include to(m){
+            @include flexCenter
+        }
+        a, input{
+            border: 1px solid $border;
+            border-radius: 3px;
+            padding: .5em;
+            margin-right: .5em;
+            background: $primary;
+            text-decoration: none;
+            color: $secondary;
+            &:hover{
+                border: 1px solid $secondary;
+                transition: .3s all
+            }
+        }
+        input{
+            font-size: 1em;
+            &:hover{
+                border: 1px solid $danger;
+                color: $danger;
+                cursor: pointer
+            }
+        }
+    }
+    .show-songs{
+        @include edItem;
+        padding: .8em;
+        border-bottom: 1px solid $border;
+        text-decoration: none;
+        color: $secondary;
+        &:hover{
+            background: $light;
+            cursor: pointer
+        }
+        @include to(m){
+            @include flexCenter
+        }
+        p{
+            font-size: 20px
+        }
+        span{
+            margin-right: .5em;
+            color: $favorite
+        }
+        b{
+            font-weight: $normal
+        }
     }
 }

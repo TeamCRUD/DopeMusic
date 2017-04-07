@@ -1,15 +1,51 @@
 extends ../layout/default
 block content_default
-    .form-content 
-        .form-title
-            h1 Nueva cancion
-        .form-main
-            form(action="/album/"+album._id+"/song" method="POST" enctype="multipart/form-data")
-                .form-input
-                    input(type="text" name="title" placeholder="Titulo de la cancion")
-                .form-input
-                    input(type="text" name="artist" placeholder="Artista")
-                .form-input
-                    input(type="file" name="song")
-                .form-button
-                    input(type="submit" value="Crear cancion")
+ .upload-content 
+        if user.username && user.typeuser =="Artista"
+            .upload-title
+                h1 Añadir cancion a #{album.title}
+                p #[b Importante:] No haremos publico el album a menos que lo hagas
+            .upload-main
+               form(action="/album/"+album._id+"/song" method="POST" enctype="multipart/form-data")
+                    .upload-cover
+                        label Album cover(Imagen)
+                        if album.cover
+                            img(src="/covers/"+album.cover, alt="")
+                        else
+                            img(src="/covers/default.png", alt="")
+                    .upload-input
+                        .upload-item
+                            label Titulo del album #[br]
+                            input(type="text" name="title" placeholder="Titulo de la cancion")
+                        .upload-item
+                            label Artista #[br]
+                            input(type="text" name="artist" placeholder="Artista")
+                        .upload-item
+                            label Cancion #[br]
+                            input(type="file" name="song")
+                        .upload-item
+                            label Genero principal #[br]
+                            select(name="gender")
+                                option Seleccionar 
+                                option(value="Reggae") Reggae
+                                option(value="Electronica") Electronica
+                                option(value="Pop") Pop
+                    .upload-permision
+                        //p Album publico
+                        //input(type="checkbox" name="public" value="true")
+                        //label Si es publico todos podran ver este album
+                        p #[b Nota:] Tienes 177 minutos.
+                        span.ion-speakerphone  Las cuentas profesionales tienen más tiempo y acceso a funciones avanzadas.
+                    .upload-button
+                        p
+                        a(href='/upload') Cancelar
+                        input(type="submit" value="Guardar")
+        else
+            if !user.username
+                .form-title
+                    h1 Tienes que tener una cuenta
+                .form-main
+                    a.button-1(href="/signup") Crear una cuenta
+                    a.button-2(href="/login") Entrar
+            if !user.typeuser
+                h2 Ve a tu perfil y edita tu tipo de cuenta

@@ -50,7 +50,7 @@ block content_default
                         span Las cuentas profesionales tienen más tiempo y acceso a funciones avanzadas.
                     .upload-button
                         p
-                        a(href='/upload') Cancelar
+                        a(href='/album/'+album._id) Cancelar
                         input(type="submit" value="Guardar")
         else
             if !user.username

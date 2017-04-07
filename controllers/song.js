@@ -28,6 +28,7 @@ exports.addSong = function(req,res){
     var song = new Song({
         title: req.body.title,
         artist: req.body.artist,
+        gender: req.body.gender,
         song: req.file.filename,
         album: req.params.id,
     })

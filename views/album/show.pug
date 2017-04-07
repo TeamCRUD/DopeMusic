@@ -12,12 +12,17 @@ block content_default
                     img(src='/covers/'+album.cover)
                 else
                     img(src="/images/1.png")
-        if user.username == album.creator.username
-            .show-button
-                form(action="/album/"+album._id+"?_method=DELETE" method="POST")
-                    a(href="/album/"+album._id+"/song/new") Añadir cancion 
-                    a.ion-edit(href="/album/"+album._id+"/edit") Editar
-                    input(type="submit" value="Eliminar")
-        for song in songs
-            .show-songs
-                a.song(id=song.song) #[b #{song.title}] - #{song.artist}
+            if user.username == album.creator.username
+                .show-button
+                    form(action="/album/"+album._id+"?_method=DELETE" method="POST")
+                        a(href="/album/"+album._id+"/song/new") Añadir cancion 
+                        a(href="/album/"+album._id+"/edit")  Editar
+                        input(type="submit" value="Eliminar")
+            if songs.length > 0
+                - for (var x = 0; x < songs.length; x++)
+                    a.song(id=songs[x].song).show-songs
+                        b #[span #{x+1}]  #{songs[x].title} - #{songs[x].artist}
+            else 
+                .show-songs
+                    p.ion-sad-outline  No hay canciones
+            
