@@ -2,18 +2,20 @@ extends ../layout/collection
 
 block content_collection
     .collection-content
-        .collection-title
-            h2 Tu lista de albums creados
-        .collection-main-album
-            if albums.length > 0
+        if albums.length > 0
+            .collection-title
+                h2 Tu lista de albums creados
+            .collection-main-album
                 for album in albums
                     .collection-item
                         a(href='/album/'+album._id)
                             if album.cover
-                                img(src='/covers/'+album.cover)
+                                .collection-cover(style="background-image: url('/covers/"+album.cover+"')")
+                                        img(src="/covers/default.png", alt="")
                             else
                                 img(src="/covers/default.png")
                         a(href='/album/'+album._id)= album.title
                         p=user.fullname
-            else
-                h3 No has creado un album aun
+        else
+            .collection-title
+                h3 No has creado tu primer album

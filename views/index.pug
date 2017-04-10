@@ -6,32 +6,23 @@ block content_default
             .index-title
                 if user.username
                     h1 Bienvenido, #[a(href='/user') #{user.fullname}]
-                    p.ion-speakerphone  No te quedes sin escuchar lo nuevo
+                    h2 Album nuevo
                 else
                     h2 Lo mas reciente
-            .index-main
-                if albums.length > 0
+            if albums.length > 0
+                .index-main
                     for album in albums
                             .index-item
                                 if album.cover
                                     a(href="/album/"+album._id)
-                                        img(src="/covers/"+album.cover, alt="").index-cover
+                                        .index-cover(style="background-image: url('/covers/"+album.cover+"')")
+                                            img(src="/covers/default.png", alt="")
                                 else
                                     a(href="/album/"+album._id)
                                         img(src="images/1.png", alt="").index-cover
                                 a.album-title(href="/album/"+album._id)
                                     h3=album.title
                                 a.album-artist(href="/user/"+album.creator.username)=album.creator.fullname
-                else
-                    .index-item-2
-                        p No hay actualizaciones
-                //if albums.length > 0
-                    .index-item
-                        - var l = albums.length-1
-                        - for(var i = 0; i < 1; i++)
-                            a(href="/album/"+albums[l]._id)
-                                img(src="images/1.png", alt="").main-item
-                            a.album-title(href="/album/"+albums[l]._id)
-                                h3=albums[l].title
-                            p.album-description=albums[l].description
-                            p.album-year=albums[l].year
+            else
+                .index-item-2
+                    p No hay actualizaciones

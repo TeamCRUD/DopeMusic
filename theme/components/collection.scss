@@ -50,34 +50,13 @@
 }
 .collection-title{
     @include edItem;
-    @include to(m){
-        text-align: center;
-        h2{
-            margin: 1em;
-        }
-    }
-    @include from(m){
-        h2{
-            margin-top: 2em;
-        }
-    }
-    h2{
-        font-size: 18px;
-        font-weight: 100;
+    h3,h2{
         color: $favorite
     }
 }
 .collection-main-album{
     @include edItem;
-    img{
-        border: 1px solid $border;
-        margin-bottom: .5em;
-        &:hover{
-            border: 1px solid $secondary;
-            transition: .3s all
-        }
-    }
-    a,p{
+    a{
         font-size: 20px
     }
     a{
@@ -97,5 +76,19 @@
     }
     @include from(l){
         @include grid(".collection-item",5);
+    }
+}
+.collection-item{
+    img{
+        visibility: hidden;
+    }
+    .collection-cover{
+        margin-bottom: .5em;
+        width: 100%;
+        height: auto;
+        border: 1px solid $border;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%
     }
 }

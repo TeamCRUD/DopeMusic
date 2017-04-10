@@ -9,9 +9,10 @@ block content_default
                 p #{album.gender} · #{album.date.year}
             .show-cover
                 if album.cover
-                    img(src='/covers/'+album.cover)
+                    .show-image(style="background-image: url('/covers/"+album.cover+"')")
+                        img.show-item(src="/covers/default.png", alt="")
                 else
-                    img(src="/images/1.png")
+                    img(src="/covers/default.png")
             if user.username == album.creator.username
                 .show-button
                     form(action="/album/"+album._id+"?_method=DELETE" method="POST")

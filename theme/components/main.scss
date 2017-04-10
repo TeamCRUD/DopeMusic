@@ -10,7 +10,8 @@
         }
     }
     h2{
-        font-weight: 300
+        font-weight: 300;
+        color: $favorite
     }
     p{
         color: $favorite
@@ -24,8 +25,8 @@
     }
 }
 .index-main{
-    padding: 0 1em;
     @include grid(".index-item",4);
+    padding: 0 1em;
     .album-title{
         h3{
             &:hover{
@@ -53,13 +54,24 @@
     @include to(m){
         @include grid(".index-item",2);
     }
+    @include fromTo(m,l){
+        @include grid(".index-item",3);  
+    }
 }
-.index-cover{
-    border: 1px solid $border;
-    &:hover{
-        border: 1px solid $secondary
+.index-main{
+    img{
+        visibility: hidden;
+    }
+    .index-cover{
+        width: 100%;
+        height: auto;
+        border: 1px solid $border;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%
     }
 }
 .index-item-2{
-    @include edItem
+    @include edItem;
+    color: $favorite
 }

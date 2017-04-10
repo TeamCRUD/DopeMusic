@@ -5,13 +5,9 @@ block content_default
         .upload-content 
             .upload-title
                 h1 Que deseas hacer pirmero
-                p.ion-speakerphone  Puedes empezar desde cero, si nececitas ayuda haznoslo saber
             .upload-main-2
                 a.button-1(href='/album/new') Crear proyecto
                 a.button-2(href='/album/new') Subir cancion
-                p.
-                    #[b importante:] Al subir contenido a Creators, por la presente certificas que eres el propietario de los derechos de autor o
-                    tienes todos los derechos necesarios relacionados con dicho contenido para cargarlo.
     else
         if user.username
             .upload-content 

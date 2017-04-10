@@ -8,7 +8,6 @@
     .show-info{
         @include edItem(100,60,70);
         @include showFrom(m);
-        border-bottom: 1px solid $border;
         padding: 1em;
         //background: $light;
         a{
@@ -29,23 +28,29 @@
     }
     .show-cover{
         @include edItem(100,40,30);
-        //background: $light;
-        border-bottom: 1px solid $border;
-        text-align: right;
-        padding: 1em;
         @include to(m){
-            padding: 0;
+            padding: 0
         }
         @include from(m){
-            img{
-                border: 1px solid $border
-            }
+            padding: 1em;
         }
+    }
+    .show-image{
+        width: 100%;
+        height: auto;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%; 
+        @include from(m){
+            border: 1px solid $border; 
+        }
+    }
+    .show-item{
+        visibility: hidden;
     }
     .show-button{
         @include edItem;
         padding: .5em;
-        border-bottom: 1px solid $border;
         @include to(m){
             @include flexCenter
         }
@@ -74,7 +79,6 @@
     .show-songs{
         @include edItem;
         padding: .8em;
-        border-bottom: 1px solid $border;
         text-decoration: none;
         color: $secondary;
         &:hover{
