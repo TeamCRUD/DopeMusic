@@ -24,17 +24,16 @@ block content_default
                             label.user-item-edit Telefono #[br]
                             input(type="text" name="phone" placeholder="Numero celular" value=user.phone)
                         .user-select
-                            if user.gender
-                                label.user-item-edit Genero principal #[br]
-                                select(name="gender")
-                                    option #{user.gender} 
-                            else
-                                label.user-item-edit Genero principal #[br]
-                                select(name="gender")
-                                    option Seleccionar 
-                                    option(value="Reggae") Reggae
-                                    option(value="Electronica") Electronica
-                                    option(value="Pop") Pop
+                            label Genero principal #[br]
+                            select(name="gender")
+                                if !user.gender
+                                    option(value=gender) Seleccionar
+                                - var genders = ['Reggae', 'Electronica', 'Pop']
+                                each gender in genders
+                                    if user.gender == gender
+                                        option(value=gender selected) #{gender}
+                                    else
+                                        option(value=gender) #{gender}
                         .user-select
                             label.user-item-edit Tipo de cuenta #[br]
                             select(name="typeuser")

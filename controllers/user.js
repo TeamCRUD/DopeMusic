@@ -20,7 +20,6 @@ var upload = multer({storage: opcionesMulter})
 exports.updateUser = function(req,res){
         
         if(res.locals.user.avatar != 'default.png'){
-
           //fs.unlink("./avatars/"+res.locals.user.avatar)
         }
 
@@ -42,7 +41,7 @@ exports.updateUser = function(req,res){
         res.locals.user.save().then(function(us){
             res.redirect('/user')
         },function(err){
-            res.redirect('/user/'+req.paramas.id+'/edit')
+            res.redirect('/user/edit')
         })
     }
 
