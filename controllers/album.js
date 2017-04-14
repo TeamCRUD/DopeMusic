@@ -4,8 +4,8 @@ var path = require('path')
 var multer = require("multer")
 
 var d=  new Date()
-var covername = d.getHours()+''+d.getMinutes()
-
+var covername = d.getHours() + '' + d.getMinutes() + '' + d.getSeconds() 
+console.log(covername)
 var opcionesMulter = multer.diskStorage({
   destination: function(req, file, cb){
     cb(null, path.join(__dirname, "../covers"))
@@ -40,31 +40,38 @@ exports.allAlbum = function(req,res){
     })
 }
 
-exports.addAlbum =function(req,res){
+exports.addAlbum = function(req,res){
     if(req.body.public){
         var AlbumPublic = true
     }else{
         var AlbumPublic = false
     }
-    var data ={
-        title: req.body.title,
-        description: req.body.description,
-        cover: covername + req.file.originalname,
-        date:{
-            day: req.body.day,
-            month: req.body.month,
-            year: req.body.year
-        },
-        gender: req.body.gender,
-        creator: res.locals.user._id,
-        public: AlbumPublic
+    if(req.file.mimetype != 'image/png' || req.file.mimetype != 'image/png' && req.file.size >= 47236){
+        fs.unlink("./covers/"+ covername + req.file.originalname)
+        res.redirect('/album/new')
+    }else{
+        var data ={
+            title: req.body.title,
+            description: req.body.description,
+            cover: covername + '' + req.file.originalname,
+            date:{
+                day: req.body.day,
+                month: req.body.month,
+                year: req.body.year
+            },
+            gender: req.body.gender,
+            creator: res.locals.user._id,
+            public: AlbumPublic
+        }
+
+        var album = new Album(data)
+        
+        album.save().then(function(us){
+            res.redirect("/album")
+        },function(err){
+            res.redirect("/album/new")
+        })
     }
-    var album = new Album(data)
-    album.save().then(function(us){
-        res.redirect("/album")
-    },function(err){
-        res.redirect("/album/new")
-    })
 }
 
 exports.uploadCover = upload.single("cover")

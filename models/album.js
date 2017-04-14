@@ -5,9 +5,9 @@ var album_schema = new Schema({
     title: {type: String, required: true},
     description: {type: String, required: true},
     date: {
-        day:{type: Number, required:true},
-        month:{type: Number, required:true},
-        year:{type: Number, required:true}
+        day:{min: 1, max: 31, type: Number, required:true},
+        month:{min: 1, max: 12, type: Number, required:true},
+        year:{ min: 2017, type: Number, required:true}
     },
     gender: { type: String, required: true }, 
     cover: {type: String, required: true},

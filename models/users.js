@@ -28,7 +28,7 @@ var user_schema = new Schema({
     username: {type: String, required: true, minlenght: 5, maxlength: 10, unique: true},
     password: {type: String, minlength: 8, required: true},
     avatar: {type: String, default: 'default.png'},
-    sex: {type: String, required: true, enum: posibles_valores},
+    sex: {type: String, required: true, enum: posibles_valores, unique: true},
     email:{type: String, required: true, match: email_match},
     phone:{type: Number, min: 1000000000, max: 9999999999, required: true},
     typeuser:{type: String, required: true, enum: posibles_typeuser},

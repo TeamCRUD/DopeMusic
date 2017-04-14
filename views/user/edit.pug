@@ -37,9 +37,9 @@ block content_default
                         .user-select
                             label.user-item-edit Tipo de cuenta #[br]
                             select(name="typeuser")
-                                option(selected) #{user.typeuser}
+                                option(value=user.typeuser) #{user.typeuser}
                                 option(value="Artista") Artista
-                                option(value="Go Pro") Go Pro
+                                option(value="GoPro") GoPro
                         .user-input
                             label Ciudad #[br]
                             input(type="text" name="city" placeholder="Donde vives" value=user.city)
