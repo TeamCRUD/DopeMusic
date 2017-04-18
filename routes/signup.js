@@ -18,13 +18,10 @@ router.route("/")
             sexo: req.body.sexo
         })
 
-        console.log(req.body.sex)
-
         user.save().then(function(us){
             res.redirect("/login")
         },function(err){
-            res.render("signup", {title: "Dope Music", message: "Datos incorrectos"})
-            console.log(String(err))
+            res.render("signup", {title: "Creators", message: "Datos incorrectos"})
         })
     });
 
