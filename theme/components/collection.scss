@@ -50,7 +50,7 @@
 }
 .collection-title{
     @include edItem;
-    h3,h2{
+    h3,h2,p{
         color: $favorite
     }
 }
