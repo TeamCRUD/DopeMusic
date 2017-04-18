@@ -53,7 +53,10 @@
     margin-top: .5em;
     margin-bottom: 1em;
     @include to(m){
-        padding: 0
+        padding: 0;
+        .button-registro{
+            width: 98%;
+        }
     }
     @include from(m){
         .button-1{

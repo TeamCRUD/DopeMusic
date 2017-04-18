@@ -73,5 +73,10 @@
 }
 .index-item-2{
     @include edItem;
-    color: $favorite
+    padding: 0 1em;
+    color: $favorite;
+    p{
+        padding: 0;
+        margin: 0
+    }
 }

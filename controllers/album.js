@@ -5,7 +5,7 @@ var multer = require("multer")
 
 var d=  new Date()
 var covername = d.getHours() + '' + d.getMinutes() + '' + d.getSeconds() 
-console.log(covername)
+
 var opcionesMulter = multer.diskStorage({
   destination: function(req, file, cb){
     cb(null, path.join(__dirname, "../covers"))
