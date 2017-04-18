@@ -15,6 +15,7 @@ var logout = require('./routes/logout');
 var create = require('./routes/upload');
 var album = require('./routes/album');
 var collection = require('./routes/collection');
+var explorer = require('./routes/explorer');
 var user = require('./routes/user');
 
 var app = express();
@@ -47,6 +48,7 @@ app.use('/signup', signup);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/album', album);
+app.use('/explorer', explorer);
 app.use(['/*'], session_middleware.session);
 app.use('/upload', create);
 app.use('/collection', collection);

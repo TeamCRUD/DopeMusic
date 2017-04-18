@@ -36,7 +36,7 @@ exports.allAlbum = function(req,res){
         if(err){
             return res.redirect("/")
         }
-        res.render("collection/albums",{title:"Biblioteca", albums: albums})
+        res.render("collection/albums",{title:"Mis Albums", albums: albums})
     })
 }
 

@@ -6,7 +6,7 @@ block content_default
             .show-info
                 a(href="/user") #{album.creator.fullname} #[br]
                 span #{album.title} 
-                p #{album.gender} · #{album.date.year}
+                p #[a(href="/explorer/"+album.gender) #{album.gender}] · #{album.date.year}
             .show-cover
                 if album.cover
                     .show-image(style="background-image: url('/covers/"+album.cover+"')")

@@ -1,0 +1,23 @@
+extends ../layout/default
+
+block content_default
+    .explorer-content
+        .explorer-title
+            h1.title-tag= title
+        if albums.length > 0
+            .index-main
+                for album in albums
+                        .index-item
+                            if album.cover
+                                a(href="/album/"+album._id)
+                                    .index-cover(style="background-image: url('/covers/"+album.cover+"')")
+                                        img(src="/covers/default.png", alt="")
+                            else
+                                a(href="/album/"+album._id)
+                                    img(src="images/1.png", alt="").index-cover
+                            a.album-title(href="/album/"+album._id)
+                                h3=album.title
+                            a.album-artist(href="/user/"+album.creator.username)=album.creator.fullname
+        else
+            .explorer-title
+                p Aun no hay

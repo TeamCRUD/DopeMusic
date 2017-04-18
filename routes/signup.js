@@ -15,14 +15,16 @@ router.route("/")
             phone: req.body.phone,
             username: req.body.username,
             password: req.body.password,
-            typeuser: "Estandar",
-            sex: req.body.sex,
+            sexo: req.body.sexo
         })
+
+        console.log(req.body.sex)
 
         user.save().then(function(us){
             res.redirect("/login")
         },function(err){
             res.render("signup", {title: "Dope Music", message: "Datos incorrectos"})
+            console.log(String(err))
         })
     });
 
