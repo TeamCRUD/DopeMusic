@@ -5,7 +5,7 @@ var UserCtrl = require('../controllers/user')
 
 router.route("/")
     .get(function(req, res, next){
-        res.render("user/default",{title: res.locals.user.fullname})
+        res.render("user/default",{title: res.locals.user.fullname, profile: true})
     })
 
 

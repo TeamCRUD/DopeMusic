@@ -18,6 +18,9 @@ header{
 }
 .header-title-2{
     @include edItem(100,50,1/2);
+    .bold{
+        font-weight: $bold
+    }
     @include to(m){
         padding: 0 1.5em;
         text-align: center;

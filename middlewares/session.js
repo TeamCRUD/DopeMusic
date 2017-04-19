@@ -2,8 +2,9 @@ var User = require("../models/users")
 
 exports.allAccess = function(req, res, next){
     if(!req.session.user_id){
-        res.locals = {user : {username: false, access: false}}
+        res.locals = {user : {username: false}}
         next()
+        console.log(res.locals.allAccess)
     }
     else{
         User.findById(req.session.user_id,function(err,user){

@@ -34,40 +34,93 @@
         font-weight: $normal;
         margin-bottom: .2em;
     }
+    .city{
+        margin-bottom: 1em;
+    }
+    a{
+        @include hideFrom(m);
+        padding: .2em .5em;
+        margin-right: .2em;
+        border: 1px solid $border;
+        border-radius: 3px;
+        background: $primary;
+        color: $secondary;
+        text-decoration: none;
+        &:hover{
+            border: 1px solid $secondary;
+            transition: .3s
+        }
+    }
 }
 .user-section{
     @include edItem;
-    display: flex;
+    @include edContainer;
     border-bottom: 1px solid $border;
-    .ion-gear-b,.button-1{
-        color: $secondary;
-        text-decoration: none;
-        margin-left: .3em;
-        border-radius: 5px;
-        border: 1px solid $border;
-        &:hover{
-            border: 1px solid $secondary;
-        }
-    }  
     @include to(m){
-        padding: 1.3em .5em;
-        .ion-gear-b{
-            padding: .3em .5em;
-            font-size: 1.4em;
-        }
-        .button-1{
-            padding: .4em;
-            font-size: 1.3em;
-        }
+        padding: 0 .5em;
     }
     @include from(m){
-        padding: 1em 0;
-        .ion-gear-b,.button-1{
-            padding: .4em .5em;
-            font-size: 1em;
+        padding: 0;
+        padding-top: .5em;
+    }
+}
+.user-nav{
+    @include edItem(100,35);
+    padding: 0;
+    .hide{
+        @include hideFrom(m)
+    }
+    .show{
+        @include showFrom(m)
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        @include mainDistribute;
+        li{
+            list-style: none;
+            &:hover{
+                border-bottom: 1px solid $secondary
+            }
+        }
+        a{
+            line-height: 1;
+            color: $secondary;
+            font-size: 18px;
+            text-decoration: none;
+            &:hover{
+                color: $secondary
+            }
+            @include to(m){
+                line-height: 2.5;
+            }
+            @include from(m){
+                line-height: 1.8
+            }
         }
     }
 }
+.user-button{
+    @include edItem(100,65);
+    @include mainEnd;
+    @include showFrom(m);
+    padding-bottom: .5em;
+    a{
+        padding: .2em .5em;
+        margin-left: .3em;
+        border: 1px solid $border;
+        border-radius: 3px;
+        font-size: 15px;
+        text-decoration: none;
+        color: $secondary;
+        &:hover{
+            border: 1px solid $secondary;
+            transition: .3s all
+        }
+    }
+}
+
+// User Edit
 .user-title{
     @include edItem;
     padding-top: 1em;

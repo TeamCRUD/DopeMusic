@@ -8,17 +8,24 @@ block content_default
             .user-info
                 h3 #{user.fullname}
                 h4 #{user.username}
-                h4 #{user.city}
-        .user-section
-            .user-nav
-                a(href='/songs') Tracts
-                a(href='/songs') Albums
-                a(href='/songs') Siguiendo
-                a(href='/songs') Seguidores
-            .user-button
-                if user.username && user.access
+                h4.city #{user.city}
+                if user.username && profile
                     a(href='/logout').ion-gear-b
                     a.button-1.ion-edit(href='/user/edit')  Editar
-                else
-                    a.button-1.ion-person-add(href='/user/edit')  Seguir
+                if !profile
+                    a.button-2.ion-person-add(href='/user/edit')  Seguir
+        .user-section
+            .user-nav
+                ul
+                    li: a(href='/user').hide Info
+                    li: a(href='/user').show Informacion
+                    li: a(href='/album') Albums
+                    li: a(href='/album') Siguiendo
+                    li: a(href='/album') Seguidores
+            .user-button
+                if user.username && profile
+                    a(href='/logout').ion-gear-b
+                    a.button-1.ion-edit(href='/user/edit')  Editar
+                if !profile
+                    a.button-2.ion-person-add(href='/user/edit')  Seguir
         block content_user
