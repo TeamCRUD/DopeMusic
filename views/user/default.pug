@@ -1,15 +1,4 @@
-extends ../layout/default
+extends ../layout/user
 
-block content_default
-    .user-content
-        .user-main
-            .user-avatar
-                img(src="/avatars/"+user.avatar)
-            .user-info
-                h3 #{user.fullname}
-                h4 #{user.username}
-                h4 #{user.city}
-        if user.username
-            .user-button
-                a(href='/logout').ion-gear-b
-                a.button-1(href='/user/edit') Editar perfil
+block content_user
+    

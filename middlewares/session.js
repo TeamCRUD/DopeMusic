@@ -2,7 +2,7 @@ var User = require("../models/users")
 
 exports.allAccess = function(req, res, next){
     if(!req.session.user_id){
-        res.locals = {user : {username: false}}
+        res.locals = {user : {username: false, access: false}}
         next()
     }
     else{

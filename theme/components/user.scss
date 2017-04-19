@@ -35,10 +35,10 @@
         margin-bottom: .2em;
     }
 }
-.user-button{
+.user-section{
     @include edItem;
+    display: flex;
     border-bottom: 1px solid $border;
-    text-align: right;
     .ion-gear-b,.button-1{
         color: $secondary;
         text-decoration: none;
