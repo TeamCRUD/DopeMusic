@@ -11,7 +11,16 @@ router.route("/")
 
 router.route('/:artist')
     .get(find_artist, function(req,res){
-        res.render('user/default')
+        var following = false
+        if(res.locals.user.username){
+            for(var i=0; i < res.locals.user.following.length; i++){
+                if(res.locals.user.following[i] == req.params.artist){
+                    following = true
+                }
+            }
+        }
+        console.log(req.params.artist + ' Following: ' + following)
+        res.render('user/default', {dashartist: true, following})
     })
     
 module.exports = router;

@@ -7,7 +7,7 @@ block content_default
                 h1 Crear nuevo album
                 p #[b Importante:] No haremos publico el album a menos que lo hagas
             .upload-main
-                form(action="/album" method="POST" enctype="multipart/form-data")
+                form(action="/album" method="POST" enctype="multipart/form-data" autocomplete='off')
                     .upload-cover
                         label Album cover(Imagen)
                         img(src="/covers/default.png", alt="")

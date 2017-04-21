@@ -24,22 +24,23 @@ var posibles_genders =  ['Reggae', 'Electronica', 'Pop']
 var email_match = [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Coloca email valido']
 
 var user_schema = new Schema({
+    avatar: {type: String, default: 'default.png'},
     fullname: {type: String, required: true},
     username: {type: String, required: true, minlenght: 5, unique: true},
-    password: {type: String, minlength: 8, required: true},
-    avatar: {type: String, default: 'default.png'},
-    sexo: {type: String, required: true, enum: posibles_sex},
     email:{type: String, required: true, match: email_match, unique: true},
+    password: {type: String, minlength: 8, required: true},
+    sexo: {type: String, required: true, enum: posibles_sex},
     phone:{type: Number, min: 1000000000, max: 9999999999, required: true, unique: true},
-    typeuser:{type: String, required: true, enum: posibles_typeuser, default: 'Estandar'},
-    gender: {type: String, enum: posibles_genders},
-    city: String,
     network: {
         facebook: String,
         instagram: String,
         youtube: String,
         other: String,
-    }
+    },
+    city: String,
+    typeuser:{type: String, required: true, enum: posibles_typeuser, default: 'Estandar'},
+    gender: {type: String, enum: posibles_genders},
+    following:{type: Array}
 })
 
 module.exports = mongoose.model('User' , user_schema);

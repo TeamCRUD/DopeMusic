@@ -4,7 +4,7 @@ block content_default
     .show-content
         .show-main
             .show-info
-                a(href="/user") #{album.creator.fullname} #[br]
+                a(href="/artist/"+album.creator.username) #{album.creator.fullname} #[br]
                 span #{album.title} 
                 p #[a(href="/explorer/"+album.gender) #{album.gender}] · #{album.date.year}
             .show-cover

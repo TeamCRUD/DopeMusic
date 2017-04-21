@@ -15,4 +15,31 @@ router.route('/edit')
     })
     .put(UserCtrl.uploadAvatar, UserCtrl.updateUser)
 
+router.route('/following')
+    .put(UserCtrl.following)
+
+router.route('/unfollowing')
+    .put(function(req, res, next){
+
+        var foo = res.locals.user.following
+        var user = req.body.unfollowing
+        
+        function removeItemFromArr ( arr, item ) {
+            var i = arr.indexOf( item );
+         
+            if ( i !== -1 ) {
+                arr.splice( i, 1 );
+            }
+        }
+
+        removeItemFromArr( foo, user );
+        console.info( foo );
+
+        res.locals.user.save().then(function(us){
+            res.redirect('/artist/'+ user)
+        },function(err){
+            res.redirect('/artist/'+ user)
+        })
+    })
+
 module.exports = router;

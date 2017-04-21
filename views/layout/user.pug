@@ -4,16 +4,24 @@ block content_default
     .user-content
         .user-main
             .user-avatar
-                img(src="/avatars/"+user.avatar)
+                if profile
+                    img(src="/avatars/"+user.avatar)
+                if artist
+                    img(src="/avatars/"+artist.avatar)
             .user-info
-                h3 #{user.fullname}
-                h4 #{user.username}
-                h4.city #{user.city}
-                if user.username && profile
-                    a(href='/logout').ion-gear-b
-                    a.button-1.ion-edit(href='/user/edit')  Editar
-                if !profile
-                    a.button-2.ion-person-add(href='/user/edit')  Seguir
+                if profile
+                    h3 #{user.fullname}
+                    h4 #{user.username}
+                    h4.city #{user.city}
+                    if user.username && profile
+                        a(href='/logout').ion-gear-b
+                        a.button-1.ion-edit(href='/user/edit')  Editar
+                    if !profile
+                        a.button-2.ion-person-add(href='/user/edit')  Seguir
+                if dashartist 
+                    h3 #{artist.fullname}
+                    h4 #{artist.username}
+                    h4.city #{artist.city}
         .user-section
             .user-nav
                 ul
@@ -23,9 +31,26 @@ block content_default
                     li: a(href='/album') Siguiendo
                     li: a(href='/album') Seguidores
             .user-button
-                if user.username && profile
-                    a(href='/logout').ion-gear-b
-                    a.button-1.ion-edit(href='/user/edit')  Editar
-                if !profile
-                    a.button-2.ion-person-add(href='/user/edit')  Seguir
+                if !artist
+                    if user.username && profile
+                        a(href='/logout').ion-gear-b
+                        a.button-1.ion-edit(href='/user/edit')  Editar
+                else
+                    if artist.username == user.username
+                        a.button-1.ion-edit(href='/user/edit')  Editar
+                    else
+                        if user.username
+                            if following
+                                form(action= '/user/unfollowing?_method=PUT' method="POST")
+                                    input(type="hidden"  name='unfollowing' value=artist.username)
+                                    a.ion-person #[input(type="submit" value="Siguiendo")]
+                            else
+                                form(action= '/user/following?_method=PUT' method="POST")
+                                    input(type="hidden"  name='following' value=artist.username)
+                                    a.ion-person-add #[input(type="submit" value="Seguir")]
+                        else
+                            form(action= '/user/following?_method=PUT' method="POST")
+                                input(type="hidden"  name='following' value=artist.username)
+                                a.ion-person-add #[input(type="submit" value="Seguir")]
+
         block content_user
