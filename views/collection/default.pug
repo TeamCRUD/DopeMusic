@@ -3,6 +3,10 @@ extends ../layout/collection
 block content_collection
     .collection-content
         .collection-main
-            h2 Recien escuchado
-            h2 Album
+            h2 Me Gusta
+            //.index-item
+                if album.cover
+                    a(href="/album/"+album._id)
+                        .index-cover(style="background-image: url('/covers/"+album.cover+"')")
+                            img(src="/covers/default.png", alt="")
             h2 Siguendo

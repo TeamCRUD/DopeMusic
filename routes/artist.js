@@ -19,7 +19,6 @@ router.route('/:artist')
                 }
             }
         }
-        console.log(req.params.artist + ' Following: ' + following)
         res.render('user/default', {dashartist: true, following})
     })
     

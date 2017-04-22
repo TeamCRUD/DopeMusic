@@ -40,7 +40,8 @@ var user_schema = new Schema({
     city: String,
     typeuser:{type: String, required: true, enum: posibles_typeuser, default: 'Estandar'},
     gender: {type: String, enum: posibles_genders},
-    following:{type: Array}
+    following: {type: Array},
+    like: {type: Array}
 })
 
 module.exports = mongoose.model('User' , user_schema);

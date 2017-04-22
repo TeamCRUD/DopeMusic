@@ -19,7 +19,15 @@ var upload = multer({storage: opcionesMulter})
 
 // render
 exports.renderShowAlbum = function(req,res){
-    res.render("album/show",{title: "Album "+res.locals.album.title, url: req.params.id})
+    var like = false
+        if(res.locals.user.username){
+            for(var i=0; i < res.locals.user.like.length; i++){
+                if(res.locals.user.like[i] == req.params.id){
+                    like = true
+                }
+            }
+        }
+        res.render("album/show",{title: "Album "+res.locals.album.title, url: req.params.id, like: like})
 }
 
 exports.renderNewAlbum = function(req,res){

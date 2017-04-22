@@ -54,4 +54,14 @@ exports.following = function(req, res){
   })
 }
 
+exports.like = function(req, res){
+  res.locals.user.like.push(req.body.like)
+
+  res.locals.user.save().then(function(us){
+      res.redirect('/album/'+req.body.like)
+  },function(err){
+      res.redirect('/album/'+req.body.like)
+  })
+}
+
 exports.uploadAvatar = upload.single("avatar")

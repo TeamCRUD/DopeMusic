@@ -78,7 +78,7 @@
     }
     .show-songs{
         @include edItem;
-        padding: .8em;
+        padding: .6em;
         text-decoration: none;
         color: $secondary;
         &:hover{

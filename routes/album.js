@@ -7,6 +7,8 @@ var song_find = require("../middlewares/find_song")
 var AlbumCtrl = require("../controllers/album")
 var SongCtrl = require("../controllers/song")
 
+// like 
+
 //album
 router.get("/new", AlbumCtrl.renderNewAlbum)
 

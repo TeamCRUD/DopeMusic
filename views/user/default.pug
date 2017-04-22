@@ -1,4 +1,15 @@
 extends ../layout/user
 
 block content_user
-    
+    .user-main-2
+        h3 Ultimo album
+        img(src="/covers/"+user.avatar, alt="")
+    .user-main-2
+        h3 Infomracion general
+        p Correo: #{user.email}
+        p Telefono: #{user.phone}
+        p Sexo: #{user.sexo}
+        p Genero principal: #{user.gender}
+    .user-main-2
+        h3 Redes sociales
+        p.ion-social-facebook #{user.network.facebook}

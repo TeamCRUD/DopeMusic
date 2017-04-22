@@ -13,12 +13,21 @@ block content_default
                         img.show-item(src="/covers/default.png", alt="")
                 else
                     img(src="/covers/default.png")
-            if user.username == album.creator.username
-                .show-button
+            .show-button
+                if user.username == album.creator.username
                     form(action="/album/"+album._id+"?_method=DELETE" method="POST")
                         a(href="/album/"+album._id+"/song/new") Añadir cancion 
                         a(href="/album/"+album._id+"/edit")  Editar
                         input(type="submit" value="Eliminar")
+                else
+                    if like
+                        form(action= '/user/dislike?_method=PUT' method="POST")
+                            input(type="hidden"  name='dislike' value=album._id)
+                            a.ion-heart #[input(type="submit" value="Me gusta")]                        
+                    else
+                        form(action= '/user/like?_method=PUT' method="POST")
+                            input(type="hidden"  name='like' value=album._id)
+                            a.ion-heart #[input(type="submit" value="Me gusta")]
             if songs.length > 0
                 - for (var x = 0; x < songs.length; x++)
                     a.song(id=songs[x].song).show-songs
