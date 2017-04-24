@@ -43,14 +43,14 @@ block content_default
                             if following
                                 form(action= '/user/unfollowing?_method=PUT' method="POST")
                                     input(type="hidden"  name='unfollowing' value=artist.username)
-                                    a.ion-person #[input(type="submit" value="Siguiendo")]
+                                    button.ion-person(type='submit')  Siguiendo
                             else
                                 form(action= '/user/following?_method=PUT' method="POST")
                                     input(type="hidden"  name='following' value=artist.username)
-                                    a.ion-person-add #[input(type="submit" value="Seguir")]
+                                    button.ion-person-add(type='submit')  Seguir
                         else
                             form(action= '/user/following?_method=PUT' method="POST")
                                 input(type="hidden"  name='following' value=artist.username)
-                                a.ion-person-add #[input(type="submit" value="Seguir")]
+                                button.ion-person-add(type='submit')  Seguir
 
         block content_user

@@ -16,18 +16,19 @@ block content_default
             .show-button
                 if user.username == album.creator.username
                     form(action="/album/"+album._id+"?_method=DELETE" method="POST")
-                        a(href="/album/"+album._id+"/song/new") Añadir cancion 
-                        a(href="/album/"+album._id+"/edit")  Editar
-                        input(type="submit" value="Eliminar")
+                        a.button-1.ion-plus-round(href="/album/"+album._id+"/song/new")  Añadir cancion 
+                        a.button-2.ion-edit(href="/album/"+album._id+"/edit")  Editar
+                        button.button-3(type='submit').ion-trash-a  Eliminar
                 else
                     if like
                         form(action= '/user/dislike?_method=PUT' method="POST")
                             input(type="hidden"  name='dislike' value=album._id)
-                            a.ion-heart #[input(type="submit" value="Me gusta")]                        
+                            button.button-like(type='submit')
+                                span.ion-heart   Me gusta                        
                     else
                         form(action= '/user/like?_method=PUT' method="POST")
                             input(type="hidden"  name='like' value=album._id)
-                            a.ion-heart #[input(type="submit" value="Me gusta")]
+                            button.button-4(type='submit').ion-heart  Me gusta
             if songs.length > 0
                 - for (var x = 0; x < songs.length; x++)
                     a.song(id=songs[x].song).show-songs

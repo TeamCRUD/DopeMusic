@@ -118,6 +118,38 @@
             transition: .3s all
         }
     }
+    button{
+        padding: .3em;
+        color: $favorite;
+        background: $primary;
+        border: 1px solid $border;
+        border-radius: 3px;
+        &:hover{
+            color: $secondary;
+            border-color: $secondary
+        }
+    }
+    .ion-person-add{
+        &:hover{
+            border-color: $secondary;
+            color: $secondary;
+            background: $primary;
+            cursor: pointer;
+            transition: .3s all
+        }
+    }
+    .ion-person{
+        border-color: $secondary;
+        background: $secondary;
+        color: $primary;
+        &:hover{
+            border-color: $secondary;
+            color: $secondary;
+            background: $primary;
+            cursor: pointer;
+            transition: .3s all
+        }
+    }
 }
 
 // User Edit
@@ -250,4 +282,7 @@
         padding: .5em .8em;
         font-size: 14px
     }
+}
+.user-main-2{
+    @include edItem(100,1/3)
 }

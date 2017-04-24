@@ -54,7 +54,11 @@
         @include to(m){
             @include flexCenter
         }
-        a, input{
+        .button-1, 
+        .button-2, 
+        .button-3, 
+        .button-4,
+        .button-like{
             border: 1px solid $border;
             border-radius: 3px;
             padding: .5em;
@@ -64,15 +68,44 @@
             color: $secondary;
             &:hover{
                 border: 1px solid $secondary;
-                transition: .3s all
+                transition: .3s all;
+                cursor: pointer
             }
         }
-        input{
+        .button-3{
             font-size: 1em;
             &:hover{
                 border: 1px solid $danger;
                 color: $danger;
+            }
+        }
+        .button-like{
+            color: $danger;
+            border: 1px solid $danger;
+            &:hover{
+                border-color: $border
+            }
+        }
+        .button-4{
+            &:hover{
+                color: $danger;
+                border-color: $danger
+            }
+        }
+        .input-like, 
+        .input-1{
+            border: none;
+            line-height: 2.2;
+            color: $danger;
+            background: $primary;
+            &:hover{
                 cursor: pointer
+            }
+        }
+        .input-1{
+            color: $secondary;
+            &:hover{
+                color: $danger
             }
         }
     }
