@@ -51,6 +51,39 @@
             transition: .3s
         }
     }
+    button{
+        @include hideFrom(m);
+        padding: .3em;
+        color: $favorite;
+        background: $primary;
+        border: 1px solid $border;
+        border-radius: 3px;
+        &:hover{
+            color: $secondary;
+            border-color: $secondary
+        }
+    }
+    .ion-person-add{
+        &:hover{
+            border-color: $secondary;
+            color: $secondary;
+            background: $primary;
+            cursor: pointer;
+            transition: .3s all
+        }
+    }
+    .ion-person{
+        border-color: $secondary;
+        background: $secondary;
+        color: $primary;
+        &:hover{
+            border-color: $secondary;
+            color: $secondary;
+            background: $primary;
+            cursor: pointer;
+            transition: .3s all
+        }
+    }
 }
 .user-section{
     @include edItem;
@@ -284,5 +317,37 @@
     }
 }
 .user-main-2{
-    @include edItem(100,1/3)
+    @include edItem(100,1/3);
+    a{
+        font-size: 20px;
+        color: $favorite;
+        text-decoration: none;
+        span{
+            margin: 0 .3em;
+            color: $favorite;
+            &:hover{
+                color: $secondary
+            }
+        }
+    }
+    .ion-social-facebook{
+        &:hover{
+            color: #3B5998
+        }
+    }
+    .ion-social-twitter{
+        &:hover{
+            color: #1DA1F2
+        }
+    }
+    .ion-social-instagram{
+        &:hover{
+            color: $dark
+        }
+    }
+    .ion-social-youtube{
+        &:hover{
+            color: #D22222
+        }
+    }
 }

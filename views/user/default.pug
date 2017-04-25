@@ -1,12 +1,35 @@
 extends ../layout/user
 
 block content_user
-    .user-main-2
-        h3 Ultimo album
-        img(src="/covers/"+user.avatar, alt="")
-    .user-main-2
-        h3 Infomracion general
-        p Correo: #{user.email}
-        p Telefono: #{user.phone}
-        p Sexo: #{user.sexo}
-        p Genero principal: #{user.gender}
+    if !artist
+        .user-main-2
+            h3 Ultimo album
+            img(src="/covers/"+user.avatar, alt="")
+        .user-main-2
+            h3 Infomracion general
+            p Correo: #{user.email}
+            p Telefono: #{user.phone}
+            p Sexo: #{user.sexo}
+            p Genero principal: #{user.gender}
+        .user-main-2
+            h3 Redes sociales
+            a.ion-social-facebook(href=user.network.facebook target='blank')
+            a.ion-social-twitter(href=user.network.twitter target='blank')
+            a.ion-social-instagram(href=user.network.instagram target='blank')
+            a.ion-social-youtube(href=user.network.youtube target='blank')
+    else
+        .user-main-2
+            h3 Ultimo album
+            img(src="/covers/"+artist.avatar, alt="")
+        .user-main-2
+            h3 Infomracion general
+            p Correo: #{artist.email}
+            p Telefono: #{artist.phone}
+            p Sexo: #{artist.sexo}
+            p Genero principal: #{artist.gender}
+        .user-main-2
+            h3 Redes sociales
+            p.ion-social-facebook #{artist.network.facebook}
+            p.ion-social-twitter #{artist.network.twitter}
+            p.ion-social-instagram #{artist.network.instagram}
+            p.ion-social-youtube #{artist.network.youtube}

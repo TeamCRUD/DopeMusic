@@ -13,15 +13,27 @@ block content_default
                     h3 #{user.fullname}
                     h4 #{user.username}
                     h4.city #{user.city}
-                    if user.username && profile
+                    if user && profile
                         a(href='/logout').ion-gear-b
                         a.button-1.ion-edit(href='/user/edit')  Editar
-                    if !profile
-                        a.button-2.ion-person-add(href='/user/edit')  Seguir
                 if dashartist 
                     h3 #{artist.fullname}
                     h4 #{artist.username}
                     h4.city #{artist.city}
+                    if user
+                        if following
+                            form(action= '/user/unfollowing?_method=PUT' method="POST")
+                                input(type="hidden"  name='unfollowing' value=artist.username)
+                                button.ion-person(type='submit')  Siguiendo
+                        else
+                            form(action= '/user/following?_method=PUT' method="POST")
+                                input(type="hidden"  name='following' value=artist.username)
+                                button.ion-person-add(type='submit')  Seguir
+                    else
+                        form(action= '/user/following?_method=PUT' method="POST")
+                            input(type="hidden"  name='following' value=artist.username)
+                            button.ion-person-add(type='submit')  Seguir
+
         .user-section
             .user-nav
                 ul
