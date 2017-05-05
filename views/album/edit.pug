@@ -36,9 +36,21 @@ block content_default
                         .upload-item
                             label Fecha(DD/MM/AAAA) #[br]
                             .item-small
-                                input(type="text" name="day" placeholder="DD" value=album.date.day)
-                                input(type="text" name="month" placeholder="MM" value=album.date.month)
-                                input(type="text" name="year" placeholder="AAAA" value=album.date.year)
+                                select.inpt-select(name='day')
+                                    option #{album.date.day}
+                                    - var d = 1
+                                    while d < 32
+                                        option= d++
+                                select.inpt-select(name='month')
+                                    option #{album.date.month}
+                                    - var d = 1
+                                    while d < 13
+                                        option= d++
+                                select.inpt-select(name='year')
+                                    option 2017
+                                //input(type="text" name="day" placeholder="DD" value=album.date.day)
+                                //input(type="text" name="month" placeholder="MM" value=album.date.month)
+                                //input(type="text" name="year" placeholder="AAAA" value=album.date.year)
                     .upload-permision
                         p Album publico
                         if album.public

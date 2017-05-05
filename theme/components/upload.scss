@@ -88,7 +88,7 @@
         }
         .item-small{
             width: 60%;
-            input{
+            input,.inpt-select{
                 width: 30%;
             }
         }
@@ -108,7 +108,7 @@
         }
     }
     .item-small{
-        input{
+        input, .inpt-select{
             text-align: center;
         }
         @include mainJustify
