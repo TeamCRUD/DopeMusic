@@ -34,6 +34,7 @@ var user_schema = new Schema({
     network: {
         facebook: String,
         instagram: String,
+        twitter: String,
         youtube: String,
         other: String,
     },

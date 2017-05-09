@@ -59,19 +59,20 @@ block content_default
                             input#txtLinkY.input-big(type="text" name="youtube" placeholder="Link de tu canal en Youtube" value=user.network.youtube)
                         .user-input
                             label.ion-android-globe
-                            input#txtLinO.input-big(type="text" name="other" placeholder="Tu sitio web (opcional)" value=user.network.other)
+                            input#txtLinkO.input-big(type="text" name="other" placeholder="Tu sitio web (opcional)" value=user.network.other)
+                            input#txtUserID(type="hidden" value=user.id)
                     .user-button-edit
                         a(href='/user') Cancelar
-                        input(type="submit" value="Guardar cambios")
+                        input#btnSave(type="submit" value="Guardar cambios")
         else
             p No puedes estar aqui
 block script
     script.
+        // Get elements
         var txtName = document.getElementById("txtName")
         var txtUsername = document.getElementById("txtUsername")
         var txtEmail = document.getElementById("txtEmail")
         var txtPhone = document.getElementById("txtPhone")
-        var slctGender = document.getElementById("slctGender")
         var slctGender = document.getElementById("slctGender")
         var slctTypeuser = document.getElementById("slctTypeuser")
         var txtCity = document.getElementById("txtCity")
@@ -80,3 +81,29 @@ block script
         var txtLinkI = document.getElementById("txtLinkI")
         var txtLinkY = document.getElementById("txtLinkY")
         var txtLinkO = document.getElementById("txtLinkO")
+        var txtUserID = document.getElementById("txtUserID")
+        var btnSave = document.getElementById("btnSave")
+
+        // Create references
+        var dbRefUsers = firebase.database().ref("users")
+
+        // Add Save event 
+        btnSave.addEventListener("click", function(e) {
+            var data = {
+                name: txtName.value ? txtName.value : null,
+                username: txtUsername.value ? txtUsername.value : null,
+                email: txtEmail.value ? txtEmail.value : null,
+                phone: txtPhone.value ? txtPhone.value : null,
+                gender: slctGender.value != "Seleccionar" ? slctGender.value : null,
+                typeuser: slctTypeuser.value,
+                city: txtCity.value ? txtCity.value : null,
+                LinkF: txtLinkF.value ? txtLinkF.value : null,
+                LinkT: txtLinkT.value ? txtLinkT.value : null,
+                LinkI: txtLinkI.value ? txtLinkI.value : null,
+                LinkY: txtLinkY.value ? txtLinkY.value : null,
+                LinkO: txtLinkO.value ? txtLinkO.value : null
+            }
+
+            dbRefUsers.push(data)
+            
+        })

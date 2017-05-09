@@ -9,7 +9,7 @@ router.route("/")
     res.render("login",{title: "Creators", message: "Bienvenido"})
   })
   .post(function(req, res, next) {
-    User.findOne({username: req.body.username, password: req.body.password},function(err,user){
+    User.findOne({email: req.body.email, password: req.body.password},function(err,user){
       if(err){
         return res.status(500).send()
       }

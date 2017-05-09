@@ -8,10 +8,35 @@ block content
         .form-main
             form(action="/login" method="POST")
                 .form-input
-                    input(type="text" name="username" placeholder="Usuario")
+                    input#txtEmail(type="text" name="email" placeholder="Correo electronico")
                 .form-input
-                    input(type="password" name="password" placeholder="Contraseña")
+                    input#txtPassword(type="password" name="password" placeholder="Contraseña")
                 .form-button
-                    input(type="submit" value="Iniciar sesion")
+                    input#btnLogin(type="submit" value="Iniciar sesion")
                 .form-button
                     a(href="/signup") No tengo cuenta
+block script
+    script.
+        // Get elements
+        var txtEmail = document.getElementById("txtEmail")
+        var txtPassword = document.getElementById("txtPassword")
+        var btnLogin = document.getElementById("btnLogin")
+
+        // Sign in event
+        btnLogin.addEventListener("click", function(e) {
+            // Get email and pass
+            var email = txtEmail.value
+            var pass = txtPassword.value
+            var auth = firebase.auth()
+            // Sign in
+            var promise = auth.signInWithEmailAndPassword(email, pass)
+            promise
+                .then(function(user) {
+                    console.log(user.email)
+                })
+                .catch(function(e) {
+                    console.log(e.messages)
+                })
+            
+        })
+

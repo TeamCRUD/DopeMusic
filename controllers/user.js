@@ -32,7 +32,6 @@ exports.updateUser = function(req,res){
   res.locals.user.network.instagram = req.body.instagram
   res.locals.user.network.youtube = req.body.youtube
   res.locals.user.network.other = req.body.other
-  res.locals.user.network.other = req.body.other
   res.locals.user.city = req.body.city
   res.locals.user.typeuser = req.body.typeuser
   res.locals.user.gender = req.body.gender
