@@ -42,6 +42,7 @@ block content_default
                         
             else
                 .index-item-2
-                    h2 Este es tu Feed
-                    p Sigue a tus amigos o artistas y estaras al dia de sus nuevos lanzamientos
-                    p Sino conoces a nadie puedes empezar en #[a(href="/explorer") Explorar ]
+                    if user.username
+                        h2 Este es tu Feed
+                        p Sino conoces a nadie puedes empezar en #[a(href="/explorer") Explorar ]
+                        p Sigue a tus amigos o artistas y estaras al dia de sus nuevos lanzamientos
