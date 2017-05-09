@@ -8,21 +8,35 @@ block content
         .form-main
             form(action="/signup" method="POST")
                 .form-input
-                    input.form-item(type="text" name="fullname" placeholder="Nombre completo")
+                    input#txtEmail.form-item(type="text" name="email" placeholder="Correo electronico")
                 .form-input
-                    input.form-item(type="text" name="email" placeholder="Correo electronico")
+                    input#txtUsername.form-item(type="text" name="username" placeholder="Nombre de usuario")
                 .form-input
-                    input.form-item(type="text" name="phone" placeholder="Telefono")
-                .form-input
-                    input.form-item(type="text" name="username" placeholder="Nombre de usuario")
-                .form-input
-                    input.form-item(type="password" name="password" placeholder="Contraseña")
-                .form-select
-                    select.form-item(name="sexo")
-                        option.form-option Sexo
-                        option(value="Masculino") Masculino
-                        option(value="Femenino") Femenino
+                    input#txtPassword.form-item(type="password" name="password" placeholder="Contraseña")
                 .form-button
-                    input.button-1.button-registro(type="submit" value="Registrarse")
+                    input#btnSignUp.button-1.button-registro(type="submit" value="Registrarse")
                 .form-button
                     a(href="/login") Ya tengo cuenta
+block script 
+    script.
+        // Get elements 
+        var txtEmail = document.getElementById("txtEmail")
+        var txtPassword = document.getElementById("txtPassword")
+        var btnSignUp = document.getElementById("btnSignUp")
+
+        // Add signup event
+        btnSignUp.addEventListener("click", function(e) {
+            // Get email and pass
+            var email = txtEmail.value
+            var pass = txtPassword.value
+            var auth = firebase.auth()
+            // Sign up
+            var promise = auth.createUserWithEmailAndPassword(email, pass)
+            promise
+                .then(function(user) {
+                    console.log(user)
+                })
+                .catch(function(e) {
+                    console.log(e.message)
+                })
+        })

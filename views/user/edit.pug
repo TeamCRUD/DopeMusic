@@ -13,19 +13,19 @@ block content_default
                     .user-date
                         .user-input
                             label.user-item-edit Nombre completo #[br]
-                            input(type="text" name='fullname' placeholder="Por favor escribe tu nombre" value=user.fullname)
+                            input#txtName(type="text" name='fullname' placeholder="Por favor escribe tu nombre" value=user.fullname)
                         .user-input
                             label.user-item-edit Nombre de Usuario #[br]
-                            input(type="text" name="username" placeholder="Nombre de usuario" value=user.username)
+                            input#txtUsername(type="text" name="username" placeholder="Nombre de usuario" value=user.username)
                         .user-input
                             label.user-item-edit Correo #[br]
-                            input(type="text" name="email" placeholder="Correo electronico" value=user.email)
+                            input#txtEmail(type="text" name="email" placeholder="Correo electronico" value=user.email)
                         .user-input
                             label.user-item-edit Telefono #[br]
-                            input(type="text" name="phone" placeholder="Numero celular" value=user.phone)
+                            input#txtPhone(type="text" name="phone" placeholder="Numero celular" value=user.phone)
                         .user-select
                             label Genero principal #[br]
-                            select(name="gender")
+                            select#slctGender(name="gender")
                                 if !user.gender
                                     option(value=gender) Seleccionar
                                 - var genders = ['Reggae', 'Electronica', 'Pop']
@@ -36,32 +36,47 @@ block content_default
                                         option(value=gender) #{gender}
                         .user-select
                             label.user-item-edit Tipo de cuenta #[br]
-                            select(name="typeuser")
+                            select#slctTypeuser(name="typeuser")
                                 option(value=user.typeuser) #{user.typeuser}
                                 option(value="Artista") Artista
                                 option(value="GoPro") GoPro
                         .user-input
                             label Ciudad #[br]
-                            input(type="text" name="city" placeholder="Donde vives" value=user.city)
+                            input#txtCity(type="text" name="city" placeholder="Donde vives" value=user.city)
                     .user-network
                         p Redes sociales
                         .user-input              
                             label.ion-social-facebook
-                            input.input-big(type="text" name="facebook" placeholder="Link de tu perfil Facebook" value=user.network.facebook)
+                            input#txtLinkF.input-big(type="text" name="facebook" placeholder="Link de tu perfil Facebook" value=user.network.facebook)
                         .user-input
                             label.ion-social-twitter
-                            input.input-big(type="text" name="twitter" placeholder="Link de tu perfil en Twitter" value=user.network.twitter)
+                            input#txtLinkT.input-big(type="text" name="twitter" placeholder="Link de tu perfil en Twitter" value=user.network.twitter)
                         .user-input
                             label.ion-social-instagram
-                            input.input-big(type="text" name="instagram" placeholder="Link de tu perfil en Instagram" value=user.network.instagram)
+                            input#txtLinkI.input-big(type="text" name="instagram" placeholder="Link de tu perfil en Instagram" value=user.network.instagram)
                         .user-input
                             label.ion-social-youtube
-                            input.input-big(type="text" name="youtube" placeholder="Link de tu canal en Youtube" value=user.network.youtube)
+                            input#txtLinkY.input-big(type="text" name="youtube" placeholder="Link de tu canal en Youtube" value=user.network.youtube)
                         .user-input
                             label.ion-android-globe
-                            input.input-big(type="text" name="other" placeholder="Tu sitio web (opcional)" value=user.network.other)
+                            input#txtLinO.input-big(type="text" name="other" placeholder="Tu sitio web (opcional)" value=user.network.other)
                     .user-button-edit
                         a(href='/user') Cancelar
                         input(type="submit" value="Guardar cambios")
         else
-            p No puedes estar aqui    
+            p No puedes estar aqui
+block script
+    script.
+        var txtName = document.getElementById("txtName")
+        var txtUsername = document.getElementById("txtUsername")
+        var txtEmail = document.getElementById("txtEmail")
+        var txtPhone = document.getElementById("txtPhone")
+        var slctGender = document.getElementById("slctGender")
+        var slctGender = document.getElementById("slctGender")
+        var slctTypeuser = document.getElementById("slctTypeuser")
+        var txtCity = document.getElementById("txtCity")
+        var txtLinkF = document.getElementById("txtLinkF")
+        var txtLinkT = document.getElementById("txtLinkT")
+        var txtLinkI = document.getElementById("txtLinkI")
+        var txtLinkY = document.getElementById("txtLinkY")
+        var txtLinkO = document.getElementById("txtLinkO")

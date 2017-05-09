@@ -5,7 +5,7 @@ block content_default
         .index-content
             .index-title
                 if user.username
-                    h1 Bienvenido, #[a(href='/user') #{user.fullname}]
+                    h1 Bienvenido, #[a(href='/user') #{user.username}]
                     h2 Album nuevo
                 else
                     h2 Lo mas reciente
@@ -42,4 +42,6 @@ block content_default
                         
             else
                 .index-item-2
-                    p Aun no hay
+                    h2 Este es tu Feed
+                    p Sigue a tus amigos o artistas y estaras al dia de sus nuevos lanzamientos
+                    p Sino conoces a nadie puedes empezar en #[a(href="/explorer") Explorar ]

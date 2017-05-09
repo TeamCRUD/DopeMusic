@@ -3,6 +3,7 @@ html
     head
         title= title
         meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 , user-scalable=0")
+        script(src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js")
         link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel="stylesheet"  href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css")
     body
@@ -19,5 +20,22 @@ html
                         button.icon-mute#muteButton(type="button")
                         span#currentTime 0:00 / #[span#fullDuration 0:00]
             p.description Made with #[span.ion-heart] in Montería
+            
+        script.
+    
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyDWbg1g6TCIiL4Su7i0zaAuXnRRBHCfwck",
+                authDomain: "creators-32557.firebaseapp.com",
+                databaseURL: "https://creators-32557.firebaseio.com",
+                projectId: "creators-32557",
+                storageBucket: "creators-32557.appspot.com",
+                messagingSenderId: "88551809772"
+            };
+
+            firebase.initializeApp(config);
+
+        block script
+
         script(src="/jquery/jquery.js")
         script(src="/javascript/main.js")
