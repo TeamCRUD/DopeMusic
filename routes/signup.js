@@ -9,20 +9,19 @@ router.route("/")
         res.render("signup",{title: "Creators", message: "Datos personales"})
     })
     .post( function(req, res, next) {
-        var user = new User({
-            fullname: req.body.fullname,
+        res.redirect("/login")
+        /*var user = new User({
             email: req.body.email,
-            phone: req.body.phone,
             username: req.body.username,
-            password: req.body.password,
-            sexo: req.body.sexo
+            password: req.body.password
         })
 
         user.save().then(function(us){
             res.redirect("/login")
         },function(err){
             res.render("signup", {title: "Creators", message: "Datos incorrectos"})
-        })
+            console.log(err)
+        })*/
     });
 
 module.exports = router;

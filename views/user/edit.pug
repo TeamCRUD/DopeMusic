@@ -84,26 +84,14 @@ block script
         var txtUserID = document.getElementById("txtUserID")
         var btnSave = document.getElementById("btnSave")
 
-        // Create references
-        var dbRefUsers = firebase.database().ref("users")
-
         // Add Save event 
         btnSave.addEventListener("click", function(e) {
-            var data = {
-                name: txtName.value ? txtName.value : null,
-                username: txtUsername.value ? txtUsername.value : null,
+            // Get currentUser
+            var user = firebase.auth().currentUser
+            // Update user
+            user.updateProfile({
+                displayName: txtName.value ? txtName.value : null,
                 email: txtEmail.value ? txtEmail.value : null,
-                phone: txtPhone.value ? txtPhone.value : null,
-                gender: slctGender.value != "Seleccionar" ? slctGender.value : null,
-                typeuser: slctTypeuser.value,
-                city: txtCity.value ? txtCity.value : null,
-                LinkF: txtLinkF.value ? txtLinkF.value : null,
-                LinkT: txtLinkT.value ? txtLinkT.value : null,
-                LinkI: txtLinkI.value ? txtLinkI.value : null,
-                LinkY: txtLinkY.value ? txtLinkY.value : null,
-                LinkO: txtLinkO.value ? txtLinkO.value : null
-            }
-
-            dbRefUsers.push(data)
-            
+                username: txtUsername.value ? txtUsername.value : null,
+            })
         })

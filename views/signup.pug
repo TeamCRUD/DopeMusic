@@ -8,7 +8,7 @@ block content
         .form-main
             form(action="/signup" method="POST")
                 .form-input
-                    input#txtEmail.form-item(type="text" name="email" placeholder="Correo electronico")
+                    input#txtEmail.form-item(type="email" name="email" placeholder="Correo electronico")
                 .form-input
                     input#txtUsername.form-item(type="text" name="username" placeholder="Nombre de usuario")
                 .form-input
@@ -34,9 +34,9 @@ block script
             var promise = auth.createUserWithEmailAndPassword(email, pass)
             promise
                 .then(function(user) {
-                    console.log(user)
+                    console.log(user.uid)
                 })
                 .catch(function(e) {
                     console.log(e.message)
-                })
+                })            
         })
