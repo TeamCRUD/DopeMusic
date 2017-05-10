@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var session = require("express-session")
 var session_middleware = require("./middlewares/session")
 var methodOverride = require("method-override")
+var cors = require("cors")
 
 // Controllers routes
 var index = require('./routes/index');
@@ -20,6 +21,7 @@ var artist = require('./routes/artist');
 var user = require('./routes/user');
 
 var app = express();
+app.use(cors())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
