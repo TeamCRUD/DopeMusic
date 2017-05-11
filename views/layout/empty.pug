@@ -4,21 +4,13 @@ html
         title= title
         meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 , user-scalable=0")
         script(src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js")
-        link(rel='stylesheet', href='/stylesheets/style.css')
+        //link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel="stylesheet"  href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css")
+        style(media="screen").
+        block style
     body
         block content
         footer
-            #wrapper.display
-                audio#mytrack
-                nav
-                    #defaultBar
-                        #progressBar
-                    #buttons
-                        button.icon-pause#playButton(type="button")
-                        button.icon-play#pauseButton(type="button").display
-                        button.icon-mute#muteButton(type="button")
-                        span#currentTime 0:00 / #[span#fullDuration 0:00]
             p.description Made with #[span.ion-heart] in Montería
             
         script.

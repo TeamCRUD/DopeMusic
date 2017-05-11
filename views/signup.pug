@@ -1,32 +1,35 @@
 extends layout/empty
 
 block content
-    .form-content
-        .form-title
-            a(href="/")=title
-            p=message
+    .form-cont
         .form-main
-            form(action="/signup" method="POST")
-                .form-input
-                    input#txtEmail.form-item(type="email" name="email" placeholder="Correo electronico")
-                .form-input
-                    input#txtUsername.form-item(type="text" name="username" placeholder="Nombre de usuario")
-                .form-input
-                    input#txtPassword.form-item(type="password" name="password" placeholder="Contraseña")
-                .form-button
-                    input#btnSignUp.button-1.button-registro(type="submit" value="Registrarse")
-                .form-button
-                    a(href="/login") Ya tengo cuenta
+            .form-t
+                h1 Unete a legacy
+                p Puedes utilizar esta cuenta en varias herramientas
+            .form-item
+                //label(for="txtEmail") Correo
+                input#txtEmail(type="email" placeholder="Correo electronico")
+            .form-item
+                //label(for="txtUsername") Usuario
+                input#txtUsername(type="text" placeholder="Nombre de usuario")
+            .form-item
+                //label(for="txtPassword") Contraseña
+                input#txtPassword.form-item(type="password" placeholder="Contraseña")
+            button#btnSignUp.btn.btn-default Registarse
+        .form-foot
+            .form-btn
+                p Ya tienes una, #[a(href="/login")  iniciar sesión]
 block script 
     script.
         // Get elements 
         var txtEmail = document.getElementById("txtEmail")
+        var txtUsername = document.getElementById("txtUsername")
         var txtPassword = document.getElementById("txtPassword")
         var btnSignUp = document.getElementById("btnSignUp")
 
         // Add signup event
         btnSignUp.addEventListener("click", function(e) {
-            // Get email and pass
+            // Get elements
             var email = txtEmail.value
             var pass = txtPassword.value
             var auth = firebase.auth()
@@ -34,9 +37,80 @@ block script
             var promise = auth.createUserWithEmailAndPassword(email, pass)
             promise
                 .then(function(user) {
-                    console.log(user.uid)
+                   console.log(auth.currentUser)
+                    // Get elements
+                    var userId = user.uid
+                    var userName = txtUsername.value
+                    // Create refernce
+                    firebase.database().ref("users/" + userId).set({
+                        username: userName
+                    })
                 })
                 .catch(function(e) {
                     console.log(e.message)
-                })            
+                })
         })
+    
+block style 
+    style(media="screen").
+        body {
+            background: black
+        }
+        .form-cont {
+            width: 50%;
+            margin: 5em auto;
+        }
+        .form-main, 
+        .form-foot { 
+            border: 1px solid #ccc;
+            background: white
+        }
+        .form-main {
+            padding: 2em;
+        }
+        .form-foot {
+            padding: .5em;
+            margin: 1em 0;
+            text-align: center
+        }
+        h1, 
+        p {
+            margin: 0
+        }
+        h1 {
+             font-size: 27px
+        }
+        p {
+            margin: 1em 0
+        }
+        label {
+            font-weight: bold;
+            margin: .3em 0
+        }
+        input {
+            padding: .5em .8em;
+            margin-bottom: .6em;
+            font-size: .9em;
+            border: 1px solid #ccc;
+            border-radius: 4px
+        }
+        .btn{
+            padding: .5em .8em;
+            font-size: .9em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer
+        }
+        .btn-default {
+            background: white;
+        }
+        .btn-default:hover {
+            background: #d4d8dd;
+        }
+        @supports(display: flex) {
+            .form-item {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+

@@ -1,20 +1,19 @@
 extends layout/empty
 
 block content
-    .form-content
-        .form-title
-            a(href="/")=title
-            p=message
+    .form-cont
         .form-main
-            form(action="/login" method="POST")
-                .form-input
-                    input#txtEmail(type="text" name="email" placeholder="Correo electronico")
-                .form-input
-                    input#txtPassword(type="password" name="password" placeholder="Contraseña")
-                .form-button
-                    input#btnLogin(type="submit" value="Iniciar sesion")
-                .form-button
-                    a(href="/signup") No tengo cuenta
+            .form-t
+                h1 Inicia sesión en Creators
+                p Usa tu cuenta de Legacy
+            .form-inpt
+                input#txtEmail(type="text" name="email" placeholder="Correo electronico")
+            .form-inpt
+                input#txtPassword(type="password" name="password" placeholder="Contraseña")
+            button#btnLogin.btn.btn-default Inicia sesión
+        .form-foot
+            .form-btn
+                p No tienes cuenta, #[a(href="/signup")  Regístrate]
 block script
     script.
         // Get elements
@@ -32,11 +31,80 @@ block script
             var promise = auth.signInWithEmailAndPassword(email, pass)
             promise
                 .then(function(user) {
-                    console.log(user.email)
+                    window.location.href = "/";
                 })
                 .catch(function(e) {
                     console.log(e.messages)
                 })
-            
         })
 
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                window.location.href = "/";
+            } else {
+                console.log("No user is signed in.")
+            }
+        })
+
+block style 
+    style(media="screen").
+        body {
+            background: black
+        }
+         .form-cont {
+            width: 50%;
+            margin: 5em auto;
+        }
+        .form-main, 
+        .form-foot { 
+            border: 1px solid #ccc;
+            background: white
+        }
+        .form-main {
+            padding: 2em;
+        }
+        .form-foot {
+            padding: .5em;
+            margin: 1em 0;
+            text-align: center
+        }
+        h1, 
+        p {
+            margin: 0
+        }
+        h1 {
+            font-size: 27px
+        }
+        p {
+            margin: 1em 0
+        }
+        label {
+            font-weight: bold;
+            margin: .3em 0
+        }
+        input {
+            padding: .5em .8em;
+            margin-bottom: .6em;
+            font-size: .9em;
+            border: 1px solid #ccc;
+            border-radius: 4px
+        }
+        .btn{
+            padding: .5em .8em;
+            font-size: .9em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer
+        }
+        .btn-default {
+            background: white;
+        }
+        .btn-default:hover {
+            background: #d4d8dd;
+        }
+        @supports(display: flex) {
+            .form-inpt {
+                display: flex;
+                flex-direction: column;
+            }
+        }
