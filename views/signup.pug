@@ -1,29 +1,40 @@
 extends layout/empty
 
 block content
-    .form-cont
-        .form-main
-            .form-t
+    .container
+        .article-cont
+            .article-title
+                h1 Legacy Project
+            .article-main
+                p.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta et dolores, dolor explicabo,
+                    nostrum sunt omnis consectetur harum officiis dolore neque accusamus! 
+            .article-link
+                a.link-mooral(href="#") Mooral
+                a.link-dopemusic(href="#") Dope Music
+                a.link-viumo(href="#") Viumo
+                a.link-teamcrud(href="#") TeamCRUD
+        form.form-cont
+            .form-title
                 h1 Unete a legacy
                 p Puedes utilizar esta cuenta en varias herramientas
             .form-item
-                //label(for="txtEmail") Correo
-                input#txtEmail(type="email" placeholder="Correo electronico")
+                //label(for="txtUsername") Nombre completo
+                input#txtName(type="text" name="name" placeholder="Nombre completo")
             .form-item
-                //label(for="txtUsername") Usuario
-                input#txtUsername(type="text" placeholder="Nombre de usuario")
+                //label(for="txtEmail") Correo
+                input#txtEmail(type="email" name="email" placeholder="Correo electronico")
             .form-item
                 //label(for="txtPassword") Contraseña
-                input#txtPassword.form-item(type="password" placeholder="Contraseña")
+                input#txtPassword.form-item(type="password" name="password" placeholder="Contraseña")
             button#btnSignUp.btn.btn-default Registarse
-        .form-foot
-            .form-btn
-                p Ya tienes una, #[a(href="/login")  iniciar sesión]
+        .section-cont
+            .section-item
+                p Ya tienes una #[a(href="/login")  iniciar sesión]
 block script 
     script.
         // Get elements 
         var txtEmail = document.getElementById("txtEmail")
-        var txtUsername = document.getElementById("txtUsername")
         var txtPassword = document.getElementById("txtPassword")
         var btnSignUp = document.getElementById("btnSignUp")
 
@@ -37,14 +48,17 @@ block script
             var promise = auth.createUserWithEmailAndPassword(email, pass)
             promise
                 .then(function(user) {
-                   console.log(auth.currentUser)
-                    // Get elements
+                    // Get name 
+                    var name = txtName.value
                     var userId = user.uid
-                    var userName = txtUsername.value
                     // Create refernce
-                    firebase.database().ref("users/" + userId).set({
-                        username: userName
-                    })
+                    firebase.database().ref('users/' + userId).set({
+                            name: name,
+                            email: email
+                        })
+                        .then(function() {
+                            location.href = "/"
+                        })
                 })
                 .catch(function(e) {
                     console.log(e.message)
@@ -53,36 +67,37 @@ block script
     
 block style 
     style(media="screen").
-        body {
-            background: black
+        /* Mobile first */
+        .article-cont {
+            visibility: hidden;
+            height: 0
         }
+        /* Form container */
         .form-cont {
-            width: 50%;
-            margin: 5em auto;
+            width: 80%;
+            margin: 30px auto
         }
-        .form-main, 
-        .form-foot { 
-            border: 1px solid #ccc;
-            background: white
+
+        /* Link styles
+        a {
+            color: #00B7FF;
         }
-        .form-main {
-            padding: 2em;
-        }
-        .form-foot {
-            padding: .5em;
-            margin: 1em 0;
-            text-align: center
-        }
+
+        /* Titles and paragraph */
         h1, 
         p {
-            margin: 0
+            margin: 0;
+            text-align: center
         }
+        
         h1 {
-             font-size: 27px
+             font-size: 27px;
         }
         p {
-            margin: 1em 0
+            margin: 16px 0;
         }
+
+         /* Inputs and labels */
         label {
             font-weight: bold;
             margin: .3em 0
@@ -90,27 +105,131 @@ block style
         input {
             padding: .5em .8em;
             margin-bottom: .6em;
-            font-size: .9em;
-            border: 1px solid #ccc;
-            border-radius: 4px
-        }
-        .btn{
-            padding: .5em .8em;
-            font-size: .9em;
+            font-size: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            cursor: pointer
+            width: 100%
         }
+        input:focus {
+            border: 1px solid  #00B7FF;
+        }
+
+         /*  Button styles  */
+        .btn{
+            padding: .5em .8em;
+            font-size: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%
+        }
+
+        /* Sections */
+        .section-item p {
+            color: #333
+        }
+
+        /* Default buttons */
         .btn-default {
-            background: white;
+            border: none;
+            border: 1px solid #ccc;
+            background: #3faa40;
+            color: #fff
         }
         .btn-default:hover {
             background: #d4d8dd;
         }
-        @supports(display: flex) {
-            .form-item {
-                display: flex;
-                flex-direction: column;
-            }
-        }
 
+        /* Small devices (tablets, 768px and up) */
+        @media (min-width: 768px){
+            /* Form container */
+            .form-cont,
+            .section-cont
+            {
+                margin: 15px auto;
+                padding: 20px;
+                width: 40%;
+                border: 1px solid #ccc;
+            }
+
+            /* Section container */
+            .section-cont {
+                padding: 8px 
+            }    
+        }
+        
+        /* Medium devices (desktops, 992px and up) */
+        @media (min-width: 992px) {
+            /* Visible article */
+            .article-cont {
+                visibility: visible;
+                height: auto
+            }
+
+            /* Default styles */ 
+            .article-cont,
+            .form-cont,
+            .section-cont {
+                margin: 0;
+            }
+
+            /* Container style */
+            .container {
+                max-width: 992px; 
+                margin: auto;
+            }
+
+            .article-cont,
+            .form-cont {
+                margin-top: 8%
+            }
+            /*  Article style */ 
+            .article-cont {
+                width: 50%;
+                float: left;
+            }
+
+            .article-cont .article-title h1,
+            .article-cont .article-main p {
+                text-align: left;
+            }
+
+            .article-cont .article-title h1 {
+                font-size: 54px;
+                font-weight: 300
+            }
+            
+            .article-cont .article-main p {
+                font-size: 20px;
+                font-weight: 300;
+                line-height: 1.5;
+                color: #555;
+            }
+            
+            .article-cont .article-link {
+                padding: 30px 0
+            }
+
+            .article-cont .article-link a {
+                border: 1px solid #ccc;
+                text-decoration: none;
+                margin-right: 10px;
+                padding: 20px;
+                border-radius: 3px
+            }
+
+            /*  From style */
+            .form-cont {
+                margin-left: 5%;
+                padding: 30px;
+                width: 45%;
+                float: left;
+            }
+
+            /*  Section style */ 
+            .section-cont {
+                margin: 10px 0;
+                width: 45%;
+                float: right;
+            }
+
+         }  

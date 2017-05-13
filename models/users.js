@@ -26,8 +26,7 @@ var email_match = [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Coloca emai
 var user_schema = new Schema({
     avatar: {type: String, default: 'default.png'},
     fullname: {type: String},
-    username: {type: String, required: true, minlenght: 5, unique: true},
-    email:{type: String, required: true, match: email_match, unique: true},
+    email:{type: String, required: true, unique: true},
     password: {type: String, minlength: 8, required: true},
     sexo: {type: String, enum: posibles_sex},
     phone:{type: Number, min: 1000000000, max: 9999999999, unique: true},

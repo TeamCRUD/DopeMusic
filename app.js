@@ -45,7 +45,7 @@ app.use(session({
 }))
 
 // routes
-app.use(['/*'], session_middleware.allAccess);
+//app.use(['/*'], session_middleware.allAccess);
 app.use('/', index);
 app.use('/signup', signup);
 app.use('/login', login);
@@ -53,7 +53,7 @@ app.use('/logout', logout);
 app.use('/album', album);
 app.use('/artist', artist);
 app.use('/explorer', explorer);
-app.use(['/*'], session_middleware.session);
+//app.use(['/*'], session_middleware.session);
 app.use('/upload', create);
 app.use('/collection', collection);
 app.use('/user', user);

@@ -6,10 +6,46 @@ html
         script(src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js")
         //link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel="stylesheet"  href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css")
+        link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
         style(media="screen").
+            /* Styles Default */
+            *,
+            *:before,
+            *:after {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                font: 17px 'Roboto', sans-serif;
+                background-color: #fff;
+            }
+            img {
+                max-width : 100%;
+                height    : auto;
+            }
+            p {
+                color: #adadad
+            }
+            a {
+                color: #5595c6;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline
+            }
+            footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 60px;
+            }
+            .ion-heart {
+                color: #f95c4a
+            }
         block style
     body
         block content
+
         footer
             p.description Made with #[span.ion-heart] in Montería
             
