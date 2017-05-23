@@ -8,20 +8,11 @@ block content
         .form-main
             form(action="/signup" method="POST")
                 .form-input
-                    input.form-item(type="text" name="fullname" placeholder="Nombre completo")
-                .form-input
-                    input.form-item(type="text" name="email" placeholder="Correo electronico")
-                .form-input
-                    input.form-item(type="text" name="phone" placeholder="Telefono")
+                    input.form-item(type="email" name="email" placeholder="Correo electronico")
                 .form-input
                     input.form-item(type="text" name="username" placeholder="Nombre de usuario")
                 .form-input
                     input.form-item(type="password" name="password" placeholder="Contraseña")
-                .form-select
-                    select.form-item(name="sexo")
-                        option.form-option Sexo
-                        option(value="Masculino") Masculino
-                        option(value="Femenino") Femenino
                 .form-button
                     input.button-1.button-registro(type="submit" value="Registrarse")
                 .form-button
