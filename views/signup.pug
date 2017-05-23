@@ -6,7 +6,9 @@ block content
             a(href="/")=title
             p=message
         .form-main
-            form(action="/signup" method="POST")
+            form(action="/signup" method="POST" autocomplete=off)
+                .form-input
+                    input.form-item(type="text" name="fullname" placeholder="Nombre completo")
                 .form-input
                     input.form-item(type="email" name="email" placeholder="Correo electronico")
                 .form-input
