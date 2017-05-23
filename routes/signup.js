@@ -14,8 +14,7 @@ router.route("/")
             email: req.body.email,
             phone: req.body.phone,
             username: req.body.username,
-            password: req.body.password,
-            sexo: req.body.sexo
+            password: req.body.password
         })
 
         user.save().then(function(us){
