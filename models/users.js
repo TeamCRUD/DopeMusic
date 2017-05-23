@@ -28,7 +28,7 @@ var user_schema = new Schema({
     username: {type: String, required: true, minlenght: 5, unique: true},
     email:{type: String, required: true, match: email_match, unique: true},
     password: {type: String, minlength: 8, required: true},
-    phone:{type: Number, min: 1000000000, max: 9999999999, required: true, unique: true},
+    phone:{type: Number, min: 1000000000, max: 9999999999, unique: true},
     network: {
         facebook: String,
         instagram: String,

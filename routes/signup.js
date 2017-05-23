@@ -11,7 +11,6 @@ router.route("/")
     .post( function(req, res, next) {
         var user = new User({
             email: req.body.email,
-            phone: req.body.phone,
             username: req.body.username,
             password: req.body.password
         })
