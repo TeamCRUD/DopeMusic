@@ -5,7 +5,7 @@ block content_default
         .index-content
             .index-title
                 if user.username
-                    h1 Bienvenido, #[a(href='/user') #{user.fullname}]
+                    h1 Bienvenido, #[a(href='/user') #{user.username}]
                     h2 Album nuevo
                 else
                     h2 Lo mas reciente
