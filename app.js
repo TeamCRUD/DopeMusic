@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var session = require("express-session")
 var session_middleware = require("./middlewares/session")
 var methodOverride = require("method-override")
+var cors = require('cors')
 
 // Controllers routes
 var index = require('./routes/index');
@@ -28,6 +29,7 @@ app.set('view engine', 'pug');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"))
